@@ -29,7 +29,7 @@
 
   home.sessionVariables = {
     ZSH_COMPDUMP = "$XDG_CACHE_HOME/zsh/.zcompdump";
-    CARGO_HOME = "$XDG_DATA_HOME/cargo";
+    CARGO_HOME = "$HOME/.cargo";
 
     PYTHON_HISTORY = "$XDG_STATE_HOME/python/history";
     PYTHONPYCACHEPREFIX = "$XDG_CACHE_HOME/python";

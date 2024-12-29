@@ -16,15 +16,17 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      gh
       cargo
+      rustc
+
+      gcc
+
       python3
+      gh
       hugo
-      (mkIf cfg.java.enable jetbrains.idea-community)
     ];
 
     programs = {
-      # firefox.enable = true;
     };
   };
 }
