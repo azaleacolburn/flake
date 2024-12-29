@@ -1,0 +1,146 @@
+/* general */
+
+* {
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+}
+
+window#waybar {
+    border-bottom: none;
+    color: @base05;
+}
+
+window#waybar > box {
+    padding: 2px 8px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+box,
+button,
+label {
+    border-radius: 5px;
+}
+
+window#waybar box#tray,
+window#waybar label {
+    padding: 0 8px;
+    background-color: @base01;
+}
+
+/* workspace */
+
+#workspaces button {
+    padding: 0 4px;
+    transition: none;
+    color: @base05;
+    background: @base01;
+}
+
+#workspaces button label {
+    background: transparent;
+}
+
+#workspaces button:not(:last-child) {
+    margin-right: 8px;
+}
+
+#workspaces button.empty:not(.active) label {
+    opacity: 0.6;
+}
+
+#workspaces button.active {
+    /* padding: 0 8px; */
+    color: @base01;
+    background: @base0E;
+}
+
+#workspaces button.urgent {
+    color: @base08;
+    font-weight: 600;
+}
+
+#workspaces button:hover:not(.active) {
+    color: @base0E;
+    font-weight: 600;
+}
+
+window#waybar.empty box#window label {
+    background-color: transparent;
+}
+
+/* indivdual widgets */
+
+#network {
+    color: @base0C;
+}
+
+#network.disconnected,
+#network.ethernet {
+    padding-right: 12px;
+}
+
+#bluetooth.connected {
+    color: @base0D;
+}
+
+#bluetooth {
+    color: @base04;
+    padding: 0 10px;
+}
+
+#pulseaudio.muted,
+#network.disconnected {
+    color: @base04;
+}
+
+#pulseaudio {
+    color: @base0E;
+}
+
+#battery {
+    color: @base0B;
+}
+
+#battery.warning:not(.charging) {
+    color: @base08;
+}
+
+#backlight {
+    color: @base0A;
+}
+
+#clock {
+    color: @base07;
+}
+
+#disk {
+    color: @base08;
+}
+
+#memory {
+    color: @base09;
+}
+
+#cpu {
+    color: @base0F;
+}
+
+window#waybar label#custom-power {
+    padding-right: 12px;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @base0B;
+}
+
+#power-profiles-daemon.performance {
+    color: @base08;
+}
+
+window#waybar label#idle_inhibitor {
+    padding-right: 12px;
+}

@@ -1,0 +1,19 @@
+button {
+  margin: 10px;
+  transition: 0.15s ease-in-out all;
+  background: @base01;
+  color: @base05;
+  
+  font-size: 25px;
+  border: none;
+
+  background-repeat: no-repeat;
+	background-position: center;
+	background-size: 20%;
+}
+
+window {
+  background: transparent;
+}
+
+
