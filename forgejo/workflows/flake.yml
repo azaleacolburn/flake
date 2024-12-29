@@ -1,0 +1,22 @@
+name: Flake CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - prod
+
+jobs:
+  nix-check:
+    name: Check
+    runs-on: codeberg-small
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: https://github.com/DeterminateSystems/nix-installer-action@v12
+      - name: Magic Nix Cache
+        uses: https://github.com/DeterminateSystems/magic-nix-cache-action@v7
+      - name: Check
+        run: nix flake check -L --all-systems
