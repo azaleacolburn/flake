@@ -16,12 +16,11 @@ in {
       git.enable = true;
       ssh.enable = true;
       zsh.enable = true;
+      ripgrep.enable = true;
     };
 
     home.packages = with pkgs; [
-      ripgrep
       tree
-      htop
       stow
       jq
     ];

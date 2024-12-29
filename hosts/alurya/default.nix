@@ -27,16 +27,6 @@
 
   programs.dconf.enable = true;
   programs.hyprland.enable = true;
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs.xfce; [
-      exo
-      mousepad
-      thunar-archive-plugin
-      thunar-volman
-      tumbler
-    ];
-  };
 
   home-manager.users.${config.homeConf.username} = {
     suites = {
@@ -46,7 +36,7 @@
       };
       dev.enable = true;
       gaming.enable = false;
-      media.enable = true;
+      media.enable = false;
     };
 
     monitors = [

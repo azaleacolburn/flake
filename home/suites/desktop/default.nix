@@ -34,12 +34,7 @@ in {
       ffmpeg
       imagemagick
       cava
-      signal-desktop
-      ungoogled-chromium
       appimage-run
-      element-desktop
-      yubikey-personalization-gui
-      yubikey-manager
     ];
 
     gtk.iconTheme = {

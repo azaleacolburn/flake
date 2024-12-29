@@ -3,15 +3,7 @@
   pkgs,
   config,
   ...
-}: let
-  mapleMono7 = pkgs.maple-mono-NF.overrideAttrs {
-    version = "7.0-beta31";
-    src = pkgs.fetchurl {
-      url = "https://github.com/subframe7536/maple-font/releases/download/v7.0-beta31/MapleMono-NF-CN-unhinted.zip";
-      sha256 = "sha256-38KOKUMITmHe9/GqC6tiGy25Y8fI04sifhyQjbZQW0g=";
-    };
-  };
-in {
+}: {
   stylix = {
     enable = lib.mkDefault true;
 

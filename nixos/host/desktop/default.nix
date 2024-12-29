@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf mkEnableOption mkMerge mkDefault mkPackageOption;
+  inherit (lib) mkIf mkEnableOption mkMerge mkDefault;
   cfg = config.host.desktop;
 in {
   options.host.desktop = {
@@ -13,25 +13,15 @@ in {
     bluetooth.enable = mkEnableOption "Enable bluetooth + tools";
     audio.enable = mkEnableOption "Enable audio + tools";
     printing.enable = mkEnableOption "Enable printing";
-    mullvad = {
-      enable = mkEnableOption "Enable mullvad vpn";
-      package = mkPackageOption pkgs "mullvad-vpn" {
-        example = "mullvad";
-        extraDescription = ''
-          `pkgs.mullvad` only provides the CLI tool, `pkgs.mullvad-vpn` provides both the CLI and the GUI.
-        '';
-      };
-    };
   };
 
   config = mkMerge [
     (mkIf cfg.enable {
       host.desktop = {
-        unbindPowerButton = mkDefault true;
+        unbindPowerButton = mkDefault false;
         bluetooth.enable = mkDefault true;
         audio.enable = mkDefault true;
         printing.enable = mkDefault true;
-        mullvad.enable = mkDefault true;
       };
     })
     (mkIf cfg.unbindPowerButton {
@@ -54,11 +44,5 @@ in {
       ];
     })
     {services.printing.enable = cfg.printing.enable;}
-    {
-      services.mullvad-vpn = {
-        enable = cfg.mullvad.enable;
-        package = cfg.mullvad.package;
-      };
-    }
   ];
 }
