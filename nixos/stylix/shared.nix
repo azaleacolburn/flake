@@ -33,7 +33,7 @@
 
       monospace = {
         package = pkgs.nerd-fonts.hack;
-        name = "Hack Nerd Font Propo";
+        name = "Hack Nerd Font";
       };
 
       emoji = config.stylix.fonts.monospace;

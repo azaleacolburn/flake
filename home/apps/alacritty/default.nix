@@ -17,5 +17,19 @@ in {
         action = "quit";
       }
     ];
+    font = {
+      normal = {
+        family = "Hack Nerd Font";
+        style = "Regular";
+      };
+      italic = {
+        family = "Hack Nerd Font";
+        style = "Italic";
+      };
+      bold = {
+        family = "Hack Nerd Font";
+        style = "Bold";
+      };
+    };
   };
 }

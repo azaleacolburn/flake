@@ -35,7 +35,7 @@ in {
     theme = {
       "*" = {
         background-color = mkForce (mkLiteral "transparent");
-        lightbg = mkForce (mkRgba (builtins.toString 20) "base01");
+        lightbg = mkForce (mkRgba (builtins.toString 90) "base01");
       };
       window = {
         width = mkLiteral "500px";

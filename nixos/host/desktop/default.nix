@@ -18,7 +18,7 @@ in {
   config = mkMerge [
     (mkIf cfg.enable {
       host.desktop = {
-        unbindPowerButton = mkDefault false;
+        unbindPowerButton = mkDefault true;
         bluetooth.enable = mkDefault true;
         audio.enable = mkDefault true;
         printing.enable = mkDefault true;
