@@ -31,25 +31,30 @@
   }: let
     inherit (nixpkgs) lib;
     system = "x86_64-linux";
-  in {
-    nixosConfigurations.garden = nixpkgs.lib.nixosSystem {
-      inherit system;
-      modules = [
-        ./hosts/alurya
-        ./nixos
-        home-manager.nixosModules.home-manager
-        inputs.stylix.nixosModules.stylix
-        inputs.nixvim.nixosModules.nixvim
-        ./nixvim
-      ];
-      specialArgs = {
-        inherit inputs;
-        name = "garden";
-        pkgs-unstable = import inputs.nixpkgs {
-          inherit system;
-          allowUnfree = true;
+
+    mkSystem = name: cfg:
+      lib.nixosSystem {
+        system = cfg.system or "x86_64-linux";
+        modules =
+          [
+            ./nixos
+            ./hosts/${name}
+            inputs.home-manager.nixosModules.home-manager
+            inputs.stylix.nixosModules.stylix
+            inputs.nixvim.nixosModules.nixvim
+            ./nixvim
+          ]
+          ++ (cfg.modules or []);
+        specialArgs = {
+          inherit name inputs;
+          pkgs-unstable = import inputs.nixpkgs {
+            system = cfg.system or "x86_64-linux";
+          };
         };
       };
+  in {
+    nixosConfigurations = lib.mapAttrs mkSystem {
+      alurya.modules = [];
     };
     homeConfigurations.azalea = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};

@@ -20,6 +20,7 @@
     # Git
     c = "git commit -a";
     push = "git push";
+    pull = "git pull";
     checkout = "git checkout";
   };
   cfg = config.programs.zsh;

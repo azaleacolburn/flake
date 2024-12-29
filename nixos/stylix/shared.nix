@@ -40,13 +40,8 @@ in {
       sansSerif = config.stylix.fonts.serif;
 
       monospace = {
-        package = mapleMono7;
-        name = "Maple Mono NF CN";
-
-        # package = pkgs.nerdfonts.override {
-        #   fonts = ["FiraMono"];
-        # };
-        # name = "FiraMono Nerd Font Propo";
+        package = pkgs.nerd-fonts.hack;
+        name = "Hack Nerd Font Propo";
       };
 
       emoji = config.stylix.fonts.monospace;

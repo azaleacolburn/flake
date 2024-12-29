@@ -15,8 +15,8 @@ in {
       command_timeout = 500;
       format = "$directory$git_branch$git_metrics\n$character";
       character = {
-        success_symbol = "[>](bold green)";
-        error_symbol = "[>](bold red)";
+        success_symbol = "[❯](bold green)";
+        error_symbol = "[❯](bold red)";
       };
 
       # Disable the package module, hiding it from the prompt completely
@@ -25,12 +25,19 @@ in {
       directory = {
         truncation_length = 10;
         truncate_to_repo = false;
-        style = "blue";
+      };
+
+      git_metrics = {
+        added_style = "bold green";
+        deleted_style = "bold red";
+        only_nonzero_diffs = true;
+        format = "([+$added]($added_style) )([-$deleted]($deleted_style) )";
+        disabled = false;
+        ignore_submodules = false;
       };
 
       git_branch = {
         format = "[$branch(:$remote_branch)]($style) ";
-        style = "green";
       };
 
       git_status = {

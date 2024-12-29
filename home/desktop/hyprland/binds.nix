@@ -14,8 +14,8 @@
       "SUPER, I, pseudo," # dwindle
       "SUPER, U, togglesplit," # dwindle
 
-      "SUPER, Tab, cyclenext"
-      "SUPER SHIFT, Tab, cyclenext, prev"
+      "SUPER, Tab, workspace, m+1"
+      "SUPER SHIFT, Tab, workspace, m-1"
 
       "SUPER, S, togglespecialworkspace, magic"
       "SUPER SHIFT, S, movetoworkspace, special:magic"
