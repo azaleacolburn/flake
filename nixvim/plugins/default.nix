@@ -5,6 +5,7 @@
     ./telescope
     ./treesitter
     ./cmp
+    ./trouble
   ];
 
   plugins = {
