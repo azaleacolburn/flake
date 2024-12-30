@@ -15,7 +15,6 @@
         };
         lspBuf = {
           K = "hover";
-          "<c-k>" = "signature_help";
           gi = "implementation";
           gd = "definition";
           gD = "declaration";
@@ -36,6 +35,10 @@
           }
         ];
       };
+      preConfig = ''
+        -- Make diagnostics less intrusive
+          vim.diagnostic.config({ signs = false })
+      '';
       servers = {
         rust_analyzer = {
           enable = true;
