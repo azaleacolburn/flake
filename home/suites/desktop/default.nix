@@ -28,7 +28,6 @@ in {
     };
 
     home.packages = with pkgs; [
-      obsidian
       slack
       neofetch
 
