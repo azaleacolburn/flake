@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }: let
   inherit (lib) mkIf mkEnableOption optionals;
@@ -36,8 +37,14 @@ in {
       enable = true;
       xwayland.enable = true;
 
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+
       settings =
         {
+          debug = {
+            disable_logs = false;
+          };
           exec-once = [
             "{ fcitx5 -d -r; fcitx5-remote -r; }&"
             # (optionals config.programs.waybar.enable "${pkgs.waybar}/bin/waybar&")
@@ -133,7 +140,7 @@ in {
 
             follow_mouse = 1;
 
-            touchpad.natural_scroll = false;
+            touchpad.natural_scroll = true;
           };
 
           gestures = {

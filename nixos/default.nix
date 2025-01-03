@@ -33,6 +33,8 @@
       "video"
       "netdev"
       "networkmanager"
+      "input"
+      "uinput"
     ];
   };
 
@@ -87,7 +89,7 @@
   services = {
     displayManager = {
       enable = true;
-      ly.enable = true;
+      ly.enable = false;
     };
     openssh = {
       ports = [22];
@@ -104,5 +106,5 @@
     power-profiles-daemon.enable = true;
   };
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.05";
 }

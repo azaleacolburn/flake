@@ -11,16 +11,25 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    stylix.url = "github:danth/stylix/release-24.11";
+    stylix.url = "github:danth/stylix";
 
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-24.11";
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     potatofox = {
       url = "git+https://codeberg.org/awwpotato/PotatoFox";
       flake = false;
+    };
+
+    apple-silicon = {
+      url = "github:tpwrules/nixos-apple-silicon";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
     };
   };
 
@@ -30,11 +39,9 @@
     ...
   }: let
     inherit (nixpkgs) lib;
-    system = "x86_64-linux";
-
     mkSystem = name: cfg:
       lib.nixosSystem {
-        system = cfg.system or "x86_64-linux";
+        system = cfg.system;
         modules =
           [
             ./nixos
@@ -47,17 +54,25 @@
           ++ (cfg.modules or []);
         specialArgs = {
           inherit name inputs;
+          apple-silicon = inputs.apple-silicon;
           pkgs-unstable = import inputs.nixpkgs {
-            system = cfg.system or "x86_64-linux";
+            system = cfg.system;
           };
         };
       };
   in {
     nixosConfigurations = lib.mapAttrs mkSystem {
-      alurya.modules = [];
+      alurya = {
+        system = "x86_64-linux";
+        # modules = [];
+      };
+      gilarabrywn = {
+        system = "aarch64-linux";
+        modules = [];
+      };
     };
     homeConfigurations.azalea = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = nixpkgs.legacyPackages."x86_64-linux";
       modules = [
         {targets.genericLinux.enable = true;}
         inputs/stylix.homeManagerModules.stylix
