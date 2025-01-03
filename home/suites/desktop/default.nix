@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
@@ -14,7 +15,9 @@ in {
 
   config = mkIf cfg.enable {
     desktop = {
-      hyprland.enable = mkIf cfg.hyprland.enable true;
+      hyprland = {
+        enable = mkIf cfg.hyprland.enable true;
+      };
     };
 
     xdg.mimeApps.enable = true;
@@ -28,7 +31,7 @@ in {
     };
 
     home.packages = with pkgs; [
-      slack
+      # slack
       neofetch
 
       ffmpeg
