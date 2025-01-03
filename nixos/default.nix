@@ -47,6 +47,7 @@
     nh
     powertop
     just
+    isoimagewriter
   ];
 
   fonts.packages = with pkgs; [
