@@ -4,9 +4,7 @@
   apple-silicon,
   inputs,
   ...
-}: let
-  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in {
+}: {
   imports = [
     ./hardware.nix
     apple-silicon.nixosModules.apple-silicon-support
@@ -25,7 +23,7 @@ in {
     enable = true;
     useExperimentalGPUDriver = true;
     experimentalGPUInstallMode = "replace";
-    peripheralFirmwareDirectory = ./firmware; # told to comment out
+    peripheralFirmwareDirectory = ./firmware;
     withRust = true;
     setupAsahiSound = true;
   };
@@ -90,7 +88,7 @@ in {
               lctl lalt lmet           spc            rctl ralt rmet
           )
         '';
-      };
+
     };
   };
 

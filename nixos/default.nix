@@ -49,6 +49,7 @@
     nh
     powertop
     just
+    isoimagewriter
   ];
 
   fonts.packages = with pkgs; [
@@ -87,7 +88,7 @@
 
   services = {
     displayManager = {
-      enable = true;
+      enable = false;
       ly.enable = false;
     };
     openssh = {
@@ -105,5 +106,5 @@
     power-profiles-daemon.enable = true;
   };
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "24.05";
 }

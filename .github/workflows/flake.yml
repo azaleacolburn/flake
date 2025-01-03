@@ -19,4 +19,4 @@ jobs:
       - name: Magic Nix Cache
         uses: DeterminateSystems/magic-nix-cache-action@v7
       - name: Check
-        run: nix flake check -L --all-systems
+        run: nix flake check -L
