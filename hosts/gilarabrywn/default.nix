@@ -4,9 +4,7 @@
   apple-silicon,
   inputs,
   ...
-}: let
-  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in {
+}: {
   imports = [
     ./hardware.nix
     apple-silicon.nixosModules.apple-silicon-support
@@ -25,7 +23,7 @@ in {
     enable = true;
     useExperimentalGPUDriver = true;
     experimentalGPUInstallMode = "replace";
-    peripheralFirmwareDirectory = ./firmware; # told to comment out
+    peripheralFirmwareDirectory = ./firmware;
     withRust = true;
     setupAsahiSound = true;
   };
@@ -72,19 +70,19 @@ in {
         ];
 
         config = ''
-            (defsrc
-                 q w e r t y u i o p
-            caps a s d f g h j k l ; '
-                 z x c v b n m , . /
-                   spc
-           )
-              		
-           (deflayer base
-          q d r w b j f u p ;
-            esc  a s h t g y n e o i '
-          z x m c v k l , . /
-             spc
-           )'';
+           (defsrc
+                q w e r t y u i o p
+           caps a s d f g h j k l ; '
+                z x c v b n m , . /
+                    spc
+          )
+          		
+          (deflayer base
+               q d r w b j f u p ;
+          esc  a s h t g y n e o i '
+               z x m c v k l , . /
+                    spc
+          )'';
       };
     };
   };
