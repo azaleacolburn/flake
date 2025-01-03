@@ -83,12 +83,12 @@
               esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
               grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
               tab  q    d    r    w    b    j    f    u    p    ;    [    ]
-              esc  a    s    h    t    g    h    n    e    o    i    '    ret
+              esc  a    s    h    t    g    y    n    e    o    i    '    ret
               lsft z    x    m    c    v    k    l    ,    .    /    rsft
               lctl lalt lmet           spc            rctl ralt rmet
           )
         '';
-
+      };
     };
   };
 
