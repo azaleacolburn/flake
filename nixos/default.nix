@@ -33,6 +33,8 @@
       "video"
       "netdev"
       "networkmanager"
+      "input"
+      "uinput"
     ];
   };
 
@@ -86,7 +88,7 @@
   services = {
     displayManager = {
       enable = true;
-      ly.enable = true;
+      ly.enable = true; # disabling this crashes things ig
     };
     openssh = {
       ports = [22];

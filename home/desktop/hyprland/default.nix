@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }: let
   inherit (lib) mkIf mkEnableOption optionals;
@@ -35,6 +36,8 @@ in {
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
+
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 
       settings =
         {
@@ -133,7 +136,7 @@ in {
 
             follow_mouse = 1;
 
-            touchpad.natural_scroll = false;
+            touchpad.natural_scroll = true;
           };
 
           gestures = {

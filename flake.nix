@@ -22,6 +22,15 @@
       url = "git+https://codeberg.org/awwpotato/PotatoFox";
       flake = false;
     };
+
+    apple-silicon = {
+      url = "github:tpwrules/nixos-apple-silicon";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
   };
 
   outputs = inputs @ {
@@ -30,7 +39,7 @@
     ...
   }: let
     inherit (nixpkgs) lib;
-    system = "x86_64-linux";
+    system = "x86_64-linux"; # Default system
 
     mkSystem = name: cfg:
       lib.nixosSystem {
@@ -55,6 +64,10 @@
   in {
     nixosConfigurations = lib.mapAttrs mkSystem {
       alurya.modules = [];
+      # gilarabrywn = {
+      #   system = "aarch64-linux";
+      #   modules = [];
+      # };
     };
     homeConfigurations.azalea = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
