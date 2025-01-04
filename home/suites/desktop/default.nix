@@ -11,6 +11,7 @@ in {
   options.suites.desktop = {
     enable = mkEnableOption "Install a wm/de + apps for desktop usage";
     hyprland.enable = mkEnableOption "Install hyprland + apps for desktop usage";
+    slack.enable = mkEnableOption "Install slack (no aarch64-linux version)";
   };
 
   config = mkIf cfg.enable {
@@ -30,15 +31,20 @@ in {
       alacritty.enable = true;
     };
 
-    home.packages = with pkgs; [
-      # slack
-      neofetch
+    home.packages = with pkgs;
+      [
+        neofetch
 
-      ffmpeg
-      imagemagick
-      cava
-      appimage-run
-    ];
+        ffmpeg
+        imagemagick
+        cava
+        appimage-run
+      ]
+      ++ (
+        if cfg.slack.enable
+        then [slack]
+        else []
+      );
 
     gtk.iconTheme = {
       name = "Papirus";
