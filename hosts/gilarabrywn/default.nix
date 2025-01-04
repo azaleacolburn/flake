@@ -48,6 +48,11 @@ in {
     fwupd.enable = true;
   };
 
+  services.displayManager = {
+    enable = true;
+    ly.enable = false;
+  };
+
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
@@ -75,7 +80,7 @@ in {
                  z x c v b n m , . /
                    spc
            )
-                		
+            		
            (deflayer base
           q d r w b j f u p ;
             esc  a s h t g y n e o i '
