@@ -107,6 +107,7 @@
       desktop = {
         enable = true;
         hyprland.enable = true;
+        slack.enable = false;
       };
       dev.enable = true;
       gaming.enable = false;
