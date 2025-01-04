@@ -26,6 +26,11 @@
     pulse.enable = true;
   };
 
+  services.displayManager = {
+    enable = true;
+    ly.enable = true; # disabling this crashes Hyprland
+  };
+
   services.libinput.enable = true;
   services.gvfs.enable = true;
   services.fwupd.enable = true;

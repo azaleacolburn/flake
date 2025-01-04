@@ -16,7 +16,7 @@
     desktop.enable = true;
   };
 
-  nixpkgs.overlays = [apple-silicon.overlays.apple-silicon-overlay];
+  nikpkgs.overlays = [apple-silicon.overlays.apple-silicon-overlay];
 
   # Asahi Graphics and Firmware Support
   hardware.asahi = {
@@ -27,12 +27,10 @@
     withRust = true;
     setupAsahiSound = true;
   };
-
-  hardware.graphics = {
-    enable = true;
-  };
-
   # settings WLR Graphics Card - needed for Hyprland
+  hardware.graphics.enable = true;
+
+  # setting AQ Graphics Card = needed for Hyprland
   environment.sessionVariables = {
     AQ_DRM_DEVICES = "/dev/dri/card0";
   };
@@ -40,20 +38,32 @@
   nixpkgs.config.allowUnfree = true;
   system.autoUpgrade.enable = true;
 
+  # Sound Support and Config via Pipewire
   services.pipewire = {
     enable = true;
     pulse.enable = true;
   };
 
-  services.libinput.enable = true;
-  services.gvfs.enable = true;
-  services.fwupd.enable = true;
+  # ly not needed but dm is ? weird
+  # not having ly on desktop borks hyprland, so it's set based on host
+  services.displayManager = {
+    enable = true;
+    ly.enable = false;
+  };
+
+  services = {
+    libinput.enable = true;
+    gvfs.enable = true;
+    fwupd.enable = true;
+  };
 
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
+
+  programs.dconf.enable = true;
 
   services.kanata = {
     enable = true;
@@ -92,7 +102,6 @@
     };
   };
 
-  programs.dconf.enable = true;
   home-manager.users.${config.homeConf.username} = {
     suites = {
       desktop = {
