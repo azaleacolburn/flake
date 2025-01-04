@@ -13,6 +13,7 @@ in {
   config = mkIf cfg.enable {
     programs = {
       yt-dlp.enable = true;
+      zathura.enable = true;
     };
 
     home.packages = with pkgs; [

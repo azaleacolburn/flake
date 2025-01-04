@@ -111,7 +111,7 @@
       };
       dev.enable = true;
       gaming.enable = false;
-      media.enable = false;
+      media.enable = true;
     };
 
     monitors = [
@@ -119,7 +119,7 @@
         name = "";
         width = 1920;
         height = 1080;
-        scale = 1.5;
+        scale = 1.666667;
       }
     ];
   };

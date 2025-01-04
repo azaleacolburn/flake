@@ -172,8 +172,7 @@ in {
                 then "${resolution},${position},${toString m.scale}"
                 else "disable"
               }"
-            )
-            (config.monitors)
+            ) (config.monitors)
             ++ [",preferred,auto,1"];
         }
         // import ./binds.nix;
