@@ -22,7 +22,7 @@ in {
 
     programs = {
       rofi.enable = true;
-      waybar.enable = false;
+      waybar.enable = true;
       hyprlock.enable = true;
       wlogout.enable = true;
     };
@@ -47,7 +47,7 @@ in {
           };
           exec-once = [
             "{ fcitx5 -d -r; fcitx5-remote -r; }&"
-            # (optionals config.programs.waybar.enable "${pkgs.waybar}/bin/waybar&")
+            (optionals config.programs.waybar.enable "${pkgs.waybar}/bin/waybar&")
             (optionals config.services.hypridle.enable "${pkgs.hypridle}/bin/hypridle&")
             (optionals config.services.hyprpaper.enable "${pkgs.hyprpaper}/bin/hyprpaper&")
           ];
@@ -173,8 +173,7 @@ in {
                 then "${resolution},${position},${toString m.scale}"
                 else "disable"
               }"
-            )
-            (config.monitors)
+            ) (config.monitors)
             ++ [",preferred,auto,1"];
         }
         // import ./binds.nix;
