@@ -39,9 +39,11 @@
     ...
   }: let
     inherit (nixpkgs) lib;
+    system = "x86_64-linux"; # Default system
+
     mkSystem = name: cfg:
       lib.nixosSystem {
-        system = cfg.system;
+        system = cfg.system or system;
         modules =
           [
             ./nixos
@@ -56,15 +58,14 @@
           inherit name inputs;
           apple-silicon = inputs.apple-silicon;
           pkgs-unstable = import inputs.nixpkgs {
-            system = cfg.system;
+            system = cfg.system or system;
           };
         };
       };
   in {
     nixosConfigurations = lib.mapAttrs mkSystem {
       alurya = {
-        system = "x86_64-linux";
-        # modules = [];
+        modules = [];
       };
       gilarabrywn = {
         system = "aarch64-linux";
@@ -72,7 +73,7 @@
       };
     };
     homeConfigurations.azalea = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages."x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
       modules = [
         {targets.genericLinux.enable = true;}
         inputs/stylix.homeManagerModules.stylix
