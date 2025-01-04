@@ -16,7 +16,7 @@
     desktop.enable = true;
   };
 
-  nikpkgs.overlays = [apple-silicon.overlays.apple-silicon-overlay];
+  nixpkgs.overlays = [apple-silicon.overlays.apple-silicon-overlay];
 
   # Asahi Graphics and Firmware Support
   hardware.asahi = {

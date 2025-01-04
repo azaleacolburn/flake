@@ -9,15 +9,16 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1735172763,
-        "narHash": "sha256-a6n8RsiAolz6p24Fsr/gTndx9xr9USpKqKK6kzBeXQc=",
-        "owner": "tpwrules",
+        "lastModified": 1735976685,
+        "narHash": "sha256-v9nUih0r0YqJL+GR/2DyS7pn4+wESUgphh1yfjny69o=",
+        "owner": "azaleacolburn",
         "repo": "nixos-apple-silicon",
-        "rev": "3daf0637409689d7a1304cedc50d20542bc47905",
+        "rev": "458af83663fe60879a132d44d2f0d3d7dc5696e6",
         "type": "github"
       },
       "original": {
-        "owner": "tpwrules",
+        "owner": "azaleacolburn",
+        "ref": "update-pulseaudio-option",
         "repo": "nixos-apple-silicon",
         "type": "github"
       }

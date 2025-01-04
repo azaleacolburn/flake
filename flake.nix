@@ -24,7 +24,7 @@
     };
 
     apple-silicon = {
-      url = "github:tpwrules/nixos-apple-silicon";
+      url = "github:azaleacolburn/nixos-apple-silicon?ref=update-pulseaudio-option";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
