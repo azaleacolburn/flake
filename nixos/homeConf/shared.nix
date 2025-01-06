@@ -31,7 +31,7 @@ in {
     };
     wallpaper = mkOption {
       type = types.path;
-      default = ../../media/wallpapers/celeste.png;
+      default = ../../media/wallpapers/purple-night.webp;
     };
   };
 

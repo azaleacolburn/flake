@@ -32,6 +32,7 @@ in {
 
     home.packages = with pkgs; [
       # slack
+      # spotify
       neofetch
 
       ffmpeg

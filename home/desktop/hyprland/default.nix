@@ -22,7 +22,7 @@ in {
 
     programs = {
       rofi.enable = true;
-      waybar.enable = false;
+      waybar.enable = true;
       hyprlock.enable = true;
       wlogout.enable = true;
     };
@@ -47,7 +47,7 @@ in {
           };
           exec-once = [
             "{ fcitx5 -d -r; fcitx5-remote -r; }&"
-            # (optionals config.programs.waybar.enable "${pkgs.waybar}/bin/waybar&")
+            (optionals config.programs.waybar.enable "${pkgs.waybar}/bin/waybar&")
             (optionals config.services.hypridle.enable "${pkgs.hypridle}/bin/hypridle&")
             (optionals config.services.hyprpaper.enable "${pkgs.hyprpaper}/bin/hyprpaper&")
           ];
@@ -68,7 +68,7 @@ in {
             layout = "dwindle";
 
             layerrule = [
-              # "blur,waybar"
+              "blur,waybar"
               "blur,launcher"
               "blur,rofi"
               "ignorezero,rofi"
@@ -80,8 +80,8 @@ in {
           decoration = {
             rounding = homeConf.radius;
 
-            active_opacity = 1.0;
-            inactive_opacity = 0.9;
+            active_opacity = 0.9;
+            inactive_opacity = 0.8;
 
             blur = {
               enabled = false;
@@ -174,8 +174,7 @@ in {
                 else "disable"
               }"
             )
-            (config.monitors)
-            ++ [",preferred,auto,1"];
+            (config.monitors);
         }
         // import ./binds.nix;
     };
