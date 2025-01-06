@@ -67,7 +67,7 @@ in {
             layout = "dwindle";
 
             layerrule = [
-              # "blur,waybar"
+              "blur,waybar"
               "blur,launcher"
               "blur,rofi"
               "ignorezero,rofi"
@@ -79,8 +79,8 @@ in {
           decoration = {
             rounding = homeConf.radius;
 
-            active_opacity = 1.0;
-            inactive_opacity = 0.9;
+            active_opacity = 0.9;
+            inactive_opacity = 0.8;
 
             blur = {
               enabled = false;
