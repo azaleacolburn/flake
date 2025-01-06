@@ -7,16 +7,9 @@
 in {
   config.programs.alacritty.settings = lib.mkIf cfg.enable {
     window.padding = {
-      x = 4;
-      y = 4;
+      x = 8;
+      y = 8;
     };
-    keyboard.bindings = [
-      {
-        key = "Q";
-        mods = "Control|Shift";
-        action = "quit";
-      }
-    ];
     font = {
       normal = {
         family = "Hack Nerd Font";
