@@ -53,6 +53,7 @@ in {
           ];
 
           "$terminal" = "alacritty";
+          "$browser" = "librewolf";
           "$fileManager" = "dolphin";
           "$menu" = "rofi -show drun";
 

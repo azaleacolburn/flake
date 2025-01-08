@@ -21,9 +21,15 @@ in {
 
       gcc
 
+      bun
+      nodejs
+
       python3
+
       gh
       hugo
+
+      fzf
     ];
 
     programs = {
