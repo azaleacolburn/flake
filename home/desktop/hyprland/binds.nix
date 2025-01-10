@@ -3,6 +3,7 @@
     [
       # programs
       "SUPER, T, exec, $terminal"
+      "SUPER, N, exec, $browser"
       "SUPER, RETURN, exec, $menu"
       "SUPER, E, exec, $fileManager"
       "SUPER, escape, exec, hyprlock"

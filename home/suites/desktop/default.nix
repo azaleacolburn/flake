@@ -39,6 +39,8 @@ in {
         imagemagick
         cava
         appimage-run
+
+        spotify
       ]
       ++ (
         if cfg.slack.enable
