@@ -5,7 +5,7 @@
 ## Layout
 - [hosts](https://github.com/azaleacolburn/flake/tree/main/hosts) - per-machine config
   - [alurya](https://github.com/azaleacolburn/flake/tree/main/hosts/alurya) - desktop workstation
-  - [gilarabrywn](https://github.com/azaleacolburn/flake/tree/main/hosts/gilarabrywn) - 2020 macbook air
+  - [gilarabrywn](https://github.com/azaleacolburn/flake/tree/main/hosts/gilarabrywn) - 2020 M1 macbook air
 - [nixos](https://github.com/azaleacolburn/flake/tree/main/nixos) - nixos config
   - [homeConf](https://github.com/azaleacolburn/flake/tree/main/nixos/homeConf) - home-manager config
   - [stylix](https://github.com/azaleacolburn/flake/tree/main/nixos/stylix) - styling config
