@@ -23,7 +23,7 @@ in {
 
       python3
       gh
-      hugo
+      zola
     ];
 
     programs = {
