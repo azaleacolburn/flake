@@ -11,6 +11,7 @@
 
     e = "nvim";
     update = "sudo nixos-rebuild switch --flake ~/flake";
+    battery = "cat /sys/class/power_supply/macsmc-battery/capacity";
 
     th = "z";
     zc = "z; clear";

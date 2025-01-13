@@ -12,6 +12,7 @@ in {
     enable = mkEnableOption "Install a wm/de + apps for desktop usage";
     hyprland.enable = mkEnableOption "Install hyprland + apps for desktop usage";
     slack.enable = mkEnableOption "Install slack (no aarch64-linux version)";
+    spotify.enable = mkEnableOption "Install spotify (no aarch64-linux version)";
   };
 
   config = mkIf cfg.enable {
@@ -39,12 +40,15 @@ in {
         imagemagick
         cava
         appimage-run
-
-        spotify
       ]
       ++ (
         if cfg.slack.enable
         then [slack]
+        else []
+      )
+      ++ (
+        if cfg.spotify.enable
+        then [spotify]
         else []
       );
 

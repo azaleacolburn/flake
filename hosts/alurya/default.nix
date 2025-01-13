@@ -44,6 +44,7 @@
         enable = true;
         hyprland.enable = true;
         slack.enable = true;
+        spotify.enable = true;
       };
       dev.enable = true;
       gaming.enable = false;
@@ -52,10 +53,10 @@
 
     monitors = [
       {
-        name = "";
+        name = "HDMI-A-1";
         width = 1920;
         height = 1080;
-        scale = 1.5;
+        scale = 1;
       }
     ];
   };
