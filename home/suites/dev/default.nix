@@ -26,10 +26,10 @@ in {
 
       python3
 
-      gh
-      hugo
+      gh # Github CLI (used for auth)
+      zola # Static Site Renderer
 
-      fzf
+      fzf # Fuzzy Finder
     ];
 
     programs = {
