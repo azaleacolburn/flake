@@ -87,10 +87,6 @@
   };
 
   services = {
-    displayManager = {
-      enable = false;
-      ly.enable = false;
-    };
     openssh = {
       ports = [22];
       settings = {

@@ -58,8 +58,12 @@
         jsonls.enable = true;
         java_language_server.enable = true;
         html.enable = true;
-        htmx.enable = true;
+        emmet_ls = {
+          enable = true;
+          filetypes = ["html" "css" "jsx" "tsx" "svelte"];
+        };
         cssls.enable = true;
+        htmx.enable = true;
         clangd.enable = true;
         # bashls.enable = true;
         dockerls.enable = true;
