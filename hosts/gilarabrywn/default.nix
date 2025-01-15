@@ -112,6 +112,7 @@
       dev.enable = true;
       gaming.enable = false;
       media.enable = true;
+      academic.enable = true;
     };
 
     monitors = [

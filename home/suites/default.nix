@@ -7,6 +7,7 @@ in {
     ./desktop
     ./dev
     ./gaming
+    ./academic
   ];
 
   suites.base.enable = mkDefault true;
