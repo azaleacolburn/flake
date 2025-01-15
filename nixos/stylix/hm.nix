@@ -4,7 +4,8 @@
     Font="Inter 14"
   '';
   stylix.targets = {
-    waybar.enable = true;
+    # Don't turn on
+    waybar.enable = false;
     hyprlock.enable = false;
   };
 }
