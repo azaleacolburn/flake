@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.11"; # For if I need stable
 
     home-manager = {
       url = "github:nix-community/home-manager/";
@@ -64,12 +64,9 @@
       };
   in {
     nixosConfigurations = lib.mapAttrs mkSystem {
-      alurya = {
-        modules = [];
-      };
+      alurya = {};
       gilarabrywn = {
         system = "aarch64-linux";
-        modules = [];
       };
     };
     homeConfigurations.azalea = home-manager.lib.homeManagerConfiguration {
