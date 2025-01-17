@@ -28,7 +28,7 @@
 
   services.displayManager = {
     enable = true;
-    ly.enable = true; # disabling this crashes Hyprland
+    execCmd = "${pkgs.greetd.regreet}/bin/regreed";
   };
 
   services.libinput.enable = true;
@@ -37,6 +37,7 @@
 
   programs.dconf.enable = true;
   programs.hyprland.enable = true;
+  programs.regreet.enable = true;
 
   home-manager.users.${config.homeConf.username} = {
     suites = {
