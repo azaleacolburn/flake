@@ -7,7 +7,6 @@
   inherit (config.homeConf.git) userName userEmail;
 in {
   config.programs = lib.mkIf cfg.enable {
-    lazygit.enable = false;
     git = {
       inherit userName userEmail;
       lfs.enable = true;
@@ -16,6 +15,7 @@ in {
         commit.gpgsign = true;
         gpg.format = "ssh";
         core.editor = "nvim";
+        pull.rebase = true;
       };
       includes = [
         {
