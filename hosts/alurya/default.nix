@@ -49,7 +49,7 @@
       };
       dev.enable = true;
       gaming.enable = false;
-      media.enable = false;
+      media.enable = true;
     };
 
     monitors = [
