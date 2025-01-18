@@ -14,15 +14,16 @@ in {
     programs = {
       yt-dlp.enable = true;
       zathura.enable = true;
+      feh.enable = true;
     };
 
     home.packages = with pkgs; [
-      gimp
-      # footage
-      libreoffice
-      obs-studio
+      # gimp
+      # # footage
+      # libreoffice
+      # obs-studio
       vlc
-      inkscape
+      # inkscape
     ];
   };
 }
