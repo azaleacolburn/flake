@@ -10,7 +10,7 @@
 
       "SUPER shift, K, exit"
       "SUPER, Q, killactive"
-      "SUPER, P, pin,"
+      "SUPER, O, pin,"
       "SUPER, F, togglefloating"
       "SUPER, I, pseudo," # dwindle
       "SUPER, U, togglesplit," # dwindle
@@ -24,8 +24,8 @@
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
-      ", PRINT, exec, grimblast save output - | swappy -f -"
-      "SHIFT, PRINT, exec, grimblast save area - | swappy -f -"
+      "SUPER, P, exec, grimblast save output - | swappy -f -"
+      "SUPER SHIFT, P, exec, grimblast save area - | swappy -f -"
     ]
     ++ (
       builtins.concatLists (builtins.genList (
