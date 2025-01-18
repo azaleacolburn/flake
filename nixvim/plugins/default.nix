@@ -7,7 +7,6 @@
     ./cmp
     ./trouble
     ./markview
-    ./vimtex
   ];
 
   plugins = {
