@@ -14,7 +14,6 @@ in {
     programs = {
       yt-dlp.enable = true;
       zathura.enable = true;
-      feh.enable = true;
     };
 
     home.packages = with pkgs; [
@@ -23,6 +22,7 @@ in {
       # libreoffice
       # obs-studio
       vlc
+      feh
       # inkscape
     ];
   };
