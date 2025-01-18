@@ -34,7 +34,7 @@ in {
 
     home.packages = with pkgs;
       [
-        neofetch
+        fastfetch
 
         ffmpeg
         imagemagick
