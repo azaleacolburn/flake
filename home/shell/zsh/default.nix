@@ -10,7 +10,7 @@
     lt = "eza -AT --color=auto -I .git -s type";
 
     e = "nvim";
-    update = "sudo nixos-rebuild switch --flake ~/flake";
+    update = "pushd ~/flake && sudo nixos-rebuild switch --flake ~/flake && git commit -a && popd";
     battery = "cat /sys/class/power_supply/macsmc-battery/capacity";
 
     th = "z";
