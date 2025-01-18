@@ -30,6 +30,34 @@ in {
         default = true;
       };
       alacritty.enable = true;
+      fastfetch = {
+        enable = true;
+        settings = {
+          logo = {
+            # source = "~/flake/media/fetch/trans_nix.png";
+          };
+          modules = [
+            "title"
+            "separator"
+            "os"
+            # "kernel"
+            "kernel"
+            "uptime"
+            "packages"
+            "shell"
+            "display"
+            "de"
+            "wm"
+            # "wmtheme"
+            # "icons"
+            "terminal"
+            "cpu"
+            "gpu"
+            "memory"
+            "colors"
+          ];
+        };
+      };
     };
 
     home.packages = with pkgs;
