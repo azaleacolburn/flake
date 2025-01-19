@@ -26,18 +26,12 @@
     pulse.enable = true;
   };
 
-  services.displayManager = {
-    enable = true;
-    execCmd = "${pkgs.greetd.regreet}/bin/regreed";
-  };
-
   services.libinput.enable = true;
   services.gvfs.enable = true;
   services.fwupd.enable = true;
 
   programs.dconf.enable = true;
   programs.hyprland.enable = true;
-  programs.regreet.enable = true;
 
   home-manager.users.${config.homeConf.username} = {
     suites = {
