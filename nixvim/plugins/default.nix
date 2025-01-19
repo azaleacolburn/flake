@@ -6,7 +6,6 @@
     ./treesitter
     ./cmp
     ./trouble
-    ./markview
   ];
 
   plugins = {

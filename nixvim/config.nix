@@ -1,9 +1,9 @@
 {...}: {
-  colorschemes.tokyonight = {
+  colorschemes.nord = {
     enable = true;
     settings = {
       transparent_background = true;
-      style = "night";
+      # style = "night";
     };
   };
   clipboard = {

@@ -55,13 +55,13 @@
           stop_after_first = true;
         };
       in {
-        # html = prettier;
+        html = prettier;
         css = prettier;
         javascript = prettier;
         javascriptreact = prettier;
         typescript = prettier;
         typescriptreact = prettier;
-        # markdown = prettier;
+        markdown = prettier;
         java = ["google-java-format"];
         python = ["black"];
         lua = ["stylua"];

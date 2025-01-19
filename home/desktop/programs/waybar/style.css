@@ -9,12 +9,12 @@
 window#waybar {
     border-bottom: none;
     color: @base05;
-    opacity: 0.8;
     padding-bottom: 2px;
 }
 
 window#waybar > box {
     padding: 2px 8px;
+    opacity: 0.8;
 }
 
 window#waybar.hidden {

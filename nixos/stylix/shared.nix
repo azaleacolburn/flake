@@ -9,7 +9,7 @@
 
     polarity = "dark";
     image = config.homeConf.wallpaper;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
 
     opacity = {
       terminal = 1.0;

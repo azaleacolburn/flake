@@ -21,6 +21,8 @@ in {
         fcitx5-gtk
         fcitx5-chinese-addons
         fcitx5-catppuccin
+        fcitx5-tokyonight
+        fcitx5-nord
       ];
     };
   };

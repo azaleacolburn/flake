@@ -1,6 +1,6 @@
 {...}: {
   xdg.configFile."fcitx5/conf/classicui.conf".text = ''
-    Theme=tokyonight-day
+    Theme=nord
     Font="Inter 14"
   '';
   stylix.targets = {
