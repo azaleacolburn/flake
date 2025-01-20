@@ -4,16 +4,14 @@
   ...
 }: let
   aliases = {
-    tree = "tree -C -a -I .git -I __pycache__";
+    tree = "tree -C -a -I .git -I __pycache__ -I target";
     ls = "eza -A --color=auto -s type";
     ll = "eza -Al --color=auto -s type";
     lt = "eza -AT --color=auto -I .git -s type";
 
     uwu = "fastfetch";
     e = "nvim";
-    #    update = "pushd -q ~/flake && sudo nixos-rebuild switch --flake ~/flake && git commit -a && popd -q";
     update = "sudo nixos-rebuild switch --flake ~/flake";
-    battery = "cat /sys/class/power_supply/macsmc-battery/capacity";
 
     th = "z";
     zc = "z; clear";

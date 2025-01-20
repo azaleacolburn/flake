@@ -14,8 +14,8 @@ window#waybar {
 
 window#waybar > box {
     padding: 2px 8px;
-    margin-top: 7px;
-    margin-bottom: 7px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     opacity: 0.8;
 }
 
