@@ -17,13 +17,13 @@ in {
     };
 
     home.packages = with pkgs; [
-      # gimp
+      gimp
       # # footage
       # libreoffice
       # obs-studio
       vlc
       feh
-      # inkscape
+      inkscape
     ];
   };
 }

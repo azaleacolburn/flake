@@ -28,7 +28,7 @@
 
   services.displayManager = {
     enable = true;
-    execCmd = "${pkgs.greetd.regreet}/bin/regreed";
+    execCmd = "${pkgs.greetd.regreet}/bin/regreet";
   };
 
   services.libinput.enable = true;
