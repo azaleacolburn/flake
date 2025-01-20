@@ -29,6 +29,10 @@ in {
     settings.mainBar = {
       layer = "top";
       position = "top";
+      mode = "float";
+      margin-top = 5;
+      margin-left = 10;
+      margin-right = 10;
       reload_style_on_change = true;
       spacing = 5;
       modules-left = [
