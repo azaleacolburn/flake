@@ -9,6 +9,7 @@
     ll = "eza -Al --color=auto -s type";
     lt = "eza -AT --color=auto -I .git -s type";
 
+    uwu = "fastfetch";
     e = "nvim";
     #    update = "pushd -q ~/flake && sudo nixos-rebuild switch --flake ~/flake && git commit -a && popd -q";
     update = "sudo nixos-rebuild switch --flake ~/flake";

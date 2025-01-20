@@ -23,6 +23,12 @@ in {
         audio.enable = mkDefault true;
         printing.enable = mkDefault true;
       };
+
+      programs.regreet.enable = true;
+      services.displayManager = {
+        enable = true;
+        execCmd = "${pkgs.greetd.regreet}/bin/regreet";
+      };
     })
     (mkIf cfg.unbindPowerButton {
       services.logind.extraConfig = "HandlePowerKey=ignore";

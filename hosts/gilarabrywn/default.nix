@@ -27,7 +27,7 @@
     withRust = true;
     setupAsahiSound = true;
   };
-  # settings WLR Graphics Card - needed for Hyprland
+  # Enable OpenGL Graphics
   hardware.graphics.enable = true;
 
   # setting AQ Graphics Card = needed for Hyprland
@@ -42,13 +42,6 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
-  };
-
-  # ly not needed but dm is ? weird
-  # not having ly on desktop borks hyprland, so it's set based on host
-  services.displayManager = {
-    enable = true;
-    ly.enable = false;
   };
 
   services = {
