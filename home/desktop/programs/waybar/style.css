@@ -16,7 +16,6 @@ window#waybar > box {
     padding: 2px 8px;
     margin-top: 5px;
     margin-bottom: 5px;
-    opacity: 0.8;
 }
 
 window#waybar.hidden {
