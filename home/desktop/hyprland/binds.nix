@@ -14,6 +14,7 @@
       "SUPER, F, togglefloating"
       "SUPER, I, pseudo," # dwindle
       "SUPER, U, togglesplit," # dwindle
+      "SUPER, W, exec, pkill waybar || waybar"
 
       "SUPER, Tab, workspace, m+1"
       "SUPER SHIFT, Tab, workspace, m-1"
