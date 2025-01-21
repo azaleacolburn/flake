@@ -11,6 +11,7 @@
     ./stylix/nixos.nix
     ./host
     ./update.nix
+    ./nix-ld.nix
   ];
 
   networking = {
