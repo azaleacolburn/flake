@@ -99,8 +99,8 @@ in {
         format-ethernet = "󰈀";
       };
       pulseaudio = {
-        format = "{icon} {volume}%";
-        format-muted = "󰖁 {volume}%";
+        format = "{icon}  {volume}%";
+        format-muted = "󰖁  {volume}%";
         on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         format-icons = {
           headphone = "";
