@@ -29,7 +29,7 @@ in {
     settings.mainBar = {
       layer = "top";
       position = "top";
-      mode = "float";
+      mode = "dock";
       margin-top = 5;
       margin-left = 10;
       margin-right = 10;
