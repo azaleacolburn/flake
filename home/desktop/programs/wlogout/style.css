@@ -1,19 +1,17 @@
 button {
-  margin: 10px;
-  transition: 0.15s ease-in-out all;
-  background: @base01;
-  color: @base05;
-  
-  font-size: 25px;
-  border: none;
+    margin: 10px;
+    transition: 0.15s ease-in-out all;
+    background: alpha(@base01, 0.8);
+    color: @base05;
 
-  background-repeat: no-repeat;
-	background-position: center;
-	background-size: 20%;
+    font-size: 25px;
+    border: none;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%;
 }
 
 window {
-  background: transparent;
+    background: transparent;
 }
-
-
