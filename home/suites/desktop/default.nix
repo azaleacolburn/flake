@@ -29,6 +29,7 @@ in {
         enable = true;
         default = true;
       };
+
       alacritty.enable = true;
       fastfetch = {
         enable = true;

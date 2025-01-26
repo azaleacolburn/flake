@@ -7,7 +7,8 @@
             "_762f9885-5a13-4abd-9c77-433dcd38b8fd_-browser-action",
             "_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action",
             "_88ebde3a-4581-4c6b-8019-2a05a9e3e938_-browser-action",
-            "firefoxcolor_mozilla_com-browser-action","jid1-zadieub7xozojw_jetpack-browser-action",
+            "firefoxcolor_mozilla_com-browser-action",
+            "jid1-zadieub7xozojw_jetpack-browser-action",
             "_contain-facebook-browser-action"
         ],
         "nav-bar": [
@@ -24,8 +25,10 @@
             "unified-extensions-button",
             "downloads-button"
         ],
-        "toolbar-menubar": [ "menubar-items" ],
-        "TabsToolbar":[
+        "toolbar-menubar": [
+            "menubar-items"
+        ],
+        "TabsToolbar": [
             "tabbrowser-tabs",
             "new-tab-button",
             "alltabs-button"
@@ -50,13 +53,13 @@
         "sponsorblocker_ajay_app-browser-action",
         "_contain-facebook-browser-action"
     ],
-    "dirtyAreaCache":[
+    "dirtyAreaCache": [
         "nav-bar",
         "PersonalToolbar",
         "toolbar-menubar",
         "TabsToolbar",
         "unified-extensions-area"
     ],
-    "currentVersion":20,
-    "newElementCount":4
+    "currentVersion": 20,
+    "newElementCount": 4
 }

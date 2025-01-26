@@ -1,3 +1,4 @@
+# Copyright (c) 2024-2025 awwpotato <awwpotato@voidq.com>
 {
   lib,
   config,
@@ -6,13 +7,27 @@
   ...
 }: let
   cfg = config.programs.librewolf;
+  daily = 24 * 60 * 60 * 1000;
   search = {
     force = true;
     default = "DuckDuckGo";
     privateDefault = "DuckDuckGo";
+    engines = {
+      "YouTube" = {
+        urls = [{template = "https://www.youtube.com/results?search_query={searchTerms}";}];
+        iconUpdateURL = "https://www.youtube.com/favicon.ico";
+        updateInterval = daily;
+        definedAliases = ["!yt"];
+      };
+      "MyNixOS" = {
+        urls = [{template = "https://mynixos.com/search?q={searchTerms}";}];
+        icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+        definedAliases = ["!no"];
+      };
+    };
   };
   settings = {
-    # librewolf settings
+    # firefox settings
     "privacy.resistFingerprinting" = false;
     "privacy.clearOnShutdown.history" = false;
     "privacy.clearOnShutdown.downloads" = false;
@@ -26,6 +41,10 @@
     "browser.aboutConfig.showWarning" = false;
     "browser.toolbars.bookmarks.visibility" = "never";
     "browser.urlbar.keepPanelOpenDuringImeComposition" = true;
+
+    "font.name.monospace.x-western" = config.stylix.fonts.monospace.name;
+    "font.name.sans-serif.x-western" = config.stylix.fonts.sansSerif.name;
+    "font.name.serif.x-western" = config.stylix.fonts.serif.name;
 
     "browser.newtabpage.activity-stream.showSearch" = false;
     "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
@@ -62,12 +81,10 @@
     "browser.uidensity" = 1;
   };
 in {
-  options.programs.librewolf.default =
-    lib.mkEnableOption "Set librewolf as the default browser";
+  options.programs.librewolf.default = lib.mkEnableOption "Set librewolf as the default browser";
 
   config = lib.mkIf cfg.enable {
-    home.sessionVariables.DEFAULT_BROWSER =
-      lib.mkIf cfg.default "${pkgs.librewolf}/bin/librewolf";
+    home.sessionVariables.DEFAULT_BROWSER = lib.mkIf cfg.default "${pkgs.librewolf}/bin/librewolf";
     xdg.mimeApps.defaultApplications = lib.mkIf cfg.default {
       "application/pdf" = "librewolf.desktop";
       "text/html" = "librewolf.desktop";

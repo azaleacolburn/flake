@@ -66,7 +66,7 @@
         python = ["black"];
         lua = ["stylua"];
         nix = ["alejandra"];
-        rust = ["rust_analyzer"];
+        rust = ["rustfmt"];
         bash = ["shfmt"];
         zsh = ["shfmt"];
         sh = ["shfmt"];

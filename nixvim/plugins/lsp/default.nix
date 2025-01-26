@@ -19,6 +19,7 @@
           gd = "definition";
           gD = "declaration";
           gt = "type_definition";
+          "<leader>ca" = "code_action";
         };
         extra = [
           {
