@@ -65,5 +65,6 @@
         libvdpau-va-gl
       ];
     };
+    nvidia.open = false;
   };
 }
