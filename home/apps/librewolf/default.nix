@@ -111,11 +111,6 @@ in {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
             installation_mode = "force_installed";
           };
-          # bitwarden
-          "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/file/4392295/bitwarden_password_manager-2024.11.2.xpi";
-            installation_mode = "force_installed";
-          };
           # dark reader
           "addon@darkreader.org" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/file/4378073/darkreader-4.9.96.xpi";
