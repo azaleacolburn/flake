@@ -42,7 +42,6 @@
   environment.systemPackages = with pkgs; [
     libnotify
     killall
-    neovim
     git
     tree
     wget
