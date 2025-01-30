@@ -16,20 +16,22 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
+      # Rust
       cargo
       rustc
       bacon
 
+      # C
       gcc
 
+      # Webdev
       bun
       nodejs
-
-      python3
-
-      gh
       zola
 
+      # Misc
+      python3
+      gh
       fzf
     ];
 
