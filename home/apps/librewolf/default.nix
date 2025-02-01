@@ -111,11 +111,6 @@ in {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
             installation_mode = "force_installed";
           };
-          # dark reader
-          "addon@darkreader.org" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/file/4378073/darkreader-4.9.96.xpi";
-            installation_mode = "force_installed";
-          };
           # Return Youtube Dislike
           "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/file/4371820/return_youtube_dislikes-3.0.0.18.xpi";

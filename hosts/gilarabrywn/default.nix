@@ -35,7 +35,10 @@
     AQ_DRM_DEVICES = "/dev/dri/card0";
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    permittedInsecurePackages = ["SDL_ttf-2.0.11"];
+    allowUnfree = true;
+  };
   system.autoUpgrade.enable = true;
 
   # Sound Support and Config via Pipewire

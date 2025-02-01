@@ -69,6 +69,7 @@ in {
         imagemagick
         cava
         appimage-run
+        signal-desktop
       ]
       ++ (
         if cfg.slack.enable
