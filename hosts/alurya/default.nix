@@ -17,6 +17,7 @@
     allowUnfree = true;
     permittedInsecurePackages = [
       "electron-19.1.9"
+      "SDL_ttf-2.0.11"
     ];
   };
   system.autoUpgrade.enable = true;

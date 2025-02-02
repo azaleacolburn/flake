@@ -20,13 +20,13 @@ in {
       host.desktop = {
         unbindPowerButton = mkDefault true;
         bluetooth.enable = mkDefault true;
-        audio.enable = mkDefault true;
+        audio.enable = mkDefault false;
         printing.enable = mkDefault true;
       };
 
       programs.regreet.enable = true;
       services.displayManager = {
-        enable = true;
+        enable = lib.mkForce false;
         execCmd = "${pkgs.greetd.regreet}/bin/regreet";
       };
     })
