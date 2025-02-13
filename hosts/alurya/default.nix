@@ -42,6 +42,7 @@
         slack.enable = true;
         spotify.enable = true;
       };
+      academic.enable = true;
       dev.enable = true;
       gaming.enable = false;
       media.enable = true;
