@@ -23,7 +23,6 @@
     push = "git push";
     pull = "git pull";
     checkout = "git checkout";
-    sync = "git pull && git push";
   };
   cfg = config.programs.zsh;
 in {
