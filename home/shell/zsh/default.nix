@@ -52,9 +52,9 @@ in {
     };
 
     # For `nix develop`
-    bash = {
-      enable = true;
-      shellAliases = aliases;
-    };
+    # bash = {
+    #   enable = true;
+    #   shellAliases = aliases;
+    # };
   };
 }
