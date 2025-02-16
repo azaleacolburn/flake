@@ -1,7 +1,6 @@
 {...}: {
   plugins = {
     lsp-signature.enable = true;
-    lint.enable = true;
     trouble = {
       enable = true;
       settings.auto_close = true;
@@ -38,26 +37,24 @@
       };
       preConfig = ''
         -- Make diagnostics less intrusive
-          vim.diagnostic.config({ signs = false })
+        vim.diagnostic.config({ signs = false })
       '';
       servers = {
+        # system
         rust_analyzer = {
           enable = true;
           installCargo = true;
           installRustc = true;
         };
-        ts_ls.enable = true;
         zls.enable = true;
-        yamlls.enable = true;
+        clangd.enable = true;
+
+        # webdev
+        ts_ls.enable = true;
         tailwindcss.enable = true;
         svelte.enable = true;
         ruff.enable = true;
-        nixd = {
-          enable = true;
-          settings.formatting.command = ["alejandra"];
-        };
         jsonls.enable = true;
-        java_language_server.enable = true;
         html.enable = true;
         emmet_ls = {
           enable = true;
@@ -65,17 +62,28 @@
         };
         cssls.enable = true;
         htmx.enable = true;
-        clangd.enable = true;
-        # bashls.enable = true;
+
+        # config
+        yamlls.enable = true;
         dockerls.enable = true;
-        gopls = {
+
+        bashls.enable = true;
+        nixd = {
           enable = true;
-          autostart = true;
+          settings.formatting.command = ["alejandra"];
         };
         lua_ls = {
           enable = true;
           settings.telemetry.enable = false;
         };
+
+        # misc
+        gopls = {
+          enable = true;
+          autostart = true;
+        };
+        java_language_server.enable = true;
+
         marksman.enable = true;
       };
     };

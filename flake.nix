@@ -29,6 +29,7 @@
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
+
   };
 
   outputs = inputs @ {
@@ -63,9 +64,7 @@
   in {
     nixosConfigurations = lib.mapAttrs mkSystem {
       alurya = {};
-      gilarabrywn = {
-        system = "aarch64-linux";
-      };
+      gilarabrywn.system = "aarch64-linux";
     };
     homeConfigurations.azalea = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};

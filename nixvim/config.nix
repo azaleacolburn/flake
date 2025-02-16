@@ -3,7 +3,6 @@
     enable = true;
     settings = {
       transparent_background = true;
-      # style = "night";
     };
   };
   clipboard = {

@@ -6,10 +6,9 @@
         # Systems
         "c"
         "rust"
-        "rust"
         # Shell
         "bash"
-        # "zsh"
+        "zsh"
         # Webdev
         "html"
         "css"
