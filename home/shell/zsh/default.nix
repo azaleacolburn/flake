@@ -50,5 +50,11 @@ in {
       dotDir = ".config/zsh";
       completionInit = "mkdir -p ~/.cache/zsh; autoload -Uz compinit; compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION";
     };
+
+    # For `nix develop`
+    bash = {
+      enable = true;
+      shellAliases = aliases;
+    };
   };
 }
