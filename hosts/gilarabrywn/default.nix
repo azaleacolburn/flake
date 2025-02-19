@@ -4,7 +4,28 @@
   apple-silicon,
   inputs,
   ...
-}: {
+}: let
+  keyboard_layout = ''
+    (deflayer base
+        esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+        grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+        tab  q    d    r    w    b    j    f    u    p    ;    [    ]
+        esc  a    s    h    t    g    y    n    e    o    i    '    ret
+        lsft z    x    m    c    v    k    l    ,    .    /    rsft
+        lctl lalt lmet           spc            rctl ralt rmet
+    )
+  '';
+  # keyboard_layout = ''
+  #   (deflayer base
+  #       esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  #       grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  #       tab  q    w    f    p    b    j    l    u    y    ;    [    ]
+  #       esc  a    r    s    t    g    m    n    e    i    o    '    ret
+  #       lsft z    x    c    d    v    k    h    ,    .    /    rsft
+  #       lctl lalt lmet           spc            rctl ralt rmet
+  #   )
+  # '';
+in {
   imports = [
     ./hardware.nix
     apple-silicon.nixosModules.apple-silicon-support
@@ -77,25 +98,19 @@
           "/dev/input/by-path/platform-23510c000.spi-cs-0-event-kbd"
         ];
 
-        config = ''
-          (defsrc
-              esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-              grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-              tab  q    w    e    r    t    y    u    i    o    p    [    ]
-              caps a    s    d    f    g    h    j    k    l    ;    '    ret
-              lsft z    x    c    v    b    n    m    ,    .    /    rsft
-              lctl lalt lmet           spc            rmet ralt rctl
-          )
+        config =
+          ''
+            (defsrc
+                esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+                grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+                tab  q    w    e    r    t    y    u    i    o    p    [    ]
+                caps a    s    d    f    g    h    j    k    l    ;    '    ret
+                lsft z    x    c    v    b    n    m    ,    .    /    rsft
+                lctl lalt lmet           spc            rmet ralt rctl
+            )
 
-          (deflayer base
-              esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-              grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-              tab  q    d    r    w    b    j    f    u    p    ;    [    ]
-              esc  a    s    h    t    g    y    n    e    o    i    '    ret
-              lsft z    x    m    c    v    k    l    ,    .    /    rsft
-              lctl lalt lmet           spc            rctl ralt rmet
-          )
-        '';
+          ''
+          + keyboard_layout;
       };
     };
   };
