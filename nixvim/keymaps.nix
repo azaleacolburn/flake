@@ -22,12 +22,7 @@
     }
     {
       mode = "n";
-      key = "<leader>wq";
-      action = "<cmd>wq<CR>";
-    }
-    {
-      mode = "n";
-      key = "<leader>";
+      key = "<leader>w";
       action = "<cmd>w<CR>";
     }
     {
