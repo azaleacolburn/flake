@@ -1,8 +1,6 @@
 {
   plugins = {
-    cmp-emoji = {
-      enable = true;
-    };
+    cmp-emoji.enable = true;
     cmp = {
       enable = true;
       settings = {
@@ -44,12 +42,12 @@
         ];
 
         window = {
-          # completion = {
-          #   border = "solid";
-          # };
-          # documentation = {
-          #   border = "solid";
-          # };
+          completion = {
+            border = "rounded";
+          };
+          documentation = {
+            border = "rounded";
+          };
         };
 
         mapping = {
@@ -60,21 +58,11 @@
         };
       };
     };
-    cmp-nvim-lsp = {
-      enable = true;
-    }; # lsp
-    cmp-buffer = {
-      enable = true;
-    };
-    cmp-path = {
-      enable = true;
-    }; # file system paths
-    cmp_luasnip = {
-      enable = true;
-    }; # snippets
-    cmp-cmdline = {
-      enable = false;
-    }; # autocomplete for cmdline
+    cmp-nvim-lsp.enable = true;
+    cmp-buffer.enable = true;
+    cmp-path.enable = true;
+    cmp_luasnip.enable = true;
+    cmp-cmdline.enable = false;
   };
   extraConfigLua = ''
     luasnip = require("luasnip")
