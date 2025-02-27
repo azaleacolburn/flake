@@ -29,6 +29,9 @@ in {
         enable = true;
         default = true;
       };
+      firefox = {
+        enable = true;
+      };
 
       alacritty.enable = true;
       fastfetch = {
