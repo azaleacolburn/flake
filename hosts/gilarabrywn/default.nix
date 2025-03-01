@@ -124,7 +124,7 @@ in {
       };
       dev.enable = true;
       gaming.enable = false;
-      media.enable = true;
+      media.enable = false;
       academic.enable = true;
     };
 
