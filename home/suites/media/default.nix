@@ -19,7 +19,7 @@ in {
     home.packages = with pkgs; [
       gimp
       # # footage
-      # libreoffice
+      libreoffice
       # obs-studio
       vlc
       feh
