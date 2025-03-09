@@ -1,10 +1,11 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   extraPackages = with pkgs; [
     prettierd
     google-java-format
     black
     stylua
-    alejandra
+    nixfmt-rfc-style
     rustfmt
     shfmt
     clang-tools
@@ -26,7 +27,10 @@
 
   keymaps = [
     {
-      mode = ["n" "v"];
+      mode = [
+        "n"
+        "v"
+      ];
       key = "<leader>l";
       action =
         # lua
@@ -48,32 +52,34 @@
         lsp_format = "fallback";
         timeout_ms = 1000;
       };
-      formatters_by_ft = let
-        prettier = {
-          __unkeyed-1 = "prettierd";
-          __unkeyed-2 = "prettier";
-          stop_after_first = true;
+      formatters_by_ft =
+        let
+          prettier = {
+            __unkeyed-1 = "prettierd";
+            __unkeyed-2 = "prettier";
+            stop_after_first = true;
+          };
+        in
+        {
+          html = prettier;
+          css = prettier;
+          javascript = prettier;
+          javascriptreact = prettier;
+          typescript = prettier;
+          typescriptreact = prettier;
+          markdown = prettier;
+          java = [ "google-java-format" ];
+          python = [ "black" ];
+          lua = [ "stylua" ];
+          nix = [ "nixfmt" ];
+          rust = [ "rustfmt" ];
+          bash = [ "shfmt" ];
+          zsh = [ "shfmt" ];
+          sh = [ "shfmt" ];
+          c = [ "clangd" ];
+          cpp = [ "clangd" ];
+          "_" = [ "trim_whitespace" ];
         };
-      in {
-        html = prettier;
-        css = prettier;
-        javascript = prettier;
-        javascriptreact = prettier;
-        typescript = prettier;
-        typescriptreact = prettier;
-        markdown = prettier;
-        java = ["google-java-format"];
-        python = ["black"];
-        lua = ["stylua"];
-        nix = ["alejandra"];
-        rust = ["rustfmt"];
-        bash = ["shfmt"];
-        zsh = ["shfmt"];
-        sh = ["shfmt"];
-        c = ["clangd"];
-        cpp = ["clangd"];
-        "_" = ["trim_whitespace"];
-      };
     };
   };
 }

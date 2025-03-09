@@ -5,7 +5,8 @@
   name,
   config,
   ...
-}: {
+}:
+{
   imports = [
     ./homeConf/nixos.nix
     ./stylix/nixos.nix
@@ -17,13 +18,16 @@
   networking = {
     hostName = name;
     networkmanager.enable = true;
-    firewall.allowedTCPPorts = [22];
+    firewall.allowedTCPPorts = [ 22 ];
   };
 
   time.timeZone = "America/Los_Angeles";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # systemd.enableStrictShellChecks = true;
 
   users.users.${config.homeConf.username} = {
@@ -66,7 +70,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    sharedModules = [../home];
+    sharedModules = [ ../home ];
   };
 
   programs = {
@@ -89,7 +93,7 @@
 
   services = {
     openssh = {
-      ports = [22];
+      ports = [ 22 ];
       settings = {
         PasswordAuthentication = true;
         AllowUsers = null;

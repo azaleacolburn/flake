@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   plugins = {
     lsp-signature.enable = true;
     trouble = {
@@ -58,7 +59,13 @@
         html.enable = true;
         emmet_ls = {
           enable = true;
-          filetypes = ["html" "css" "jsx" "tsx" "svelte"];
+          filetypes = [
+            "html"
+            "css"
+            "jsx"
+            "tsx"
+            "svelte"
+          ];
         };
         cssls.enable = true;
         htmx.enable = true;
@@ -70,7 +77,7 @@
         bashls.enable = true;
         nixd = {
           enable = true;
-          settings.formatting.command = ["alejandra"];
+          settings.formatting.command = [ "nixfmt" ];
         };
         lua_ls = {
           enable = true;

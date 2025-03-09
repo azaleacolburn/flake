@@ -5,7 +5,8 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   cfg = config.programs.librewolf;
   daily = 24 * 60 * 60 * 1000;
   search = {
@@ -14,15 +15,15 @@
     privateDefault = "DuckDuckGo";
     engines = {
       "YouTube" = {
-        urls = [{template = "https://www.youtube.com/results?search_query={searchTerms}";}];
+        urls = [ { template = "https://www.youtube.com/results?search_query={searchTerms}"; } ];
         iconUpdateURL = "https://www.youtube.com/favicon.ico";
         updateInterval = daily;
-        definedAliases = ["!yt"];
+        definedAliases = [ "!yt" ];
       };
       "MyNixOS" = {
-        urls = [{template = "https://mynixos.com/search?q={searchTerms}";}];
+        urls = [ { template = "https://mynixos.com/search?q={searchTerms}"; } ];
         icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-        definedAliases = ["!no"];
+        definedAliases = [ "!no" ];
       };
     };
   };
@@ -80,7 +81,8 @@
     "widget.gtk.ignore-bogus-leave-notify" = 1;
     "browser.uidensity" = 1;
   };
-in {
+in
+{
   options.programs.librewolf.default = lib.mkEnableOption "Set librewolf as the default browser";
 
   config = lib.mkIf cfg.enable {

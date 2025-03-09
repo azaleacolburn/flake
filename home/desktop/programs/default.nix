@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./dunst
     ./hypridle

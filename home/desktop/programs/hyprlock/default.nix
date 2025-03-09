@@ -3,8 +3,17 @@
   pkgs,
   config,
   ...
-}: let
-  inherit (config.lib.stylix.colors) base00 base0D base05 base08 base0A base0C base0B;
+}:
+let
+  inherit (config.lib.stylix.colors)
+    base00
+    base0D
+    base05
+    base08
+    base0A
+    base0C
+    base0B
+    ;
   inherit (config) homeConf;
   cfg = config.programs.hyprlock;
   font_family = config.stylix.fonts.monospace.name;
@@ -24,7 +33,8 @@
 
     echo "$battery_icon $battery_percentage%"
   '';
-in {
+in
+{
   programs.hyprlock.settings = lib.mkIf cfg.enable {
     general = {
       disable_loading_bar = true;

@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.programs.ssh;
-in {
+in
+{
   programs.ssh = lib.mkIf cfg.enable {
     addKeysToAgent = "yes";
 

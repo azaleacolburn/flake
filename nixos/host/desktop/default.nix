@@ -3,10 +3,17 @@
   config,
   pkgs,
   ...
-}: let
-  inherit (lib) mkIf mkEnableOption mkMerge mkDefault;
+}:
+let
+  inherit (lib)
+    mkIf
+    mkEnableOption
+    mkMerge
+    mkDefault
+    ;
   cfg = config.host.desktop;
-in {
+in
+{
   options.host.desktop = {
     enable = mkEnableOption "Enable desktop configs";
     unbindPowerButton = mkEnableOption "Unbind power button";
@@ -38,7 +45,7 @@ in {
         enable = true;
         powerOnBoot = true;
       };
-      environment.systemPackages = [pkgs.bluetui];
+      environment.systemPackages = [ pkgs.bluetui ];
     })
     (mkIf cfg.audio.enable {
       services.pipewire = {
@@ -49,6 +56,6 @@ in {
         pavucontrol
       ];
     })
-    {services.printing.enable = cfg.printing.enable;}
+    { services.printing.enable = cfg.printing.enable; }
   ];
 }

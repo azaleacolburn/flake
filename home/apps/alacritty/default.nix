@@ -2,9 +2,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.programs.alacritty;
-in {
+in
+{
   config.programs.alacritty.settings = lib.mkIf cfg.enable {
     window.padding = {
       x = 8;

@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   programs.nixvim = {
     enable = lib.mkDefault true;
     imports = [

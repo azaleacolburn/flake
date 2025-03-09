@@ -3,9 +3,11 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.host.rgb;
-in {
+in
+{
   options.host.rgb.disable = lib.mkOption {
     type = lib.types.bool;
     description = "Disable all rgb that supports openrgb";
@@ -14,8 +16,8 @@ in {
   };
 
   config = lib.mkIf cfg.disable {
-    services.udev.packages = [pkgs.openrgb];
-    boot.kernelModules = ["i2c-dev"];
+    services.udev.packages = [ pkgs.openrgb ];
+    boot.kernelModules = [ "i2c-dev" ];
     hardware.i2c.enable = true;
 
     systemd.services.no-rgb = {
@@ -31,7 +33,7 @@ in {
         ''}/bin/no-rgb";
         Type = "oneshot";
       };
-      wantedBy = ["multi-user.target"];
+      wantedBy = [ "multi-user.target" ];
     };
   };
 }

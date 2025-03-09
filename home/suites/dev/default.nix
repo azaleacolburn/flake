@@ -3,15 +3,15 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.suites.dev;
-in {
+in
+{
   options.suites.dev = {
-    enable =
-      mkEnableOption "Install development tools";
-    java.enable =
-      mkEnableOption "Install java tools (intellij)";
+    enable = mkEnableOption "Install development tools";
+    java.enable = mkEnableOption "Install java tools (intellij)";
   };
 
   config = mkIf cfg.enable {

@@ -2,13 +2,14 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   inherit (lib) mkIf;
   cfg = config.programs.starship;
-in {
+in
+{
   programs.starship = mkIf cfg.enable {
-    enableZshIntegration =
-      mkIf config.programs.zsh.enable true;
+    enableZshIntegration = mkIf config.programs.zsh.enable true;
 
     settings = {
       add_newline = true;
