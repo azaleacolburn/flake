@@ -2,10 +2,12 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   cfg = config.programs.git;
   inherit (config.homeConf.git) userName userEmail;
-in {
+in
+{
   config.programs = lib.mkIf cfg.enable {
     git = {
       inherit userName userEmail;
@@ -20,11 +22,15 @@ in {
       includes = [
         {
           condition = "hasconfig:remote.*.url:git@github.com*/**";
-          contents = {user.signingKey = "~/.ssh/github_ed25519.pub";};
+          contents = {
+            user.signingKey = "~/.ssh/github_ed25519.pub";
+          };
         }
         {
           condition = "hasconfig:remote.*.url:git@codeberg.org*/**";
-          contents = {user.signingKey = "~/.ssh/codeberg_ed25519.pub";};
+          contents = {
+            user.signingKey = "~/.ssh/codeberg_ed25519.pub";
+          };
         }
       ];
     };

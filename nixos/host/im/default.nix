@@ -3,10 +3,12 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   inherit (lib) mkIf mkEnableOption;
   cfg = config.host.im;
-in {
+in
+{
   options.host.im.fcitx5 = {
     enable = mkEnableOption "enable fcitx5 for chinese input";
     wayland = mkEnableOption "fix fcitx5 on wayland";

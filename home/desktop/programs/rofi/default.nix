@@ -3,21 +3,24 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (config.stylix.fonts) monospace;
   inherit (config.lib.formats.rasi) mkLiteral;
   inherit (lib) mkIf mkForce;
   inherit (config.homeConf) radius;
   cfg = config.programs.rofi;
-  mkRgba = opacity: color: let
-    c = config.lib.stylix.colors;
-    r = c."${color}-rgb-r";
-    g = c."${color}-rgb-g";
-    b = c."${color}-rgb-b";
-  in
-    mkLiteral
-    "rgba ( ${r}, ${g}, ${b}, ${opacity} % )";
-in {
+  mkRgba =
+    opacity: color:
+    let
+      c = config.lib.stylix.colors;
+      r = c."${color}-rgb-r";
+      g = c."${color}-rgb-g";
+      b = c."${color}-rgb-b";
+    in
+    mkLiteral "rgba ( ${r}, ${g}, ${b}, ${opacity} % )";
+in
+{
   programs.rofi = mkIf cfg.enable {
     package = pkgs.rofi-wayland;
     plugins = with pkgs; [
@@ -42,7 +45,12 @@ in {
         border-radius = radius * 2;
       };
       mainbox = {
-        children = ["inputbar" "message" "listview" "mode-switcher"];
+        children = [
+          "inputbar"
+          "message"
+          "listview"
+          "mode-switcher"
+        ];
         border-radius = radius * 2;
         padding = mkLiteral "8px";
       };
@@ -52,7 +60,10 @@ in {
       };
       inputbar = {
         border-radius = radius;
-        children = ["prompt" "entry"];
+        children = [
+          "prompt"
+          "entry"
+        ];
         background-color = mkLiteral "transparent";
         margin = mkLiteral "0 0 4px 0";
         padding = mkLiteral "4px";

@@ -3,7 +3,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   stylix = {
     enable = lib.mkDefault true;
 

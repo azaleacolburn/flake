@@ -1,5 +1,6 @@
 # Copyright (c) 2024-2025 awwpotato <awwpotato@voidq.com>
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nix-ld.libraries = with pkgs; [
     SDL
     SDL2

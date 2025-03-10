@@ -2,10 +2,17 @@
   lib,
   config,
   ...
-}: let
-  inherit (lib) mkIf mkEnableOption mkOption mkMerge;
+}:
+let
+  inherit (lib)
+    mkIf
+    mkEnableOption
+    mkOption
+    mkMerge
+    ;
   cfg = config.host.boot;
-in {
+in
+{
   options.host.boot = {
     enable = mkEnableOption "use default bios config";
     efi.enable = mkOption {
@@ -17,7 +24,7 @@ in {
   };
 
   config.boot.loader = mkIf cfg.enable (mkMerge [
-    {grub.enable = true;}
+    { grub.enable = true; }
     (mkIf cfg.efi.enable {
       grub = {
         device = "nodev";

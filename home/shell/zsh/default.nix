@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   aliases = {
     tree = "tree -C -a -I .git -I __pycache__ -I target";
     ls = "eza -A --color=auto -s type";
@@ -25,7 +26,8 @@
     checkout = "git checkout";
   };
   cfg = config.programs.zsh;
-in {
+in
+{
   config.programs = lib.mkIf cfg.enable {
     starship.enable = true;
 

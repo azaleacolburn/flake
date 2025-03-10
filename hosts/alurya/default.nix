@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware.nix
   ];
@@ -58,7 +59,7 @@
     ];
   };
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
     graphics = {
       enable = true;
