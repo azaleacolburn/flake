@@ -71,7 +71,11 @@
           java = [ "google-java-format" ];
           python = [ "black" ];
           lua = [ "stylua" ];
-          nix = [ "nixfmt" ];
+          nix = {
+            stop_after_first = true;
+            __unkeyed-1 = "nix fmt";
+            __unkeyed-2 = "nixfmt";
+          };
           rust = [ "rustfmt" ];
           bash = [ "shfmt" ];
           zsh = [ "shfmt" ];
