@@ -23,6 +23,7 @@ in {
 
       # C
       gcc
+      gnumake
 
       # Webdev
       bun
