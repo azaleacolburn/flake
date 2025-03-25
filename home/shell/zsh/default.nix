@@ -23,6 +23,7 @@ let
     c = "git commit -a";
     push = "git push";
     pull = "git pull";
+    switch = "git switch";
     checkout = "git checkout";
   };
   cfg = config.programs.zsh;
