@@ -3,12 +3,13 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.suites.media;
-in {
-  options.suites.media.enable =
-    mkEnableOption "Install programs for media viewing/editing usage";
+in
+{
+  options.suites.media.enable = mkEnableOption "Install programs for media viewing/editing usage";
 
   config = mkIf cfg.enable {
     programs = {
@@ -19,7 +20,7 @@ in {
     home.packages = with pkgs; [
       gimp
       # # footage
-      # libreoffice
+      libreoffice
       # obs-studio
       vlc
       feh

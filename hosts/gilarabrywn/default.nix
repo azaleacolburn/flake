@@ -4,7 +4,8 @@
   apple-silicon,
   inputs,
   ...
-}: let
+}:
+let
   keyboard_layout = ''
     (deflayer base
         esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
@@ -15,17 +16,18 @@
         lctl lalt lmet           spc            rctl ralt rmet
     )
   '';
-  # keyboard_layout = ''
-  #   (deflayer base
-  #       esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-  #       grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  #       tab  q    w    f    p    b    j    l    u    y    ;    [    ]
-  #       esc  a    r    s    t    g    m    n    e    i    o    '    ret
-  #       lsft z    x    c    d    v    k    h    ,    .    /    rsft
-  #       lctl lalt lmet           spc            rctl ralt rmet
-  #   )
-  # '';
-in {
+in
+# keyboard_layout = ''
+#   (deflayer base
+#       esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+#       grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+#       tab  q    w    f    p    b    j    l    u    y    ;    [    ]
+#       esc  a    r    s    t    g    m    n    e    i    o    '    ret
+#       lsft z    x    c    d    v    k    h    ,    .    /    rsft
+#       lctl lalt lmet           spc            rctl ralt rmet
+#   )
+# '';
+{
   imports = [
     ./hardware.nix
     apple-silicon.nixosModules.apple-silicon-support
@@ -37,7 +39,7 @@ in {
     desktop.enable = true;
   };
 
-  nixpkgs.overlays = [apple-silicon.overlays.apple-silicon-overlay];
+  nixpkgs.overlays = [ apple-silicon.overlays.apple-silicon-overlay ];
 
   # Asahi Graphics and Firmware Support
   hardware.asahi = {
@@ -79,40 +81,43 @@ in {
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    portalPackage =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
   programs.dconf.enable = true;
 
   services.kanata = {
     enable = true;
-    keyboards = let
-      extraDefCfg = ''
-        process-unmapped-keys yes
-      '';
-    in {
-      default = {
-        inherit extraDefCfg;
+    keyboards =
+      let
+        extraDefCfg = ''
+          process-unmapped-keys yes
+        '';
+      in
+      {
+        default = {
+          inherit extraDefCfg;
 
-        devices = [
-          "/dev/input/by-path/platform-23510c000.spi-cs-0-event-kbd"
-        ];
+          devices = [
+            "/dev/input/by-path/platform-23510c000.spi-cs-0-event-kbd"
+          ];
 
-        config =
-          ''
-            (defsrc
-                esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-                grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-                tab  q    w    e    r    t    y    u    i    o    p    [    ]
-                caps a    s    d    f    g    h    j    k    l    ;    '    ret
-                lsft z    x    c    v    b    n    m    ,    .    /    rsft
-                lctl lalt lmet           spc            rmet ralt rctl
-            )
+          config =
+            ''
+              (defsrc
+                  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+                  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+                  tab  q    w    e    r    t    y    u    i    o    p    [    ]
+                  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+                  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+                  lctl lalt lmet           spc            rmet ralt rctl
+              )
 
-          ''
-          + keyboard_layout;
+            ''
+            + keyboard_layout;
+        };
       };
-    };
   };
 
   home-manager.users.${config.homeConf.username} = {
@@ -124,7 +129,7 @@ in {
       };
       dev.enable = true;
       gaming.enable = false;
-      media.enable = true;
+      media.enable = false;
       academic.enable = true;
     };
 

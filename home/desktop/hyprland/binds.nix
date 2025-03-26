@@ -28,15 +28,12 @@
       "SUPER, P, exec, grimblast save output - | swappy -f -"
       "SUPER SHIFT, P, exec, grimblast save area - | swappy -f -"
     ]
-    ++ (
-      builtins.concatLists (builtins.genList (
-          x: [
-            "SUPER, ${toString (x + 1)}, workspace, ${toString (x + 1)}"
-            "SUPER SHIFT, ${toString (x + 1)}, movetoworkspace, ${toString (x + 1)}"
-          ]
-        )
-        9)
-    );
+    ++ (builtins.concatLists (
+      builtins.genList (x: [
+        "SUPER, ${toString (x + 1)}, workspace, ${toString (x + 1)}"
+        "SUPER SHIFT, ${toString (x + 1)}, movetoworkspace, ${toString (x + 1)}"
+      ]) 9
+    ));
 
   binde = [
     "SUPER, left, movefocus, l"

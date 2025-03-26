@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   colorschemes.nord = {
     enable = true;
     settings = {
@@ -25,7 +26,9 @@
     wrap = false;
     number = true;
     relativenumber = true;
-    fillchars = {eob = " ";};
+    fillchars = {
+      eob = " ";
+    };
 
     laststatus = 0;
     cursorline = false;
@@ -33,9 +36,10 @@
   };
   autoCmd = [
     {
-      event = ["VimEnter"];
+      event = [ "VimEnter" ];
       callback = {
-        __raw = ''          function()
+        __raw = ''
+          function()
                             	local bufname = vim.fn.expand("%:t")
                             	if vim.bo.filetype ~= "gitcommit" and bufname == "" then
                             	  require("telescope.builtin").find_files()

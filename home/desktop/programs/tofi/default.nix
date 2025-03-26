@@ -2,11 +2,13 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   inherit (lib) mkIf mkForce;
   inherit (config) homeConf;
   cfg = config.programs.tofi;
-in {
+in
+{
   programs.tofi.settings = mkIf cfg.enable {
     prompt-text = "> ";
 

@@ -1,6 +1,8 @@
-{lib, ...}: let
+{ lib, ... }:
+let
   inherit (lib) types mkOption;
-in {
+in
+{
   options.homeConf = {
     username = mkOption {
       type = types.str;

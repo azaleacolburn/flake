@@ -2,11 +2,13 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   inherit (lib) mkIf;
   inherit (config) homeConf;
   cfg = config.services.dunst;
-in {
+in
+{
   services.dunst.settings = mkIf cfg.enable {
     global = {
       width = 350;

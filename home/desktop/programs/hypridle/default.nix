@@ -2,10 +2,12 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   inherit (lib) mkIf;
   cfg = config.services.hypridle;
-in {
+in
+{
   services.hypridle.settings = mkIf cfg.enable {
     general = {
       lock_cmd = "pidof hyprlock || hyprlock";

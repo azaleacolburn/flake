@@ -3,12 +3,13 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.suites.academic;
-in {
-  options.suites.academic.enable =
-    mkEnableOption "Install academic tools";
+in
+{
+  options.suites.academic.enable = mkEnableOption "Install academic tools";
 
   config = mkIf cfg.enable {
     programs = {

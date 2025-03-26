@@ -3,12 +3,13 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.suites.base;
-in {
-  options.suites.base.enable =
-    mkEnableOption "Install base tools";
+in
+{
+  options.suites.base.enable = mkEnableOption "Install base tools";
 
   config = mkIf cfg.enable {
     programs = {

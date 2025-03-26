@@ -4,10 +4,12 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.suites.desktop;
-in {
+in
+{
   options.suites.desktop = {
     enable = mkEnableOption "Install a wm/de + apps for desktop usage";
     hyprland.enable = mkEnableOption "Install hyprland + apps for desktop usage";
@@ -64,7 +66,8 @@ in {
       };
     };
 
-    home.packages = with pkgs;
+    home.packages =
+      with pkgs;
       [
         fastfetch
 
@@ -74,16 +77,8 @@ in {
         appimage-run
         signal-desktop
       ]
-      ++ (
-        if cfg.slack.enable
-        then [slack]
-        else []
-      )
-      ++ (
-        if cfg.spotify.enable
-        then [spotify]
-        else []
-      );
+      ++ (if cfg.slack.enable then [ slack ] else [ ])
+      ++ (if cfg.spotify.enable then [ spotify ] else [ ]);
 
     gtk.iconTheme = {
       name = "Papirus";
