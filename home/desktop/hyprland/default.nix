@@ -158,7 +158,6 @@ in
         windowrule = [
           "float,title:^(Picture-in-Picture)"
           "pin,title:^(Picture-in-Picture)"
-          "pseudo,fcitx"
         ];
 
         windowrulev2 = [
