@@ -38,7 +38,7 @@
       };
       preConfig = ''
         -- Make diagnostics less intrusive
-        vim.diagnostic.config({ signs = false })
+        vim.diagnostic.config({ signs = false, virtual_text = true})
       '';
       servers = {
         # system
