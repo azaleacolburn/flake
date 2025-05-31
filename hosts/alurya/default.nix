@@ -45,7 +45,7 @@
       };
       academic.enable = true;
       dev.enable = true;
-      gaming.enable = false;
+      gaming.enable = true;
       media.enable = true;
     };
 
