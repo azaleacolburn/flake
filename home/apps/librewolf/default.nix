@@ -11,10 +11,10 @@ let
   daily = 24 * 60 * 60 * 1000;
   search = {
     force = true;
-    default = "DuckDuckGo";
-    privateDefault = "DuckDuckGo";
+    default = "ddg";
+    privateDefault = "ddg";
     engines = {
-      "YouTube" = {
+      "youtube" = {
         urls = [ { template = "https://www.youtube.com/results?search_query={searchTerms}"; } ];
         iconUpdateURL = "https://www.youtube.com/favicon.ico";
         updateInterval = daily;

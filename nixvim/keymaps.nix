@@ -40,5 +40,10 @@
       key = "l";
       action = "b";
     }
+    {
+      mode = "v";
+      key = "l";
+      action = "b";
+    }
   ];
 }

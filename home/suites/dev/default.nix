@@ -34,6 +34,8 @@ in
       python3
       gh
       fzf
+
+      lld
     ];
 
     programs = {

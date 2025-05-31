@@ -14,7 +14,7 @@ in
     settings = {
       add_newline = true;
       command_timeout = 500;
-      format = "$directory$git_branch$git_metrics\n$character";
+      format = "$directory$git_branch$git_metrics$nix_shell\n$character";
       character = {
         success_symbol = "[❯](bold green)";
         error_symbol = "[❯](bold red)";
@@ -60,6 +60,17 @@ in
       cmd_duration = {
         format = "[$duration]($style) ";
         style = "yellow";
+      };
+
+      nix_shell = {
+        format = "[$name]($style)";
+        symbol = "❄️";
+        style = "bold blue";
+        impure_msg = "";
+        pure_msg = "";
+        unknown_msg = "";
+        disabled = false;
+        heuristic = false;
       };
 
       fill.symbol = " ";
