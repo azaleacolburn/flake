@@ -17,7 +17,7 @@ in
         commit.gpgsign = true;
         gpg.format = "ssh";
         core.editor = "nvim";
-        pull.rebase = false;
+        pull.rebase = true;
       };
       includes = [
         {
