@@ -61,6 +61,7 @@ let
     "browser.newtabpage.activity-stream.showRecentSaves" = false;
     "browser.newtabpage.activity-stream.feeds.topsites" = false;
     "browser.newtabpage.activity-stream.feeds.telemetry" = false;
+    "webgl.enable" = true;
 
     # potato tweaks
     "uc.tweak.translucency" = true;

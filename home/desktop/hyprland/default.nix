@@ -144,6 +144,7 @@ in
             natural_scroll = true;
             disable_while_typing = true;
             tap-to-click = false;
+            clickfinger_behavior = true;
           };
         };
 
