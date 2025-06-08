@@ -74,7 +74,7 @@ in
         signal-desktop
       ]
       ++ (if cfg.slack.enable then [ slack ] else [ ])
-      ++ (if cfg.spotify.enable then [ spotify ] else [ ]);
+      ++ (if cfg.spotify.enable then [ spotify ] else [ ncspot ]);
 
     gtk.iconTheme = {
       name = "Papirus";
