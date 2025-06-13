@@ -30,7 +30,6 @@ in
       zola
 
       # Misc
-      python3
       gh
       fzf
 
