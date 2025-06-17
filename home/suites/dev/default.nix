@@ -34,6 +34,7 @@ in
       fzf
 
       lld
+      unzip
     ];
 
     programs = {

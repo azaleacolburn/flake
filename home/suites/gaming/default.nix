@@ -15,8 +15,6 @@ in
     home.packages = with pkgs; [
       lutris
       prismlauncher
-      # Home manager doesn't play nice with programs
-      steam
     ];
   };
 }
