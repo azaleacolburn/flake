@@ -9,8 +9,13 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    systems = {
+      url = ./systems.nix;
+      flake = false;
+    };
+
     home-manager = {
-      url = "github:nix-community/home-manager/";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -20,6 +25,7 @@
       url = "github:nix-community/stylix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
         home-manager.follows = "home-manager";
         flake-parts.follows = "flake-parts";
         flake-compat.follows = "";
@@ -30,6 +36,7 @@
       url = "github:nix-community/nixvim";
       inputs = {
         nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
         flake-parts.follows = "flake-parts";
         nuschtosSearch.follows = "";
       };
@@ -47,13 +54,17 @@
 
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
     };
   };
 
   outputs =
     inputs@{
       flake-parts,
+      systems,
       nixpkgs,
       home-manager,
       ...
@@ -61,11 +72,7 @@
     flake-parts.lib.mkFlake { inherit inputs; } (
       { lib, ... }:
       {
-        systems = [
-          "aarch64-darwin"
-          "aarch64-linux"
-          "x86_64-linux"
-        ];
+        systems = import systems;
 
         perSystem =
           { pkgs, ... }:
