@@ -14,23 +14,26 @@
       flake = false;
     };
 
+    # keep-sorted start block=yes newline_separated=yes
+    apple-silicon = {
+      url = "github:azaleacolburn/nixos-apple-silicon";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    stylix = {
-      url = "github:nix-community/stylix";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
-        home-manager.follows = "home-manager";
-        flake-parts.follows = "flake-parts";
-        flake-compat.follows = "";
       };
     };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -47,18 +50,17 @@
       flake = false;
     };
 
-    apple-silicon = {
-      url = "github:azaleacolburn/nixos-apple-silicon";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
+    stylix = {
+      url = "github:nix-community/stylix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
+        home-manager.follows = "home-manager";
+        flake-parts.follows = "flake-parts";
+        flake-compat.follows = "";
       };
     };
+    # keep-sorted end
   };
 
   outputs =
@@ -77,7 +79,28 @@
         perSystem =
           { pkgs, ... }:
           {
-            formatter = pkgs.nixfmt-rfc-style;
+            formatter = pkgs.treefmt.withConfig {
+              runtimeInputs = with pkgs; [
+                nixfmt-rfc-style
+                keep-sorted
+              ];
+
+              settings = {
+                on-unmatched = "info";
+                tree-root-file = "flake.nix";
+
+                formatter = {
+                  nixfmt = {
+                    command = "nixfmt";
+                    includes = [ "*.nix" ];
+                  };
+                  keep-sorted = {
+                    command = "keep-sorted";
+                    includes = [ "*" ];
+                  };
+                };
+              };
+            };
           };
 
         flake =
