@@ -845,17 +845,17 @@
     "potatofox": {
       "flake": false,
       "locked": {
-        "lastModified": 1743709562,
-        "narHash": "sha256-Kx/NLIVQBD5qmZjCbaXwyVsLcSOflOaXW9UIl3T2gHI=",
+        "lastModified": 1750958833,
+        "narHash": "sha256-x+1w9tar3p+tCmP/tszp8bWdsPhN0GsVSa6gEb5KFfk=",
         "ref": "refs/heads/main",
-        "rev": "201bf4db8f042fc6c2fc26116cb77b96d11d5300",
-        "revCount": 383,
+        "rev": "89dc626486d0cd7608da2c31feaa5b1f30191358",
+        "revCount": 384,
         "type": "git",
-        "url": "https://codeberg.org/awwpotato/PotatoFox"
+        "url": "https://codeberg.org/awwpotato/potatofox"
       },
       "original": {
         "type": "git",
-        "url": "https://codeberg.org/awwpotato/PotatoFox"
+        "url": "https://codeberg.org/awwpotato/potatofox"
       }
     },
     "pre-commit-hooks": {

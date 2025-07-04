@@ -17,7 +17,7 @@
     };
 
     potatofox = {
-      url = "git+https://codeberg.org/awwpotato/PotatoFox";
+      url = "git+https://codeberg.org/awwpotato/potatofox";
       flake = false;
     };
 
