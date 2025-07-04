@@ -1,9 +1,10 @@
 { ... }:
 {
   imports = [
-    ./git
-    ./ssh
-    ./starship
-    ./zsh
+    ./git.nix
+    ./ssh.nix
+    ./starship.nix
+    # ./zsh.nix
+    ./nushell.nix
   ];
 }

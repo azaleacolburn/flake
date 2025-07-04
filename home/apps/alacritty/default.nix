@@ -26,5 +26,7 @@ in
         style = "Bold";
       };
     };
+    terminal.shell.program = "/etc/profiles/per-user/azalea/bin/nu";
+    terminal.shell.args = [ ];
   };
 }
