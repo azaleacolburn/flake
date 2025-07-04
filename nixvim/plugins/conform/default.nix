@@ -1,14 +1,16 @@
 { pkgs, ... }:
 {
   extraPackages = with pkgs; [
-    prettierd
-    google-java-format
+    # keep-sorted start
     black
-    stylua
+    clang-tools
+    google-java-format
     nixfmt-rfc-style
+    prettierd
     rustfmt
     shfmt
-    clang-tools
+    stylua
+    # keep-sorted end
   ];
 
   autoCmd = [
