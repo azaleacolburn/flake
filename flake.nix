@@ -114,12 +114,14 @@
                 name:
                 lib.nixosSystem {
                   modules = [
-                    ./nixos
-                    ./hosts/${name}
+                    # keep-sorted start prefix_order=inputs,./
                     inputs.home-manager.nixosModules.home-manager
-                    inputs.stylix.nixosModules.stylix
                     inputs.nixvim.nixosModules.nixvim
+                    inputs.stylix.nixosModules.stylix
+                    ./hosts/${name}
+                    ./nixos
                     ./nixvim
+                    # keep-sorted end
                   ];
                   specialArgs = {
                     inherit name inputs;
@@ -131,14 +133,16 @@
           homeConfigurations.azalea = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages."x86_64-linux";
             modules = [
-              { targets.genericLinux.enable = true; }
-              inputs/stylix.homeManagerModules.stylix
-              inputs/nixvim.homeManagerModules.nixvim
-              ./nixvim
+              # keep-sorted start prefix_order=inputs,./,{
+              inputs.nixvim.homeManagerModules.nixvim
+              inputs.stylix.homeManagerModules.stylix
               ./home
               ./nixos/homeConf/shared.nix
               ./nixos/stylix/hm.nix
               ./nixos/stylix/shared.nix
+              ./nixvim
+              { targets.genericLinux.enable = true; }
+              # keep-sorted end
             ];
           };
         };
