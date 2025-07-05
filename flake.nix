@@ -120,8 +120,7 @@
                 ] ++ (cfg.modules or [ ]);
                 specialArgs = {
                   inherit name inputs;
-                  apple-silicon = inputs.apple-silicon;
-                  pkgs-unstable = nixpkgs.legacyPackages.${cfg.system or system};
+                  inherit (inputs) apple-silicon;
                 };
               };
           in
