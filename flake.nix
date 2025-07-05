@@ -16,7 +16,7 @@
 
     # keep-sorted start block=yes newline_separated=yes
     apple-silicon = {
-      url = "github:azaleacolburn/nixos-apple-silicon";
+      url = "github:tpwrules/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
