@@ -34,18 +34,18 @@
     cursorline = false;
     swapfile = false;
   };
-  autoCmd = [
-    {
-      event = [ "VimEnter" ];
-      callback = {
-        __raw = ''
-          function()
-                            	local bufname = vim.fn.expand("%:t")
-                            	if vim.bo.filetype ~= "gitcommit" and bufname == "" then
-                            	  require("telescope.builtin").find_files()
-                            	end
-                            end'';
-      };
-    }
-  ];
+  # autoCmd = [
+  #   {
+  #     event = [ "VimEnter" ];
+  #     callback = {
+  #       __raw = ''
+  #         function()
+  #           local bufname = vim.fn.expand("%:t")
+  #           if vim.bo.filetype ~= "gitcommit" and bufname == "" then
+  #             require("telescope.builtin").find_files()
+  #           end
+  #         end'';
+  #     };
+  #   }
+  # ];
 }
