@@ -16,7 +16,7 @@ let
     engines = {
       "youtube" = {
         urls = [ { template = "https://www.youtube.com/results?search_query={searchTerms}"; } ];
-        iconUpdateURL = "https://www.youtube.com/favicon.ico";
+        icon = "https://www.youtube.com/favicon.ico";
         updateInterval = daily;
         definedAliases = [ "!yt" ];
       };
@@ -145,6 +145,10 @@ in
         };
       };
     };
+    stylix.targets.librewolf.profileNames = [
+      "default"
+      "school"
+    ];
     home.file.".librewolf/default/chrome" = {
       source = "${inputs.potatofox}/chrome";
       recursive = true;

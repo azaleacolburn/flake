@@ -2,90 +2,149 @@
   description = "Azalea's Computer";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    home-manager = {
-      url = "github:nix-community/home-manager/";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    stylix.url = "github:danth/stylix";
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
-    potatofox = {
-      url = "git+https://codeberg.org/awwpotato/PotatoFox";
+    systems = {
+      url = ./systems.nix;
       flake = false;
     };
 
+    # keep-sorted start block=yes newline_separated=yes
     apple-silicon = {
       url = "github:azaleacolburn/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
+    };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+        flake-parts.follows = "flake-parts";
+        nuschtosSearch.follows = "";
+      };
+    };
+
+    potatofox = {
+      url = "git+https://codeberg.org/awwpotato/potatofox";
+      flake = false;
+    };
+
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+        home-manager.follows = "home-manager";
+        flake-parts.follows = "flake-parts";
+        flake-compat.follows = "";
+      };
+    };
+    # keep-sorted end
   };
 
   outputs =
     inputs@{
+      flake-parts,
+      systems,
       nixpkgs,
       home-manager,
       ...
     }:
-    let
-      inherit (nixpkgs) lib;
-      system = "x86_64-linux"; # Default system
+    flake-parts.lib.mkFlake { inherit inputs; } (
+      { lib, ... }:
+      {
+        systems = import systems;
 
-      forEachSystem =
-        f: lib.genAttrs lib.systems.flakeExposed (system: f nixpkgs.legacyPackages.${system});
+        perSystem =
+          { pkgs, ... }:
+          {
+            formatter = pkgs.treefmt.withConfig {
+              runtimeInputs = with pkgs; [
+                nixfmt-rfc-style
+                keep-sorted
+              ];
 
-      mkSystem =
-        name: cfg:
-        lib.nixosSystem {
-          system = cfg.system or system;
-          modules = [
-            ./nixos
-            ./hosts/${name}
-            inputs.home-manager.nixosModules.home-manager
-            inputs.stylix.nixosModules.stylix
-            inputs.nixvim.nixosModules.nixvim
-            ./nixvim
-          ] ++ (cfg.modules or [ ]);
-          specialArgs = {
-            inherit name inputs;
-            apple-silicon = inputs.apple-silicon;
-            pkgs-unstable = import inputs.nixpkgs {
-              system = cfg.system or system;
+              settings = {
+                on-unmatched = "info";
+                tree-root-file = "flake.nix";
+
+                formatter = {
+                  nixfmt = {
+                    command = "nixfmt";
+                    includes = [ "*.nix" ];
+                  };
+                  keep-sorted = {
+                    command = "keep-sorted";
+                    includes = [ "*" ];
+                  };
+                };
+              };
             };
           };
-        };
-    in
-    {
-      formatter = forEachSystem (pkgs: pkgs.nixfmt-rfc-style);
 
-      nixosConfigurations = lib.mapAttrs mkSystem {
-        alurya = { };
-        gilarabrywn.system = "aarch64-linux";
-      };
+        flake =
+          let
+            system = "x86_64-linux"; # Default system
 
-      homeConfigurations.azalea = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        modules = [
-          { targets.genericLinux.enable = true; }
-          inputs/stylix.homeManagerModules.stylix
-          inputs/nixvim.homeManagerModules.nixvim
-          ./nixvim
-          ./home
-          ./nixos/homeConf/shared.nix
-          ./nixos/stylix/hm.nix
-          ./nixos/stylix/shared.nix
-        ];
-      };
-    };
+            mkSystem =
+              name: cfg:
+              lib.nixosSystem {
+                modules = [
+                  ./nixos
+                  ./hosts/${name}
+                  inputs.home-manager.nixosModules.home-manager
+                  inputs.stylix.nixosModules.stylix
+                  inputs.nixvim.nixosModules.nixvim
+                  ./nixvim
+                ] ++ (cfg.modules or [ ]);
+                specialArgs = {
+                  inherit name inputs;
+                  apple-silicon = inputs.apple-silicon;
+                  pkgs-unstable = nixpkgs.legacyPackages.${cfg.system or system};
+                };
+              };
+          in
+          {
+            nixosConfigurations = lib.mapAttrs mkSystem {
+              alurya = { };
+              gilarabrywn.system = "aarch64-linux";
+            };
+
+            homeConfigurations.azalea = home-manager.lib.homeManagerConfiguration {
+              pkgs = nixpkgs.legacyPackages.${system};
+              modules = [
+                { targets.genericLinux.enable = true; }
+                inputs/stylix.homeManagerModules.stylix
+                inputs/nixvim.homeManagerModules.nixvim
+                ./nixvim
+                ./home
+                ./nixos/homeConf/shared.nix
+                ./nixos/stylix/hm.nix
+                ./nixos/stylix/shared.nix
+              ];
+            };
+          };
+      }
+    );
 }

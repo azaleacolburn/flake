@@ -1,10 +1,6 @@
 {
   keymaps = [
-    {
-      mode = "n";
-      key = "<C-Up>";
-      action = "<cmd>resize -2<CR>";
-    }
+    # keep-sorted start block=yes
     {
       mode = "n";
       key = "<C-Down>";
@@ -22,8 +18,13 @@
     }
     {
       mode = "n";
-      key = "<leader>w";
-      action = "<cmd>w<CR>";
+      key = "<C-Up>";
+      action = "<cmd>resize -2<CR>";
+    }
+    {
+      mode = "n";
+      key = "<leader>e";
+      action = ":Explore<CR>";
     }
     {
       mode = "n";
@@ -32,8 +33,8 @@
     }
     {
       mode = "n";
-      key = "<leader>e";
-      action = ":Explore<CR>";
+      key = "<leader>w";
+      action = "<cmd>w<CR>";
     }
     {
       mode = "n";
@@ -45,5 +46,6 @@
       key = "l";
       action = "b";
     }
+    # keep-sorted end
   ];
 }
