@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  pkgs-unstable,
   name,
   config,
   ...
@@ -62,10 +61,7 @@
 
   home-manager = {
     extraSpecialArgs = {
-      inherit
-        inputs
-        pkgs-unstable
-        ;
+      inherit inputs;
     };
     useGlobalPkgs = true;
     useUserPackages = true;

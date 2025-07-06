@@ -9,14 +9,15 @@
       download = "${config.home.homeDirectory}/downloads";
       desktop = "${config.home.homeDirectory}/media/desktop";
       documents = "${config.home.homeDirectory}/media/docs";
-      music = "${config.home.homeDirectory}/media/music";
       pictures = "${config.home.homeDirectory}/media/pictures";
-      videos = "${config.home.homeDirectory}/media/videos";
-      templates = "${config.home.homeDirectory}/media/templates";
-      publicShare = "${config.home.homeDirectory}/media/share";
+      music = null;
+      videos = null;
+      templates = null;
+      publicShare = null;
       extraConfig = {
         XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/media/pictures/screenshots";
         XDG_ISOS_DIR = "${config.home.homeDirectory}/media/isos";
+        XDG_PROJECTS = "${config.home.homeDirectory}/projects";
       };
     };
   };

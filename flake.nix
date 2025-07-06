@@ -103,48 +103,49 @@
             };
           };
 
-        flake =
-          let
-            system = "x86_64-linux"; # Default system
+        flake = {
+          nixosConfigurations =
+            lib.genAttrs
+              [
+                "alurya"
+                "gilarabrywn"
+              ]
+              (
+                name:
+                lib.nixosSystem {
+                  modules = [
+                    # keep-sorted start prefix_order=inputs,./
+                    inputs.home-manager.nixosModules.home-manager
+                    inputs.nixvim.nixosModules.nixvim
+                    inputs.stylix.nixosModules.stylix
+                    ./hosts/${name}
+                    ./nixos
+                    ./nixvim
+                    # keep-sorted end
+                  ];
+                  specialArgs = {
+                    inherit name inputs;
+                    inherit (inputs) apple-silicon;
+                  };
+                }
+              );
 
-            mkSystem =
-              name: cfg:
-              lib.nixosSystem {
-                modules = [
-                  ./nixos
-                  ./hosts/${name}
-                  inputs.home-manager.nixosModules.home-manager
-                  inputs.stylix.nixosModules.stylix
-                  inputs.nixvim.nixosModules.nixvim
-                  ./nixvim
-                ] ++ (cfg.modules or [ ]);
-                specialArgs = {
-                  inherit name inputs;
-                  apple-silicon = inputs.apple-silicon;
-                  pkgs-unstable = nixpkgs.legacyPackages.${cfg.system or system};
-                };
-              };
-          in
-          {
-            nixosConfigurations = lib.mapAttrs mkSystem {
-              alurya = { };
-              gilarabrywn.system = "aarch64-linux";
-            };
-
-            homeConfigurations.azalea = home-manager.lib.homeManagerConfiguration {
-              pkgs = nixpkgs.legacyPackages.${system};
-              modules = [
-                { targets.genericLinux.enable = true; }
-                inputs/stylix.homeManagerModules.stylix
-                inputs/nixvim.homeManagerModules.nixvim
-                ./nixvim
-                ./home
-                ./nixos/homeConf/shared.nix
-                ./nixos/stylix/hm.nix
-                ./nixos/stylix/shared.nix
-              ];
-            };
+          homeConfigurations.azalea = home-manager.lib.homeManagerConfiguration {
+            pkgs = nixpkgs.legacyPackages."x86_64-linux";
+            modules = [
+              # keep-sorted start prefix_order=inputs,./,{
+              inputs.nixvim.homeManagerModules.nixvim
+              inputs.stylix.homeManagerModules.stylix
+              ./home
+              ./nixos/homeConf/shared.nix
+              ./nixos/stylix/hm.nix
+              ./nixos/stylix/shared.nix
+              ./nixvim
+              { targets.genericLinux.enable = true; }
+              # keep-sorted end
+            ];
           };
+        };
       }
     );
 }
