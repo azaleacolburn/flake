@@ -7,7 +7,7 @@
   uwu = "fastfetch";
   e = "nvim";
   update = "sudo nh os switch --flake ~/flake";
-  # keygen = "ssh-keygen -t ed25519 -a 4000 -f ~/.ssh/codeberg_ed25519; ssh-keygen -t ed25519 -a 4000 -f ~/.ssh/github_ed25519";
+  keygen = "ssh-keygen -t ed25519 -a 4000 -f ~/.ssh/github_ed25519";
 
   th = "z";
   zc = "z; clear";
