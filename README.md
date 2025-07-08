@@ -1,8 +1,24 @@
-# Azalea's Nix Flake
+<div align="center">
+  <h1>Azalea's Nix Flake</h1>
 
-[Layout stolen from a friend of mine](https://codeberg.org/awwpotato/nixos). Go check her's out; she has better documentation
+  <img alt="ci" src="https://img.shields.io/github/actions/workflow/status/azaleacolburn/flake/check.yml?label=build&color=a6e3a1&labelColor=303446&style=for-the-badge&logo=github&logoColor=a6e3a1" />
+  <img alt="repo size" src="https://img.shields.io/github/repo-size/azaleacolburn/flake?color=fab387&labelColor=303446&style=for-the-badge&logo=github&logoColor=fab387" />
+  <img alt="license" src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=ca9ee6&colorA=313244&colorB=cba6f7" />
+  <img alt="nixos-unstable" src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=for-the-badge&labelColor=303446&logo=NixOS&logoColor=white&color=91D7E3" />
+</div>
+
+<img alt="multi-fetch" src="./docs/images/multi.png" />
+
+<details>
+  <summary>More Images</summary>
+
+  <img alt="bacon" src="./docs/images/bacon.png" />
+</details>
 
 ## Layout
+
+[Dotfile layout taken from a friend of mine](https://codeberg.org/awwpotato/nixos). Go check her's out; she has better documentation
+
 - [hosts](https://github.com/azaleacolburn/flake/tree/main/hosts) - machine-level configs
   - [alurya](https://github.com/azaleacolburn/flake/tree/main/hosts/alurya) - desktop workstation
   - [gilarabrywn](https://github.com/azaleacolburn/flake/tree/main/hosts/gilarabrywn) - 2020 M1 macbook air
