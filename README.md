@@ -13,6 +13,7 @@
   <summary>More Images</summary>
 
   <img alt="bacon" src="./docs/images/bacon.png" />
+  <img alt="nvim" src="./docs/images/nvim.png" />
 </details>
 
 ## Layout
