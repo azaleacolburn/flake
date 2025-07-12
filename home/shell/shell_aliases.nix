@@ -6,7 +6,7 @@
 
   uwu = "fastfetch";
   e = "nvim";
-  update = "sudo nh os switch --flake ~/flake";
+  update = "nh os switch ~/flake";
   keygen = "ssh-keygen -t ed25519 -a 4000 -f ~/.ssh/github_ed25519";
 
   th = "z";

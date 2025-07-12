@@ -32,6 +32,10 @@ in
       };
 
       programs.regreet.enable = true;
+      # services.greetd.settings.default_session = {
+      #   command = "hyprland --config /etc/greetd/";
+      #   user = "azalea";
+      # };
       services.displayManager = {
         enable = lib.mkForce false;
         execCmd = "${pkgs.greetd.regreet}/bin/regreet";
