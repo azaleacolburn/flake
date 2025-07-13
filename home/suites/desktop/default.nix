@@ -32,8 +32,10 @@ in
       };
 
       alacritty.enable = true;
+      ghostty.enable = true;
       # btop replacement
       bottom.enable = true;
+      yazi.enable = true;
       fastfetch = {
         enable = true;
         settings = {
