@@ -15,6 +15,7 @@ in
     home.packages = with pkgs; [
       lutris
       prismlauncher
+      steam
     ];
   };
 }
