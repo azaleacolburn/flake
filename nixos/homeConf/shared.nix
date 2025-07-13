@@ -25,11 +25,11 @@ in
     };
     gaps-in = mkOption {
       type = types.int;
-      default = 5;
+      default = 4;
     };
     gaps-out = mkOption {
       type = types.int;
-      default = 10;
+      default = 8;
     };
     wallpaper = mkOption {
       type = types.path;

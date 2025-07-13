@@ -32,6 +32,8 @@ in
       };
 
       alacritty.enable = true;
+      # btop replacement
+      bottom.enable = true;
       fastfetch = {
         enable = true;
         settings = {

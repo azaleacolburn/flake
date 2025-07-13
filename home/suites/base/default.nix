@@ -1,3 +1,4 @@
+# Tools needed even in a minimal install of nixos
 {
   lib,
   config,
@@ -13,17 +14,21 @@ in
 
   config = mkIf cfg.enable {
     programs = {
-      btop.enable = true;
       git.enable = true;
       ssh.enable = true;
       zsh.enable = true;
+      jq.enable = true;
       ripgrep.enable = true;
+      bat.enable = true;
     };
 
     home.packages = with pkgs; [
       tree
       stow
-      jq
+      vim
+      du-dust
+      fd
+      procs
     ];
   };
 }
