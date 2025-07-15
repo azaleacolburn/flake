@@ -76,5 +76,6 @@
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
+    xone.enable = true;
   };
 }

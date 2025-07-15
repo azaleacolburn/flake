@@ -43,6 +43,7 @@
   #         function()
   #           local bufname = vim.fn.expand("%:t")
   #           if vim.bo.filetype ~= "gitcommit" and bufname == "" then
+  #             -- vim.cmd("<cmd>Telescope find_files<cr>")
   #             require("telescope.builtin").find_files()
   #           end
   #         end'';

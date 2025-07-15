@@ -53,6 +53,8 @@
     powertop
     just
     isoimagewriter
+
+    linuxKernel.packages.linux_6_12.xone
   ];
 
   fonts.packages = with pkgs; [
