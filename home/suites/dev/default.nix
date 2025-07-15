@@ -17,7 +17,8 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       # Rust
-      rustup
+      rustc
+      cargo
       bacon
 
       # C
