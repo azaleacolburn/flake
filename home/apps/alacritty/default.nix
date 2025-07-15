@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 let
@@ -26,7 +27,7 @@ in
         style = "Bold";
       };
     };
-    terminal.shell.program = "/etc/profiles/per-user/azalea/bin/nu";
+    terminal.shell.program = lib.getExe pkgs.nushell;
     terminal.shell.args = [ ];
     mouse.hide_when_typing = true;
   };

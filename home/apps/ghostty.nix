@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 let
@@ -12,6 +13,6 @@ in
   };
   config.programs.ghostty.settings = lib.mkIf cfg.enable {
     mouse-hide-while-typing = true;
-    command = "/etc/profiles/per-user/azalea/bin/nu";
+    command = lib.getExe pkgs.nushell;
   };
 }
