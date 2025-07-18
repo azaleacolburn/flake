@@ -37,6 +37,9 @@ in
       lld
       dig
       unzip
+
+      # Disk Burner
+      caligula
     ];
 
     programs = {
