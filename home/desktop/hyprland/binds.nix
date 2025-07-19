@@ -6,7 +6,7 @@
       "SUPER, N, exec, $browser"
       "SUPER, RETURN, exec, $menu"
       "SUPER, E, exec, $fileManager"
-      "SUPER, escape, exec, hyprlock"
+      "SUPER, L, exec, hyprlock"
 
       "SUPER shift, K, exit"
       "SUPER, Q, killactive"
