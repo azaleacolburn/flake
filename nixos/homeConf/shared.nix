@@ -33,7 +33,7 @@ in
     };
     wallpaper = mkOption {
       type = types.path;
-      default = ../../media/wallpapers/everforest-stairs.webp;
+      default = ../../media/wallpapers/ranni-the-witch.jpg;
     };
   };
 

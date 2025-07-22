@@ -80,8 +80,8 @@ in
         decoration = {
           rounding = homeConf.radius;
 
-          active_opacity = 0.95;
-          inactive_opacity = 0.8;
+          active_opacity = 0.9;
+          inactive_opacity = 0.7;
 
           blur = {
             enabled = false;

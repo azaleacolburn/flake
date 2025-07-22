@@ -1,10 +1,9 @@
 { ... }:
 {
-  colorschemes.everforest = {
+  colorschemes.nord = {
     enable = true;
     settings = {
       transparent_background = 1;
-      background = "soft";
     };
   };
   clipboard = {

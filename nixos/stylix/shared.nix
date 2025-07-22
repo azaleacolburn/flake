@@ -10,11 +10,13 @@
 
     polarity = "dark";
     image = config.homeConf.wallpaper;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-soft.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
 
     opacity = {
       terminal = 1.0;
       desktop = 1.0;
+      applications = 1.0;
+
       popups = 0.6;
     };
 
