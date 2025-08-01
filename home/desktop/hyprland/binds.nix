@@ -1,6 +1,11 @@
 {
   bind =
     [
+      # movement
+      "SUPER SHIFT, left, movewindow, l"
+      "SUPER SHIFT, right, movewindow, r"
+      "SUPER SHIFT, up, movewindow, u"
+      "SUPER SHIFT, down, movewindow, d"
       # programs
       "SUPER, T, exec, $terminal"
       "SUPER, N, exec, $browser"
