@@ -25,7 +25,7 @@
 
     wrap = false;
     number = true;
-    relativenumber = true;
+    relativenumber = false;
     fillchars = {
       eob = " ";
     };

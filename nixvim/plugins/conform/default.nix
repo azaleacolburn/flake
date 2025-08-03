@@ -2,11 +2,11 @@
 {
   extraPackages = with pkgs; [
     # keep-sorted start
+    biome
     black
     clang-tools
     google-java-format
     nixfmt-rfc-style
-    prettierd
     rustfmt
     shfmt
     stylua

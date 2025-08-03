@@ -52,6 +52,20 @@
 
         # webdev
         ts_ls.enable = true;
+        # biome = {
+        #   enable = true;
+        #   cmd = [
+        #     "biome"
+        #   ];
+        #   filetypes = [
+        #     "ts"
+        #     "js"
+        #     "html"
+        #     "svelte"
+        #     "tsx"
+        #     "jsx"
+        #   ];
+        # };
         tailwindcss.enable = true;
         svelte.enable = true;
         ruff.enable = true;

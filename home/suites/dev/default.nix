@@ -30,6 +30,7 @@ in
       bun
       nodejs
       zola
+      biome # Might remove if I fix my nix shell configs
 
       # Misc
       gh
