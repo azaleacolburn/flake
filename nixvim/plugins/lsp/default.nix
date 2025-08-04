@@ -19,6 +19,8 @@
           gd = "definition";
           gD = "declaration";
           gt = "type_definition";
+          gr = "references";
+          rn = "rename";
           "<leader>ca" = "code_action";
         };
         extra = [

@@ -22,8 +22,8 @@
     }
     {
       mode = "n";
-      key = "<leader>fr";
-      action = "<cmd>Telescope oldfiles<cr>";
+      key = "<leader>b";
+      action = "<cmd>Telescope buffers<cr>";
     }
     {
       mode = "n";
