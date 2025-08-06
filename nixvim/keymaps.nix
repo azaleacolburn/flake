@@ -24,7 +24,7 @@
     {
       mode = "n";
       key = "<leader>e";
-      action = ":Explore<CR>";
+      action = ":Explor<CR>";
     }
     {
       mode = "n";
@@ -45,6 +45,12 @@
       mode = "v";
       key = "l";
       action = "b";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>t";
+      action = "<cmd>Trouble diagnostics toggle<cr>";
     }
     # keep-sorted end
   ];
