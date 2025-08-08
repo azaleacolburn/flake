@@ -36,6 +36,7 @@
       key = "<leader>w";
       action = "<cmd>w<CR>";
     }
+
     {
       mode = "n";
       key = "l";
@@ -45,6 +46,16 @@
       mode = "v";
       key = "l";
       action = "b";
+    }
+    {
+      mode = "n";
+      key = "b";
+      action = "l";
+    }
+    {
+      mode = "v";
+      key = "b";
+      action = "l";
     }
 
     {

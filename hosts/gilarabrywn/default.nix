@@ -47,7 +47,6 @@ in
     useExperimentalGPUDriver = true;
     experimentalGPUInstallMode = "replace";
     peripheralFirmwareDirectory = ./firmware;
-    withRust = true;
     setupAsahiSound = true;
   };
   # Enable OpenGL Graphics

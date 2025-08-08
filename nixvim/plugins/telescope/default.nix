@@ -35,5 +35,10 @@
       key = "<leader>fc";
       action = "<cmd>Telescope grep_string<cr>";
     }
+    {
+      mode = "n";
+      key = "<leader>b";
+      action = "<cmd>Telescope buffers<cr>";
+    }
   ];
 }
