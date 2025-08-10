@@ -15,15 +15,15 @@ in
     };
     font = {
       normal = {
-        family = "Hack Nerd Font";
+        family = "Iosevka";
         style = "Regular";
       };
       italic = {
-        family = "Hack Nerd Font";
+        family = "Iosevka";
         style = "Italic";
       };
       bold = {
-        family = "Hack Nerd Font";
+        family = "Iosevka";
         style = "Bold";
       };
     };

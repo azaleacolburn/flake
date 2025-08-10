@@ -34,8 +34,8 @@
       sansSerif = config.stylix.fonts.serif;
 
       monospace = {
-        package = pkgs.nerd-fonts.hack;
-        name = "Hack Nerd Font";
+        package = pkgs.iosevka-bin; # nerd-fonts.hack;
+        name = "Iosevka";
       };
 
       emoji = config.stylix.fonts.monospace;

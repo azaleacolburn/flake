@@ -1,6 +1,5 @@
 {
   tree = "tree -C -a -I .git -I __pycache__ -I target";
-  ls = "eza -A --color=auto -s type";
   ll = "eza -Al --color=auto -s type";
   lt = "eza -AT --color=auto -I .git -s type";
 
