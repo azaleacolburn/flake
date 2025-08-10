@@ -33,9 +33,9 @@
     ZSH_COMPDUMP = "$XDG_CACHE_HOME/zsh/.zcompdump";
     CARGO_HOME = "$HOME/.cargo";
 
-    PYTHON_HISTORY = "$XDG_STATE_HOME/python/history";
-    PYTHONPYCACHEPREFIX = "$XDG_CACHE_HOME/python";
-    PYTHONUSERBASE = "$XDG_DATA_HOME/python";
+    # PYTHON_HISTORY = "$XDG_STATE_HOME/python/history";
+    # PYTHONPYCACHEPREFIX = "$XDG_CACHE_HOME/python";
+    # PYTHONUSERBASE = "$XDG_DATA_HOME/python";
 
     XCOMPOSEFILE = "$XDG_CONFIG_HOME/X11/xcompose";
     XCOMPOSECACHE = "$XDG_CACHE_HOME/X11/xcompose";

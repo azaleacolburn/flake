@@ -3,7 +3,8 @@
   colorschemes.nord = {
     enable = true;
     settings = {
-      transparent_background = 1;
+      # transparent_background = 2;
+      disable_background = true;
     };
   };
   clipboard = {
