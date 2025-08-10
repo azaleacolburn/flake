@@ -42,7 +42,7 @@
 
       sizes = {
         desktop = 12;
-        terminal = 10;
+        terminal = 11.25;
       };
     };
 

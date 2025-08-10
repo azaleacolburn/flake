@@ -42,6 +42,9 @@ in
 
       # Disk Burner
       caligula
+
+      # Terminal Multiplexer
+      zellij
     ];
 
     programs = {
