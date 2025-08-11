@@ -7,7 +7,6 @@
     ./treesitter
     ./cmp
     ./trouble
-    # ./noice
   ];
 
   plugins = {

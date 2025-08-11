@@ -5,6 +5,7 @@
     settings = {
       # transparent_background = 2;
       disable_background = true;
+      italic = false;
     };
   };
   clipboard = {
@@ -35,6 +36,14 @@
     cursorline = false;
     swapfile = false;
   };
+  highlightOverride = {
+    Visual = {
+      fg = "#FFFFFF";
+      bg = "#88c0d0";
+    };
+
+  };
+
   # autoCmd = [
   #   {
   #     event = [ "VimEnter" ];

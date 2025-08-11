@@ -41,4 +41,9 @@
       action = "<cmd>Telescope buffers<cr>";
     }
   ];
+  highlight = {
+    TelescopeNormal = {
+      bg = "#000000";
+    };
+  };
 }
