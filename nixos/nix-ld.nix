@@ -75,6 +75,31 @@
     libxcrypt-legacy
     libxkbcommon
     libxml2
+
+    # # Playwright deps
+    # libglib-2
+    # libgobject-2
+    # libnspr4
+    # libnss3
+    # libnssutil3
+    # libdbus-1
+    # libgio-2
+    # libatk-1
+    # libatk-bridge-2
+    # libexpat
+    # libatspi
+    # libX11
+    # libXcomposite
+    # libXdamage
+    # libXext
+    # libXfixes
+    # libXrandr
+    # libgbm
+    # libxcb
+    # libxkbcommon
+    # libudev
+    # libasound
+
     mesa
     nspr
     nss

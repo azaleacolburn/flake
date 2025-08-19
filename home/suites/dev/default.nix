@@ -18,8 +18,6 @@ in
     home.packages = with pkgs; [
       # Rust
       rustup
-      # rustc
-      # cargo
       bacon
 
       # C

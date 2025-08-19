@@ -1,6 +1,4 @@
-let
-  shell_aliases = (import ./shell_aliases.nix);
-in
+{ config, ... }:
 {
   programs = {
     nushell = {
@@ -34,22 +32,28 @@ in
         append /usr/bin/env
         )
       '';
-      shellAliases = shell_aliases;
     };
     carapace.enable = true;
     carapace.enableNushellIntegration = true;
 
+    starship.enable = true;
     zoxide = {
       enable = true;
-      enableZshIntegration = true;
+      enableNushellIntegration = true;
     };
 
     eza = {
       enable = true;
       icons = "auto";
-      enableZshIntegration = true;
+      enableNushellIntegration = true;
     };
 
-    starship.enable = true;
+    # For `nix develop`
+    bash = {
+      enable = true;
+      enableCompletion = true;
+      historyFile = "${config.xdg.dataHome}/bash/bash_history";
+    };
+
   };
 }

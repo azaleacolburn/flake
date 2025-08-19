@@ -10,6 +10,7 @@ in
 {
   programs.starship = mkIf cfg.enable {
     enableZshIntegration = mkIf config.programs.zsh.enable true;
+    enableBashIntegration = mkIf config.programs.bash.enable true;
 
     settings = {
       add_newline = true;

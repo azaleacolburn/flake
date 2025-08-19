@@ -17,7 +17,7 @@
   keymaps = [
     {
       mode = "n";
-      key = "<leader>ff";
+      key = "<leader>f";
       action = "<cmd>Telescope find_files<cr>";
     }
     {
@@ -27,18 +27,13 @@
     }
     {
       mode = "n";
-      key = "<leader>fs";
+      key = "<leader>g";
       action = "<cmd>Telescope live_grep<cr>";
     }
     {
       mode = "n";
-      key = "<leader>fc";
+      key = "<leader>s";
       action = "<cmd>Telescope grep_string<cr>";
-    }
-    {
-      mode = "n";
-      key = "<leader>b";
-      action = "<cmd>Telescope buffers<cr>";
     }
   ];
   highlight = {
