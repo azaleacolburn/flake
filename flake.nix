@@ -3,6 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -60,7 +63,8 @@
         flake-compat.follows = "";
       };
     };
-    # keep-sorted end
+
+        # keep-sorted end
   };
 
   outputs =
@@ -129,6 +133,10 @@
                   };
                 }
               );
+
+          darwinConfigurations."novron" = nix-darwin.lib.darwinSystem {
+            modules = [./hosts/novron]
+          };
 
           homeConfigurations.azalea = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages."x86_64-linux";
