@@ -174,7 +174,8 @@ in
           in
           "${m.name},${if m.enabled then "${resolution},${position},${toString m.scale}" else "disable"}"
         ) (config.monitors);
-      } // import ./binds.nix;
+      }
+      // import ./binds.nix;
     };
   };
 }

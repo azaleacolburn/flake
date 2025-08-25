@@ -60,6 +60,11 @@
         flake-compat.follows = "";
       };
     };
+
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # keep-sorted end
   };
 
@@ -69,6 +74,7 @@
       systems,
       nixpkgs,
       home-manager,
+      rust-overlay,
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } (
@@ -121,6 +127,13 @@
                     ./hosts/${name}
                     ./nixos
                     ./nixvim
+                    (
+                      { pkgs, ... }:
+                      {
+                        nixpkgs.overlays = [ rust-overlay.overlays.default ];
+                        environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+                      }
+                    )
                     # keep-sorted end
                   ];
                   specialArgs = {

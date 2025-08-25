@@ -9,6 +9,7 @@ let
   cfg = config.suites.dev;
 in
 {
+
   options.suites.dev = {
     enable = mkEnableOption "Install development tools";
     java.enable = mkEnableOption "Install java tools (intellij)";
@@ -17,7 +18,7 @@ in
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       # Rust
-      rustup
+      # rustup
       bacon
 
       # C
@@ -46,6 +47,10 @@ in
     ];
 
     programs = {
+      direnv = {
+        enable = true;
+        nix-direnv.enable = true;
+      };
     };
   };
 }

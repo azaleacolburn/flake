@@ -35,7 +35,7 @@ in
       @define-color base0C ${base0C}; @define-color base0D ${base0D}; @define-color base0E ${base0E}; @define-color base0F ${base0F};
 
       window#waybar {
-        background: alpha(@base00, 0.7);
+        background: alpha(@base00, 0.6);
       }
 
       * {
