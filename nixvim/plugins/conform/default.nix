@@ -3,7 +3,6 @@
   extraPackages = with pkgs; [
     # keep-sorted start
     biome
-    black
     clang-tools
     google-java-format
     nixfmt-rfc-style
@@ -71,7 +70,6 @@
           typescriptreact = prettier;
           markdown = prettier;
           java = [ "google-java-format" ];
-          python = [ "black" ];
           lua = [ "stylua" ];
           nix = {
             stop_after_first = true;
