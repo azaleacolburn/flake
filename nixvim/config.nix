@@ -44,19 +44,19 @@
 
   };
 
-  # autoCmd = [
-  #   {
-  #     event = [ "VimEnter" ];
-  #     callback = {
-  #       __raw = ''
-  #         function()
-  #           local bufname = vim.fn.expand("%:t")
-  #           if vim.bo.filetype ~= "gitcommit" and bufname == "" then
-  #             -- vim.cmd("<cmd>Telescope find_files<cr>")
-  #             require("telescope.builtin").find_files()
-  #           end
-  #         end'';
-  #     };
-  #   }
-  # ];
+  autoCmd = [
+    {
+      event = [ "VimEnter" ];
+      callback = {
+        __raw = ''
+            function(table)
+              if vim.fn.argc() == 0 and vim.fn.expand("%:t") == "" then
+              vim.schedule(function()
+                require("telescope.builtin").find_files()
+              end)
+            end
+          end'';
+      };
+    }
+  ];
 }
