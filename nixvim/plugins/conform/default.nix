@@ -62,12 +62,12 @@
           };
         in
         {
-          html = prettier;
-          css = prettier;
-          javascript = prettier;
-          javascriptreact = prettier;
-          typescript = prettier;
-          typescriptreact = prettier;
+          html = [ "biome" ];
+          css = [ "biome" ];
+          javascript = [ "biome" ];
+          javascriptreact = [ "biome" ];
+          typescript = [ "biome" ];
+          typescriptreact = [ "biome" ];
           markdown = prettier;
           java = [ "google-java-format" ];
           lua = [ "stylua" ];
