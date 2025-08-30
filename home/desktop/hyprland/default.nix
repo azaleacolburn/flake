@@ -148,12 +148,6 @@ in
           };
         };
 
-        gestures = {
-          workspace_swipe = true;
-          workspace_swipe_min_fingers = true;
-          workspace_swipe_distance = 150;
-        };
-
         workspace = [ "s[true],gapsout:40" ];
 
         windowrule = [
