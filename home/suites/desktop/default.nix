@@ -77,7 +77,7 @@ in
         appimage-run
         signal-desktop
       ]
-      ++ (if cfg.slack.enable then [ slack ] else [ ])
+      ++ (if cfg.slack.enable then [ slack ] else [ slacky ])
       ++ (if cfg.spotify.enable then [ spotify ] else [ ncspot ]);
 
     gtk.iconTheme = {

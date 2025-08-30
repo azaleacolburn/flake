@@ -44,8 +44,6 @@ in
   # Asahi Graphics and Firmware Support
   hardware.asahi = {
     enable = true;
-    useExperimentalGPUDriver = true;
-    experimentalGPUInstallMode = "replace";
     peripheralFirmwareDirectory = ./firmware;
     setupAsahiSound = true;
   };

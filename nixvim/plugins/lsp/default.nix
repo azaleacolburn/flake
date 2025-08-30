@@ -4,7 +4,11 @@
     lsp-signature.enable = true;
     trouble = {
       enable = true;
-      settings.auto_close = true;
+      settings = {
+        auto_close = true;
+        auto_refresh = true;
+        focus = true;
+      };
     };
     lsp = {
       enable = true;

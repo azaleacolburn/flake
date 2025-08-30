@@ -42,6 +42,9 @@ in
       # Disk Burner
       caligula
 
+      # Diff tool
+      delta
+
       # Terminal Multiplexer
       zellij
     ];

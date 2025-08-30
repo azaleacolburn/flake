@@ -42,7 +42,7 @@ in
       };
     })
     (mkIf cfg.unbindPowerButton {
-      services.logind.extraConfig = "HandlePowerKey=ignore";
+      services.logind.powerKey = "ignore";
     })
     (mkIf cfg.bluetooth.enable {
       hardware.bluetooth = {
