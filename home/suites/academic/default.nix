@@ -18,6 +18,10 @@ in
     home.packages = with pkgs; [
       numbat
       chromium
+
+      thonny
+      python3
+
     ];
   };
 }
