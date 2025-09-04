@@ -26,7 +26,7 @@ in
       defaultKeymap = "emacs";
 
       history.path = "${config.xdg.dataHome}/zsh/zsh_history";
-      dotDir = ".config/zsh";
+      dotDir = "${config.xdg.configHome}/zsh";
       completionInit = "mkdir -p ~/.cache/zsh; autoload -Uz compinit; compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION";
     };
   };

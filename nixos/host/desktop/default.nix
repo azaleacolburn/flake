@@ -40,9 +40,10 @@ in
         enable = lib.mkForce false;
         execCmd = "${pkgs.greetd.regreet}/bin/regreet";
       };
+      services.tcsd.enable = false;
     })
     (mkIf cfg.unbindPowerButton {
-      services.logind.powerKey = "ignore";
+      services.logind.settings.Login.HandlePowerKey = "ignore";
     })
     (mkIf cfg.bluetooth.enable {
       hardware.bluetooth = {
