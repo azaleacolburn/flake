@@ -47,6 +47,9 @@ in
 
       # Terminal Multiplexer
       zellij
+
+      thonny
+      python3
     ];
 
     programs = {

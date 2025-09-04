@@ -14,8 +14,8 @@ window#waybar {
 
 window#waybar > box {
     padding: 2px 8px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 window#waybar.hidden {
@@ -31,7 +31,7 @@ label {
 window#waybar box#tray,
 window#waybar label {
     padding: 0 8px;
-    background-color: @base01;
+    background-color: @base0;
 }
 
 /* workspace */
@@ -40,7 +40,7 @@ window#waybar label {
     padding: 0 4px;
     transition: none;
     color: @base05;
-    background: @base01;
+    background: @base0;
 }
 
 #workspaces button label {
@@ -125,11 +125,11 @@ window#waybar.empty box#window label {
 }
 
 #memory {
-    color: @base09;
+    color: @base0F;
 }
 
 #cpu {
-    color: @base0F;
+    color: @base09;
 }
 
 window#waybar label#custom-power {

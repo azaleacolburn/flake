@@ -13,7 +13,7 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
 
     opacity = {
-      terminal = 0.7;
+      terminal = 0.6;
       desktop = 0.8; # Doesn't affect waybar since stylix is disabled for it
       applications = 1.0;
       popups = 0.6;

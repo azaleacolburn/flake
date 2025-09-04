@@ -70,7 +70,7 @@ in
         "power-profiles-daemon"
         "battery"
         "idle_inhibitor"
-        "custom/power"
+        # "custom/power"
       ];
       "hyprland/workspaces" = {
         active-only = false;
