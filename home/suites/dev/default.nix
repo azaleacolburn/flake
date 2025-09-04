@@ -53,6 +53,28 @@ in
     ];
 
     programs = {
+      helix = {
+        enable = true;
+        settings = {
+          editor = {
+            line-number = "relative";
+            lsp.display-messages = true;
+
+          };
+          keys = {
+            normal = {
+              space.f = "file_picker";
+              space.w = ":w";
+              esc = [
+                "collapse_selection"
+                "keep_primary_selection"
+              ];
+              space.q = ":q";
+            };
+          };
+
+        };
+      };
       direnv = {
         enable = true;
         nix-direnv.enable = true;

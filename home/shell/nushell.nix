@@ -45,7 +45,7 @@
     eza = {
       enable = true;
       icons = "auto";
-      enableNushellIntegration = true;
+      enableNushellIntegration = false;
     };
 
     # For `nix develop`
