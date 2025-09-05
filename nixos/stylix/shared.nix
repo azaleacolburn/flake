@@ -15,7 +15,7 @@
     opacity = {
       terminal = 0.6;
       desktop = 0.8; # Doesn't affect waybar since stylix is disabled for it
-      applications = 1.0;
+      applications = 0.6;
       popups = 0.6;
     };
 
