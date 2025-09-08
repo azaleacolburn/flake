@@ -54,9 +54,10 @@ in
         enable = true;
         settings = {
           editor = {
+            true-color = true;
             line-number = "relative";
             lsp.display-messages = true;
-
+            cursor-shape.insert = "bar";
           };
           keys = {
             normal = {

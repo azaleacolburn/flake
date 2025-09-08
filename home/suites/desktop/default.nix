@@ -30,6 +30,7 @@ in
         enable = true;
         default = true;
       };
+      firefox.enable = true;
 
       alacritty.enable = true;
       ghostty.enable = true;
