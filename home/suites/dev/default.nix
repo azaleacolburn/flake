@@ -56,8 +56,23 @@ in
           editor = {
             true-color = true;
             line-number = "relative";
-            lsp.display-messages = true;
-            cursor-shape.insert = "bar";
+            lsp = {
+              display-messages = true;
+              display-inlay-hints = true;
+            };
+            shell = [ "nu" ];
+            statusline = {
+              mode = {
+                normal = "NORMAL";
+                insert = "INSERT";
+                select = "SELECT";
+              };
+            };
+            cursor-shape = {
+              insert = "bar";
+              normal = "block";
+              select = "underline";
+            };
           };
           keys = {
             normal = {
@@ -68,6 +83,9 @@ in
                 "keep_primary_selection"
               ];
               space.q = ":q";
+              # x and d are typed with the same finger
+              l = "x";
+              x = "l";
             };
           };
 
