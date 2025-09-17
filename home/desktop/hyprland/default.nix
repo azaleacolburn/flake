@@ -52,7 +52,7 @@ in
         ];
 
         "$terminal" = "alacritty";
-        "$browser" = "librewolf";
+        "$browser" = "zen";
         "$fileManager" = "dolphin";
         "$menu" = "rofi -show drun";
 

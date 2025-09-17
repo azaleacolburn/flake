@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }:
 {
@@ -34,6 +35,10 @@
 
   programs.dconf.enable = true;
   programs.hyprland.enable = true;
+
+  environment.systemPackages = [
+    inputs.zen-browser.packages."x86_64-linux".default
+  ];
 
   home-manager.users.${config.homeConf.username} = {
     suites = {

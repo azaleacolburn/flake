@@ -22,14 +22,10 @@ let
 in
 {
   programs.rofi = mkIf cfg.enable {
-    package = pkgs.rofi-wayland;
-    plugins = with pkgs; [
-      rofi-emoji-wayland
-    ];
     terminal = "${pkgs.alacritty}/bin/alacritty";
     font = mkForce "${monospace.name} 16";
     extraConfig = {
-      modi = "drun,emoji";
+      modi = "drun";
       show-icons = true;
       display-drun = " ";
       display-window = "󰩉 ";

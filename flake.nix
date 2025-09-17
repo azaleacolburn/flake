@@ -65,6 +65,8 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser.url = "git+https://codeberg.org/0x57e11a/flake-zen";
     # keep-sorted end
   };
 
@@ -149,6 +151,7 @@
               # keep-sorted start prefix_order=inputs,./,{
               inputs.nixvim.homeManagerModules.nixvim
               inputs.stylix.homeManagerModules.stylix
+              inputs.zen-browser.packages."x86_64-linux".default
               ./home
               ./nixos/homeConf/shared.nix
               ./nixos/stylix/hm.nix

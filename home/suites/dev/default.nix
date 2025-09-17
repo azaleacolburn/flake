@@ -47,6 +47,8 @@ in
 
       # Terminal Multiplexer
       zellij
+
+      home-manager
     ];
 
     programs = {
