@@ -79,7 +79,7 @@ in
         on-click = "activate";
       };
       clock = {
-        format = "{:%I:%M %p %b %d}";
+        format = "{:%H:%M %b %d}";
       };
       battery = {
         states = {
