@@ -143,7 +143,7 @@ in
           touchpad = {
             natural_scroll = true;
             disable_while_typing = true;
-            tap-to-click = false;
+            tap-to-click = true;
             clickfinger_behavior = true;
           };
         };

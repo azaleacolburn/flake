@@ -86,6 +86,8 @@ in
       desktop = {
         enable = true;
         hyprland.enable = true;
+        slack.enable = true;
+        spotify.enable = true;
       };
       dev.enable = true;
       media.enable = true;
