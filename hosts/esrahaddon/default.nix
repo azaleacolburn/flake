@@ -1,15 +1,26 @@
 # Copyright (c) 2024-2025 awwpotato <awwpotato@voidq.com>
 {
   pkgs,
-  lib,
   inputs,
-  self,
+  config,
   ...
 }:
+let
+  keyboard_layout = ''
+    (deflayer base
+        esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+        grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+        tab  q    d    r    w    b    j    f    u    p    ;    [    ]
+        esc  a    s    h    t    g    y    n    e    o    i    '    ret
+        lsft z    x    m    c    v    k    l    ,    .    /    rsft
+        lctl lmet lalt           spc            ralt rctl 
+    )
+  '';
+in
+
 {
   imports = [
-    inputs.nixos-hardware.nixosModules.framework-13th-gen-amd
-    (self.diskoModules.luks-btrfs { disk = "/dev/nvme0n1"; })
+    inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
     ./hardware.nix
   ];
 
@@ -17,7 +28,6 @@
     boot.enable = true;
     desktop = {
       enable = true;
-      tuned.enable = true;
     };
   };
 
@@ -25,45 +35,53 @@
 
   # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "potato" ];
-
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-  };
-
-  environment.systemPackages = with pkgs; [
-    distrobox
-    fw-ectool
-  ];
-
   services = {
     fwupd.enable = true;
     # udev.packages = [ pkgs.android-udev-rules ];
   };
 
-  networking.firewall.allowedTCPPorts = [
-    9090 # calibre
-  ];
+  services.kanata = {
+    enable = true;
+    keyboards =
+      let
+        extraDefCfg = ''
+          process-unmapped-keys yes
+        '';
+      in
+      {
+        default = {
+          inherit extraDefCfg;
+
+          devices = [
+            "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
+          ];
+
+          config = ''
+            (defsrc
+                esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+                grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+                tab  q    w    e    r    t    y    u    i    o    p    [    ]
+                caps a    s    d    f    g    h    j    k    l    ;    '    ret
+                lsft z    x    c    v    b    n    m    ,    .    /    rsft
+                lctl lalt lmet           spc            rmet ralt 
+            )
+
+          ''
+          + keyboard_layout;
+        };
+      };
+  };
 
   programs = {
-    nix-ld.enable = true;
-    nh.clean.enable = lib.mkForce false;
+    # nix-ld.enable = true;
+    # nh.clean.enable = lib.mkForce false;
     hyprland.enable = true;
-    steam.enable = true;
+    dconf.enable = true;
   };
 
   # stylix.image = ../../../media/wallpapers/pink-flower-catpuccin.png;
 
-  monitors = lib.singleton {
-    name = "eDP-1";
-    width = 2256;
-    height = 1504;
-    scale = 1.566;
-  };
-
-  home-manager.users.azalea = {
+  home-manager.users.${config.homeConf.username} = {
     suites = {
       desktop = {
         enable = true;
@@ -73,38 +91,14 @@
       media.enable = true;
     };
 
-    i18n.inputMethod = {
-      enable = true;
-      type = "fcitx5";
-      fcitx5 = {
-        waylandFrontend = true;
-        addons = with pkgs; [
-          fcitx5-gtk
-          fcitx5-chinese-addons
-        ];
-        settings = import ./fcitx5-settings.nix;
-      };
-    };
+    monitors = [
+      {
+        name = "eDP-1";
+        width = 2256;
+        height = 1504;
+        scale = 1.566;
+      }
+    ];
 
-    programs.zen-browser = {
-      enable = true;
-      profiles = {
-        school = {
-          id = 0;
-          extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-            ublock-origin
-            bitwarden
-            darkreader
-            return-youtube-dislikes
-            sponsorblock
-            duckduckgo-privacy-essentials
-            facebook-container
-          ];
-          settings = {
-            "zen.view.experimental-no-window-controls" = true;
-          };
-        };
-      };
-    };
   };
 }
