@@ -45,7 +45,6 @@ in
           disable_logs = false;
         };
         exec-once = [
-          "{ fcitx5 -d -r; fcitx5-remote -r; }&"
           (optionals config.programs.waybar.enable "${pkgs.waybar}/bin/waybar&")
           (optionals config.services.hypridle.enable "${pkgs.hypridle}/bin/hypridle&")
           (optionals config.services.hyprpaper.enable "${pkgs.hyprpaper}/bin/hyprpaper&")
