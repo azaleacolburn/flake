@@ -55,9 +55,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
-        home-manager.follows = "home-manager";
         flake-parts.follows = "flake-parts";
-        flake-compat.follows = "";
       };
     };
 
