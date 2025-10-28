@@ -1,44 +1,43 @@
 {
-  bind =
-    [
-      # movement
-      "SUPER SHIFT, left, movewindow, l"
-      "SUPER SHIFT, right, movewindow, r"
-      "SUPER SHIFT, up, movewindow, u"
-      "SUPER SHIFT, down, movewindow, d"
-      # programs
-      "SUPER, T, exec, $terminal"
-      "SUPER, N, exec, $browser"
-      "SUPER, RETURN, exec, $menu"
-      "SUPER, E, exec, $fileManager"
-      "SUPER, L, exec, hyprlock"
+  bind = [
+    # movement
+    "SUPER SHIFT, left, movewindow, l"
+    "SUPER SHIFT, right, movewindow, r"
+    "SUPER SHIFT, up, movewindow, u"
+    "SUPER SHIFT, down, movewindow, d"
+    # programs
+    "SUPER, T, exec, $terminal"
+    "SUPER, N, exec, $browser"
+    "SUPER, RETURN, exec, $menu"
+    "SUPER, E, exec, $fileManager"
+    "SUPER, L, exec, hyprlock"
 
-      "SUPER shift, K, exit"
-      "SUPER, Q, killactive"
-      "SUPER, O, pin,"
-      "SUPER, F, togglefloating"
-      "SUPER, I, pseudo," # dwindle
-      "SUPER, U, togglesplit," # dwindle
-      "SUPER, W, exec, pkill waybar || waybar"
+    "SUPER shift, K, exit"
+    "SUPER, Q, killactive"
+    "SUPER, O, pin,"
+    "SUPER, F, togglefloating"
+    "SUPER, I, pseudo," # dwindle
+    "SUPER, U, togglesplit," # dwindle
+    "SUPER, W, exec, pkill waybar || waybar"
 
-      "SUPER, Tab, workspace, m+1"
-      "SUPER SHIFT, Tab, workspace, m-1"
+    "SUPER, Tab, workspace, m+1"
+    "SUPER SHIFT, Tab, workspace, m-1"
 
-      "SUPER, S, togglespecialworkspace, magic"
-      "SUPER SHIFT, S, movetoworkspace, special:magic"
+    "SUPER, S, togglespecialworkspace, magic"
+    "SUPER SHIFT, S, movetoworkspace, special:magic"
 
-      ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-      ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+    ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
-      "SUPER, P, exec, grimblast save output - | swappy -f -"
-      "SUPER SHIFT, P, exec, grimblast save area - | swappy -f -"
-    ]
-    ++ (builtins.concatLists (
-      builtins.genList (x: [
-        "SUPER, ${toString (x + 1)}, workspace, ${toString (x + 1)}"
-        "SUPER SHIFT, ${toString (x + 1)}, movetoworkspace, ${toString (x + 1)}"
-      ]) 9
-    ));
+    "SUPER, P, exec, grimblast save output - | swappy -f -"
+    "SUPER SHIFT, P, exec, grimblast save area - | swappy -f -"
+  ]
+  ++ (builtins.concatLists (
+    builtins.genList (x: [
+      "SUPER, ${toString (x + 1)}, workspace, ${toString (x + 1)}"
+      "SUPER SHIFT, ${toString (x + 1)}, movetoworkspace, ${toString (x + 1)}"
+    ]) 9
+  ));
 
   binde = [
     "SUPER, left, movefocus, l"

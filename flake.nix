@@ -50,6 +50,11 @@
       flake = false;
     };
 
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix = {
       url = "github:nix-community/stylix";
       inputs = {
@@ -57,11 +62,6 @@
         systems.follows = "systems";
         flake-parts.follows = "flake-parts";
       };
-    };
-
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser.url = "git+https://codeberg.org/0x57e11a/flake-zen";
@@ -114,8 +114,8 @@
             lib.genAttrs
               [
                 "alurya"
-"esrahaddon"              
-  "gilarabrywn"
+                "esrahaddon"
+                "gilarabrywn"
               ]
               (
                 name:
