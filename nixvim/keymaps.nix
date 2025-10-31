@@ -1,6 +1,7 @@
 {
   keymaps = [
     # keep-sorted start block=yes
+
     {
       mode = "n";
       key = "<C-Down>";
@@ -33,10 +34,19 @@
     }
     {
       mode = "n";
+      key = "<leader>t";
+      action = "<cmd>Trouble diagnostics toggle<cr>";
+    }
+    {
+      mode = "n";
       key = "<leader>w";
       action = "<cmd>w<CR>";
     }
-
+    {
+      mode = "n";
+      key = "b";
+      action = "l";
+    }
     {
       mode = "n";
       key = "l";
@@ -44,24 +54,13 @@
     }
     {
       mode = "v";
-      key = "l";
-      action = "b";
-    }
-    {
-      mode = "n";
       key = "b";
       action = "l";
     }
     {
       mode = "v";
-      key = "b";
-      action = "l";
-    }
-
-    {
-      mode = "n";
-      key = "<leader>t";
-      action = "<cmd>Trouble diagnostics toggle<cr>";
+      key = "l";
+      action = "b";
     }
     # keep-sorted end
   ];
