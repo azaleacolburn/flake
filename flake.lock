@@ -636,11 +636,11 @@
         "rev": "4fae4e697ba485304c5c879a6b6bbf994dc738d5",
         "revCount": 396,
         "type": "git",
-        "url": "https://codeberg.org/awwpotato/potatofox"
+        "url": "https://codeberg.org/da157/potatofox"
       },
       "original": {
         "type": "git",
-        "url": "https://codeberg.org/awwpotato/potatofox"
+        "url": "https://codeberg.org/da157/potatofox"
       }
     },
     "pre-commit-hooks": {

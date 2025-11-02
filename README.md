@@ -18,7 +18,7 @@
 
 ## Layout
 
-[Dotfile layout taken from a friend of mine](https://codeberg.org/awwpotato/nixos). Go check her's out; she has better documentation
+[Dotfile layout taken from a friend of mine](https://codeberg.org/da157/nixos). Go check her's out; she has better documentation
 
 - [hosts](https://github.com/azaleacolburn/flake/tree/main/hosts) - machine-level configs
   - [alurya](https://github.com/azaleacolburn/flake/tree/main/hosts/alurya) - desktop workstation
