@@ -25,6 +25,7 @@ in
       vlc
       feh
       inkscape
+      gapless
     ];
   };
 }
