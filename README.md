@@ -3,7 +3,7 @@
 
   <img alt="ci" src="https://img.shields.io/github/actions/workflow/status/azaleacolburn/flake/check.yml?label=build&color=a6e3a1&labelColor=303446&style=for-the-badge&logo=github&logoColor=a6e3a1" />
   <img alt="repo size" src="https://img.shields.io/github/repo-size/azaleacolburn/flake?color=fab387&labelColor=303446&style=for-the-badge&logo=github&logoColor=fab387" />
-  <img alt="license" src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=GPLv3&logoColor=ca9ee6&colorA=313244&colorB=cba6f7" />
+  <img alt="license" src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=ca9ee6&colorA=313244&colorB=cba6f7" />
   <img alt="nixos-unstable" src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=for-the-badge&labelColor=303446&logo=NixOS&logoColor=white&color=91D7E3" />
 </div>
 
