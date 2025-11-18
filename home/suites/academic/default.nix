@@ -18,7 +18,6 @@ in
     home.packages = with pkgs; [
       numbat
       chromium
-      davinci-resolve
 
       python3
     ];

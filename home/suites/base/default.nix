@@ -26,7 +26,7 @@ in
       tree
       stow
       vim
-      du-dust
+      dust
       fd
       procs
     ];
