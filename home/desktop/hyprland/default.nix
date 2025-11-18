@@ -67,10 +67,10 @@ in
           layout = "dwindle";
 
           layerrule = [
-            "blur,waybar"
-            "blur,launcher"
-            "blur,rofi"
-            "ignorezero,rofi"
+            "blur,waybar.*"
+            "blur,launcher.*"
+            "blur,rofi.*"
+            "ignorezero,rofi.*"
           ];
         };
 
@@ -96,7 +96,7 @@ in
           enabled = true;
           bezier = [
             "easeOutQuint,0.23,1,0.32,1"
-            "easeInCubic,0.65,0,0.05.0.36,1"
+            "easeInCubic,0.55,0.055,0.675,0.19"
             "linear,0,0,1,1"
             "almostLinear,0.5,0.5,0.75,1"
             "quick,0.15,0,0.1,1"
