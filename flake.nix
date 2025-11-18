@@ -65,6 +65,8 @@
     };
 
     zen-browser.url = "git+https://codeberg.org/0x57e11a/flake-zen";
+
+    porcelain.url = "https://codeberg.org/da157/porcelain/archive/main.tar.gz";
     # keep-sorted end
   };
 
@@ -132,7 +134,10 @@
                       { pkgs, ... }:
                       {
                         nixpkgs.overlays = [ rust-overlay.overlays.default ];
-                        environment.systemPackages = [ pkgs.rust-bin.stable.latest.default ];
+                        environment.systemPackages = [
+                          pkgs.rust-bin.stable.latest.default
+                          inputs.porcelain.packages.${pkgs.stdenv.hostPlatform.system}.porcelain
+                        ];
                       }
                     )
                     # keep-sorted end

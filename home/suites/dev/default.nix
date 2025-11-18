@@ -24,6 +24,7 @@ in
       # C
       gcc
       gnumake
+      gdb
 
       # Webdev
       bun
