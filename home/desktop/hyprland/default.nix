@@ -38,8 +38,6 @@ in
       enable = true;
       xwayland.enable = true;
 
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-
       settings = {
         debug = {
           disable_logs = false;
@@ -67,10 +65,10 @@ in
           layout = "dwindle";
 
           layerrule = [
-            "blur,waybar.*"
-            "blur,launcher.*"
-            "blur,rofi.*"
-            "ignorezero,rofi.*"
+            "blur,waybar"
+            "blur,launcher"
+            "blur,rofi"
+            "ignorezero,rofi"
           ];
         };
 
@@ -83,7 +81,7 @@ in
           inactive_opacity = 0.8;
 
           blur = {
-            enabled = false;
+            enabled = true;
             size = 3;
             passes = 2;
             vibrancy = 0.1696;
@@ -152,11 +150,9 @@ in
         windowrule = [
           "float,title:^(Picture-in-Picture)"
           "pin,title:^(Picture-in-Picture)"
-        ];
-
-        windowrulev2 = [
           "float, onworkspace:s[true]"
           "suppressevent maximize, class:.*" # You'll probably like this.
+
         ];
 
         monitor = map (

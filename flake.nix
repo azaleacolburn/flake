@@ -25,14 +25,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-      };
-    };
-
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nixvim = {
