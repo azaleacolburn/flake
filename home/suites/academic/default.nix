@@ -19,7 +19,7 @@ in
       numbat
       chromium
 
-      python3
+      kiwix
     ];
   };
 }

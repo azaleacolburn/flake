@@ -48,7 +48,7 @@
         slack.enable = true;
         spotify.enable = true;
       };
-      academic.enable = false;
+      academic.enable = true;
       dev.enable = true;
       gaming.enable = true;
       media.enable = true;
@@ -70,7 +70,7 @@
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        vaapiVdpau
+        libva-vdpau-driver
         libvdpau-va-gl
       ];
     };
