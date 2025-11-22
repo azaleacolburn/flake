@@ -44,24 +44,15 @@
     }
     {
       mode = "n";
-      key = "b";
-      action = "l";
+      key = "t";
+      action = "c";
     }
     {
       mode = "n";
-      key = "l";
-      action = "b";
+      key = "c";
+      action = "t";
     }
-    {
-      mode = "v";
-      key = "b";
-      action = "l";
-    }
-    {
-      mode = "v";
-      key = "l";
-      action = "b";
-    }
+
     # keep-sorted end
   ];
 }
