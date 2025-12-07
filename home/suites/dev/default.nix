@@ -50,6 +50,8 @@ in
       zellij
 
       home-manager
+
+      syncthing
     ];
 
     programs = {
