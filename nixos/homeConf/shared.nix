@@ -33,7 +33,7 @@ in
     };
     wallpaper = mkOption {
       type = types.path;
-      default = ../../media/wallpapers/ranni-cosmos.jpg;
+      default = ../../media/wallpapers/ranni-simple.jpg;
     };
   };
 

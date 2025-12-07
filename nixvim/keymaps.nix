@@ -52,7 +52,6 @@
       key = "c";
       action = "t";
     }
-
     # keep-sorted end
   ];
 }
