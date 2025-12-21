@@ -16,43 +16,48 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      # Rust
-      # rustup
-      bacon
+    home.packages =
+      with pkgs;
+      [
+        # Rust
+        # rustup
+        bacon
 
-      # C
-      gcc
-      gnumake
-      gdb
+        # C
+        gcc
+        gnumake
+        gdb
 
-      # Webdev
-      bun
-      nodejs
-      zola
-      biome # Might remove if I fix my nix shell configs
+        # Webdev
+        bun
+        nodejs
+        zola
+        biome # Might remove if I fix my nix shell configs
 
-      # Misc
-      gh
-      fzf
+        # Misc
+        gh
+        fzf
 
-      lld
-      dig
-      unzip
+        lld
+        dig
+        unzip
 
-      # Disk Burner
-      caligula
+        # Disk Burner
+        caligula
 
-      # Diff tool
-      delta
+        # Diff tool
+        delta
 
-      # Terminal Multiplexer
-      zellij
+        # Terminal Multiplexer
+        zellij
 
-      home-manager
+        home-manager
 
-      syncthing
-    ];
+        syncthing
+
+        virtualbox
+      ]
+      ++ lib.optionals cfg.java.enable [ pkgs.jetbrains.idea-community ];
 
     programs = {
       helix = {

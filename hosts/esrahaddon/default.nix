@@ -89,7 +89,10 @@ in
         slack.enable = true;
         spotify.enable = true;
       };
-      dev.enable = true;
+      dev = {
+        enable = true;
+        java.enable = true;
+      };
       media.enable = true;
       academic.enable = true;
     };

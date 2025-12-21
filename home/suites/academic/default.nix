@@ -19,6 +19,8 @@ in
       numbat
       chromium
 
+      obsidian
+      obsidian-export
       kiwix
     ];
   };
