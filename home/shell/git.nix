@@ -10,9 +10,13 @@ in
 {
   config.programs = lib.mkIf cfg.enable {
     git = {
-      inherit userName userEmail;
       lfs.enable = true;
-      extraConfig = {
+      settings = {
+        user = {
+          name = userName;
+          email = userEmail;
+        };
+
         init.defaultBranch = "main";
         commit.gpgsign = true;
         gpg.format = "ssh";
