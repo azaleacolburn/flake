@@ -6,6 +6,7 @@
     ./starship.nix
     ./zsh.nix
     ./nushell.nix
+    ./fish.nix
   ];
 
   home.shellAliases = {
@@ -27,7 +28,6 @@
     c = "git commit -a";
     push = "git push";
     pull = "git pull";
-    switch = "git switch";
     checkout = "git checkout";
   };
 }

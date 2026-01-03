@@ -27,7 +27,7 @@ in
         style = "Bold";
       };
     };
-    terminal.shell.program = lib.getExe pkgs.nushell;
+    terminal.shell.program = lib.getExe pkgs.fish;
     terminal.shell.args = [ ];
     mouse.hide_when_typing = true;
   };

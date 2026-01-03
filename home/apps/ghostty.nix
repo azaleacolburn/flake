@@ -13,6 +13,6 @@ in
   };
   config.programs.ghostty.settings = lib.mkIf cfg.enable {
     mouse-hide-while-typing = true;
-    command = lib.getExe pkgs.nushell;
+    command = lib.getExe pkgs.fish;
   };
 }
