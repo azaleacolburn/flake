@@ -42,16 +42,6 @@
       key = "<leader>w";
       action = "<cmd>w<CR>";
     }
-    {
-      mode = "n";
-      key = "t";
-      action = "c";
-    }
-    {
-      mode = "n";
-      key = "c";
-      action = "t";
-    }
     # keep-sorted end
   ];
 }

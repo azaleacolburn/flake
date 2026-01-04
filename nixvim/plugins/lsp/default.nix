@@ -56,6 +56,8 @@
         zls.enable = true;
         clangd.enable = true;
 
+        ocamllsp.enable = true;
+
         # webdev
         ts_ls.enable = true;
         # biome = {

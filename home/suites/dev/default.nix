@@ -28,6 +28,12 @@ in
         gnumake
         gdb
 
+        # OCaml
+        ocaml
+        ocamlPackages.findlib
+        dune_2
+        ocamlPackages.ocaml-lsp
+
         # Webdev
         bun
         nodejs
