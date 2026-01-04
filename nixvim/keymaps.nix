@@ -1,7 +1,6 @@
 {
   keymaps = [
     # keep-sorted start block=yes
-
     {
       mode = "n";
       key = "<C-Down>";
@@ -22,6 +21,7 @@
       key = "<C-Up>";
       action = "<cmd>resize -2<CR>";
     }
+
     {
       mode = "n";
       key = "<leader>e";
@@ -41,6 +41,27 @@
       mode = "n";
       key = "<leader>w";
       action = "<cmd>w<CR>";
+    }
+
+    {
+      mode = "n";
+      key = "<leader>co";
+      action = ":copen<CR>";
+    }
+    {
+      mode = "n";
+      key = "<leader>cc";
+      action = ":cclose<CR>";
+    }
+    {
+      mode = "n";
+      key = "<leader>cn";
+      action = ":cnext<CR>";
+    }
+    {
+      mode = "n";
+      key = "<leader>cp";
+      action = ":cprev<CR>";
     }
     # keep-sorted end
   ];
