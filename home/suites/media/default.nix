@@ -26,6 +26,8 @@ in
       feh
       inkscape
       gapless
+
+      musescore
     ];
   };
 }

@@ -40,6 +40,7 @@ in
         nodejs
         zola
         biome # Might remove if I fix my nix shell configs
+        dioxus-cli
 
         # Misc
         gh
@@ -100,9 +101,6 @@ in
                 "keep_primary_selection"
               ];
               space.q = ":q";
-              # x and d are typed with the same finger
-              l = "x";
-              x = "l";
             };
           };
 
