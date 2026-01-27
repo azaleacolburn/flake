@@ -20,6 +20,8 @@ in
       jq.enable = true;
       ripgrep.enable = true;
       bat.enable = true;
+
+      gpg.enable = true;
     };
 
     home.packages = with pkgs; [
