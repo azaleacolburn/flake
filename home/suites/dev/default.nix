@@ -27,6 +27,7 @@ in
         gcc
         gnumake
         gdb
+        just
 
         # OCaml
         ocaml
