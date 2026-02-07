@@ -63,6 +63,16 @@
       key = "<leader>cp";
       action = ":cprev<CR>";
     }
+    {
+      mode = "n";
+      key = "c";
+      action = "t";
+    }
+    {
+      mode = "n";
+      key = "t";
+      action = "c";
+    }
     # keep-sorted end
   ];
 }
