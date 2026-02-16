@@ -56,8 +56,6 @@
       };
     };
 
-    zen-browser.url = "git+https://codeberg.org/0x57e11a/flake-zen";
-
     porcelain.url = "https://codeberg.org/da157/porcelain/archive/main.tar.gz";
     # keep-sorted end
   };
@@ -81,7 +79,7 @@
           {
             formatter = pkgs.treefmt.withConfig {
               runtimeInputs = with pkgs; [
-                nixfmt-rfc-style
+                nixfmt
                 keep-sorted
               ];
 
@@ -147,7 +145,6 @@
               # keep-sorted start prefix_order=inputs,./,{
               inputs.nixvim.homeManagerModules.nixvim
               inputs.stylix.homeManagerModules.stylix
-              inputs.zen-browser.packages."x86_64-linux".default
               ./home
               ./nixos/homeConf/shared.nix
               ./nixos/stylix/hm.nix

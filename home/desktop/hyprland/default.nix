@@ -65,10 +65,9 @@ in
           layout = "dwindle";
 
           layerrule = [
-            "blur,waybar"
-            "blur,launcher"
-            "blur,rofi"
-            "ignorezero,rofi"
+            "match:namespace waybar, blur 1"
+            "match:namespace launcher, blur 1"
+            "match:namespace rofi, blur 1, ignore_alpha 0.1"
           ];
         };
 
@@ -148,11 +147,10 @@ in
         workspace = [ "s[true],gapsout:40" ];
 
         windowrule = [
-          "float,title:^(Picture-in-Picture)"
-          "pin,title:^(Picture-in-Picture)"
-          "float, onworkspace:s[true]"
-          "suppressevent maximize, class:.*" # You'll probably like this.
-
+          "match:title ^(Picture-in-Picture), float 1, pin 1"
+          "match:title ^(Picture-in-Picture), float 1, pin 1"
+          "match:class .*, suppress_event maximize"
+          "match:class onworkspace:s[true], float 1"
         ];
 
         monitor = map (
