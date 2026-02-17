@@ -65,7 +65,7 @@ in
 
         virtualbox
       ]
-      ++ lib.optionals cfg.java.enable [ pkgs.jetbrains.idea-community ];
+      ++ lib.optionals cfg.java.enable [ pkgs.jetbrains.idea-oss ];
 
     programs = {
       helix = {
