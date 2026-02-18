@@ -65,9 +65,14 @@ in
           layout = "dwindle";
 
           layerrule = [
-            "match:namespace waybar, blur 1"
-            "match:namespace launcher, blur 1"
-            "match:namespace rofi, blur 1, ignore_alpha 0.1"
+            "blur on, match:class waybar"
+            "blur on, match:class launcher"
+
+            "blur on, match:class rofi"
+            "ignore_alpha 0.1, match:class rofi"
+
+            "blur on, match:class notifications"
+            "ignore_alpha 0, match:class notifications"
           ];
         };
 
@@ -147,10 +152,11 @@ in
         workspace = [ "s[true],gapsout:40" ];
 
         windowrule = [
-          "match:title ^(Picture-in-Picture), float 1, pin 1"
-          "match:title ^(Picture-in-Picture), float 1, pin 1"
-          "match:class .*, suppress_event maximize"
-          "match:class onworkspace:s[true], float 1"
+          "float on, match:title Picture-in-Picture"
+          "pin on, match:title Picture-in-Picture"
+
+          "suppress_event maximize, match:class .*"
+          "float on, match:workspace s[true]"
         ];
 
         monitor = map (
