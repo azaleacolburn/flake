@@ -24,7 +24,6 @@ in
       # obs-studio
       vlc
       feh
-      inkscape
       gapless
 
       musescore

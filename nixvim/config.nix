@@ -1,11 +1,12 @@
 { ... }:
 {
-  colorschemes.nord = {
+  colorschemes.everforest = {
     enable = true;
     settings = {
-      # transparent_background = 2;
+      background = "medium";
+      transparent_background = 1;
       disable_background = true;
-      italic = false;
+      enable_italic = false;
     };
   };
   clipboard = {
@@ -36,13 +37,13 @@
     cursorline = false;
     swapfile = false;
   };
-  highlightOverride = {
-    Visual = {
-      fg = "#FFFFFF";
-      bg = "#88c0d0";
-    };
-
-  };
+  # highlightOverride = {
+  #   Visual = {
+  #     fg = "#FFFFFF";
+  #     bg = "#88c0d0";
+  #   };
+  #
+  # };
 
   autoCmd = [
     {
