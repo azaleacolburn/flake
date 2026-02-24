@@ -15,14 +15,13 @@
     lt = "eza -AT --color=auto -I .git -s type";
 
     uwu = "fastfetch";
-    e = "nvim";
+    e = "$editor";
     update = "nh os switch ~/flake";
     keygen = "ssh-keygen -t ed25519 -a 4000 -f ~/.ssh/github_ed25519";
 
-    st = "z";
+    cd = "z";
     zc = "z; clear";
     rf = "rm -rf";
-    ip = "ip -c";
 
     # Git
     c = "git commit -a";

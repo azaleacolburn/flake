@@ -110,6 +110,7 @@ in
         enable = true;
         nix-direnv.enable = true;
       };
+      nano.enable = false;
     };
   };
 }
