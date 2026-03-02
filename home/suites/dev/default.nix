@@ -19,16 +19,6 @@ in
     home.packages =
       with pkgs;
       [
-        # Rust
-        # rustup
-        bacon
-
-        # C
-        gcc
-        gnumake
-        gdb
-        just
-
         # OCaml
         ocaml
         ocamlPackages.findlib
@@ -110,7 +100,6 @@ in
         enable = true;
         nix-direnv.enable = true;
       };
-      nano.enable = false;
     };
   };
 }
