@@ -52,8 +52,6 @@ in
         home-manager
 
         syncthing
-
-        virtualbox
       ]
       ++ lib.optionals cfg.java.enable [ pkgs.jetbrains.idea-oss ];
 
