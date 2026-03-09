@@ -51,7 +51,6 @@
     curl
     nh
     powertop
-    just
 
     linuxKernel.packages.linux_6_12.xone
   ];
