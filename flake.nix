@@ -37,6 +37,8 @@
       };
     };
 
+    porcelain.url = "https://codeberg.org/da157/porcelain/archive/main.tar.gz";
+
     potatofox = {
       url = "git+https://codeberg.org/da157/potatofox";
       flake = false;
@@ -55,8 +57,6 @@
         flake-parts.follows = "flake-parts";
       };
     };
-
-    porcelain.url = "https://codeberg.org/da157/porcelain/archive/main.tar.gz";
     # keep-sorted end
   };
 
@@ -73,6 +73,8 @@
       { lib, ... }:
       {
         systems = import systems;
+
+        imports = [ ./templates ];
 
         perSystem =
           { pkgs, ... }:
