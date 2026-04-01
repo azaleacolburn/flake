@@ -19,6 +19,8 @@ in
     home.packages =
       with pkgs;
       [
+        gcc
+
         # OCaml
         ocaml
         ocamlPackages.findlib
