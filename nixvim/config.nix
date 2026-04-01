@@ -26,7 +26,7 @@
     shiftwidth = 4;
     softtabstop = 4;
 
-    wrap = false;
+    wrap = true;
     number = true;
     relativenumber = false;
     fillchars = {
