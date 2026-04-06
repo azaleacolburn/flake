@@ -16,6 +16,8 @@ in
       lutris
       prismlauncher
       steam
+
+      heroic
     ];
   };
 }
