@@ -9,6 +9,7 @@
     rustfmt
     shfmt
     stylua
+    marksman
     # keep-sorted end
   ];
 

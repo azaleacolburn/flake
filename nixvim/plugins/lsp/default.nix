@@ -90,7 +90,6 @@
           ];
         };
         cssls.enable = true;
-        htmx.enable = true;
 
         # config
         yamlls.enable = true;
@@ -113,7 +112,7 @@
         };
         java_language_server.enable = true;
 
-        marksman.enable = true;
+        marksman.enable = false;
       };
     };
   };
