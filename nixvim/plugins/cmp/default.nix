@@ -1,6 +1,6 @@
 {
   plugins = {
-    cmp-emoji.enable = true;
+    # cmp-emoji.enable = true;
     cmp = {
       enable = true;
       settings = {
