@@ -112,7 +112,7 @@
         };
         java_language_server.enable = true;
 
-        marksman.enable = false;
+        marksman.enable = true;
       };
     };
   };
