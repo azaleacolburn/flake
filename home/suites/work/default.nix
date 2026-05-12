@@ -7,28 +7,24 @@
 }:
 let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.suites.academic;
+  cfg = config.suites.work;
 in
 {
-  options.suites.academic.enable = mkEnableOption "Install academic tools";
+  options.suites.work.enable = mkEnableOption "Install work tools";
 
-  inputs = {
-    zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-  environment.systemPackages = [
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+  imports = [
+    inputs.zen-browser.homeModules.beta
   ];
 
   config = mkIf cfg.enable {
-    programs = {
+
+    programs.zen-browser.enable = true;
+
+    home = {
+      packages = with pkgs; [
+        chromium
+      ];
     };
 
-    home.packages = with pkgs; [
-      chromium
-
-    ];
   };
 }

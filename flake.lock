@@ -336,7 +336,8 @@
         "potatofox": "potatofox",
         "rust-overlay": "rust-overlay",
         "stylix": "stylix",
-        "systems": "systems"
+        "systems": "systems",
+        "zen-browser": "zen-browser"
       }
     },
     "rust-overlay": {
@@ -469,6 +470,29 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778585655,
+        "narHash": "sha256-yfxy9aTlIgU2Z36H8cJURgYLgjT4qvFeOzoAC/HXcKM=",
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
+        "rev": "42f41abcef13dc81c85407b57aa1fd1bde46e46c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

@@ -95,6 +95,7 @@ in
       };
       media.enable = true;
       academic.enable = true;
+      work.enable = true;
     };
 
     monitors = [

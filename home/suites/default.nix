@@ -10,6 +10,7 @@ in
     ./dev
     ./gaming
     ./academic
+    ./work
   ];
 
   suites.base.enable = mkDefault true;
