@@ -24,7 +24,7 @@ in
         # OCaml
         ocaml
         ocamlPackages.findlib
-        dune_2
+        dune_3
         ocamlPackages.ocaml-lsp
 
         # Webdev

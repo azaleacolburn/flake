@@ -20,6 +20,8 @@
     netrw_liststyle = 1;
   };
   opts = {
+    ruler = true;
+    statusline = "";
     expandtab = true;
     smartindent = true;
     tabstop = 4;
