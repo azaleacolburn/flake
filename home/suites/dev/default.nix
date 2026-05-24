@@ -26,6 +26,7 @@ in
         ocamlPackages.findlib
         dune_3
         ocamlPackages.ocaml-lsp
+        opam
 
         # Webdev
         bun

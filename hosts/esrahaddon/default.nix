@@ -105,6 +105,15 @@ in
         height = 1504;
         scale = 1.566;
       }
+      {
+        name = "DP-3";
+        width = 3440;
+        height = 1440;
+        scale = 1.00;
+
+        x = 0;
+        y = 1440;
+      }
     ];
 
   };
