@@ -65,19 +65,19 @@ in
           "SUPER + SHIFT + P" = exec "grimblast save area - | swappy -f -";
 
           "SUPER + SHIFT + H" = [
-            (mkLuaInline "hl.dsp.window.resize({ x = -10, y = 0 })")
+            (mkLuaInline "hl.dsp.window.resize({ relative = true, x = -10, y = 0 })")
             { repeating = true; }
           ];
           "SUPER + SHIFT + L" = [
-            (mkLuaInline "hl.dsp.window.resize({ x = 10, y = 0 })")
+            (mkLuaInline "hl.dsp.window.resize({ relative = true, x = 10, y = 0 })")
             { repeating = true; }
           ];
           "SUPER + SHIFT + K" = [
-            (mkLuaInline "hl.dsp.window.resize({ x = 0, y = -10 })")
+            (mkLuaInline "hl.dsp.window.resize({ relative = true, x = 0, y = -10 })")
             { repeating = true; }
           ];
           "SUPER + SHIFT + J" = [
-            (mkLuaInline "hl.dsp.window.resize({ x = 0, y = 10 })")
+            (mkLuaInline "hl.dsp.window.resize({ relative = true, x = 0, y = 10 })")
             { repeating = true; }
           ];
 
