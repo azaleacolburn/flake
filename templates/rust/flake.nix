@@ -1,4 +1,6 @@
 {
+  description = "Rust dev-shell template";
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
