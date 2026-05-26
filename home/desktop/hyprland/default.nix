@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  inputs,
   ...
 }:
 let
@@ -12,6 +11,8 @@ let
 in
 {
   options.desktop.hyprland.enable = mkEnableOption "Enable hyprland desktop";
+
+  imports = [ ./binds.nix ];
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
@@ -38,137 +39,142 @@ in
       enable = true;
       xwayland.enable = true;
 
+      configType = "lua";
       settings = {
-        debug = {
-          disable_logs = false;
-        };
-        exec-once = [
-          (optionals config.programs.waybar.enable "${pkgs.waybar}/bin/waybar&")
-          (optionals config.services.hypridle.enable "${pkgs.hypridle}/bin/hypridle&")
-          (optionals config.services.hyprpaper.enable "${pkgs.hyprpaper}/bin/hyprpaper&")
+        on._args = [
+          "hyprland.start"
+          (lib.generators.mkLuaInline ''
+            function()
+              ${lib.optionalString config.programs.waybar.enable "hl.exec_cmd(${lib.getExe pkgs.waybar})"}
+              ${lib.optionalString config.services.hypridle.enable "hl.exec_cmd(${lib.getExe pkgs.hypridle})"}
+              ${lib.optionalString config.services.hyprpaper.enable "hl.exec_cmd(${lib.getExe pkgs.hyprpaper})"}
+            end
+          '')
         ];
 
-        "$terminal" = "alacritty";
-        "$browser" = "librewolf";
-        "$fileManager" = "dolphin";
-        "$menu" = "rofi -show drun";
+        env = [
+          {
+            _args = [
+              "NIXOS_OZONE_WL"
+              "1"
+            ];
+          }
+        ];
 
-        env = [ "NIXOS_OZONE_WL,1" ];
+        config = {
+          debug.disable_logs = false;
 
-        general = {
-          gaps_in = homeConf.gaps-in;
-          gaps_out = homeConf.gaps-out;
+          general = {
+            gaps_in = homeConf.gaps-in;
+            gaps_out = homeConf.gaps-out;
 
-          border_size = 0;
+            border_size = 0;
 
-          allow_tearing = false;
-          layout = "dwindle";
-
-          layerrule = [
-            "blur on, match:class waybar"
-            "blur on, match:class launcher"
-
-            "blur on, match:class rofi"
-            "ignore_alpha 0.1, match:class rofi"
-
-            "blur on, match:class notifications"
-            "ignore_alpha 0, match:class notifications"
-          ];
-        };
-
-        xwayland.force_zero_scaling = true;
-
-        decoration = {
-          rounding = homeConf.radius;
-
-          active_opacity = 1.0;
-          inactive_opacity = 0.8;
-
-          blur = {
-            enabled = true;
-            size = 3;
-            passes = 2;
-            vibrancy = 0.1696;
+            allow_tearing = false;
+            layout = "dwindle";
           };
 
-          shadow.enabled = false;
-        };
+          xwayland.force_zero_scaling = true;
 
-        animations = {
-          enabled = true;
-          bezier = [
-            "easeOutQuint,0.23,1,0.32,1"
-            "easeInCubic,0.55,0.055,0.675,0.19"
-            "linear,0,0,1,1"
-            "almostLinear,0.5,0.5,0.75,1"
-            "quick,0.15,0,0.1,1"
-          ];
-          animation = [
-            "global, 1, 10, default"
-            "border, 1, 5.39, easeOutQuint"
-            "windows, 1, 4.79, easeOutQuint"
-            "windowsIn, 1, 4.1, easeOutQuint, popin 87%"
-            "windowsOut, 1, 1.49, linear, popin 87%"
-            "fadeIn, 1, 1.73, almostLinear"
-            "fadeOut, 1, 1.46, almostLinear"
-            "fade, 1, 3.03, quick"
-            "layers, 1, 3.81, easeOutQuint"
-            "layersIn, 1, 4, easeOutQuint, fade"
-            "layersOut, 1, 1.5, linear, fade"
-            "fadeLayersIn, 1, 1.79, almostLinear"
-            "fadeLayersOut, 1, 1.39, almostLinear"
-            "workspaces, 1, 1.94, almostLinear, fade"
-            "workspacesIn, 1, 1.21, almostLinear, fade"
-            "workspacesOut, 1, 1.94, almostLinear, fade"
-          ];
-        };
+          decoration = {
+            rounding = homeConf.radius;
 
-        dwindle = {
-          pseudotile = true;
-          preserve_split = true;
-        };
+            active_opacity = 1.0;
+            inactive_opacity = 0.8;
 
-        misc = {
-          force_default_wallpaper = 0;
-          disable_hyprland_logo = true;
-          middle_click_paste = false;
-        };
+            blur = {
+              enabled = true;
+              size = 3;
+              passes = 2;
+              vibrancy = 0.1696;
+            };
 
-        input = {
-          kb_options = "caps:escape";
-          repeat_delay = 400;
-          repeat_rate = 40;
+            shadow.enabled = false;
+          };
 
-          follow_mouse = 1;
+          dwindle = {
+            pseudotile = true;
+            preserve_split = true;
+          };
 
-          touchpad = {
-            natural_scroll = true;
-            disable_while_typing = true;
-            tap-to-click = true;
-            clickfinger_behavior = true;
+          misc = {
+            force_default_wallpaper = 0;
+            disable_hyprland_logo = true;
+            middle_click_paste = false;
+          };
+
+          input = {
+            kb_options = "caps:escape";
+            repeat_delay = 400;
+            repeat_rate = 40;
+
+            follow_mouse = 1;
+
+            touchpad = {
+              natural_scroll = true;
+              disable_while_typing = true;
+              tap-to-click = true;
+              clickfinger_behavior = true;
+            };
           };
         };
 
-        workspace = [ "s[true],gapsout:40" ];
-
-        windowrule = [
-          "float on, match:title Picture-in-Picture"
-          "pin on, match:title Picture-in-Picture"
-
-          "suppress_event maximize, match:class .*"
-          "float on, match:workspace s[true]"
+        workspace_rule = [
+          {
+            workspace = "s[true]";
+            gaps_out = 40;
+          }
         ];
 
-        monitor = map (
-          m:
-          let
-            resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
-            position = "${toString m.x}x${toString m.y}";
-          in
-          "${m.name},${if m.enabled then "${resolution},${position},${toString m.scale}" else "disable"}"
-        ) (config.monitors);
-      }
-      // import ./binds.nix;
+        window_rule = [
+          {
+            match.class = ".*";
+            suppress_event = "maximize";
+          }
+          {
+            match.title = "Picture-in-Picture";
+            float = true;
+            pin = true;
+          }
+          {
+            match.workspace = "s[true]";
+            float = true;
+          }
+        ];
+
+        layer_rule = [
+          {
+            match.class = "(waybar|launcher|rofi|notifications)";
+            blur = true;
+            ignore_alpha = 0;
+          }
+        ];
+
+        monitor =
+          map (
+            m:
+            if m.enabled then
+              {
+                output = m.name;
+                mode = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
+                position = "${toString m.x}x${toString m.y}";
+                scale = toString m.scale;
+              }
+            else
+              {
+                output = m.name;
+                disabled = true;
+              }
+          ) (config.monitors)
+          ++ [
+            {
+              output = "";
+              mode = "preferred";
+              position = "auto";
+              scale = "auto";
+            }
+          ];
+      };
     };
   };
 }
