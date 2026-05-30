@@ -33,7 +33,7 @@ in
     };
     wallpaper = mkOption {
       type = types.path;
-      default = ../../media/wallpapers/LushAlley.jpg;
+      default = ../../media/wallpapers/LushAlleySatG.jpg;
     };
   };
 
