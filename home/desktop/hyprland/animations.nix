@@ -12,7 +12,7 @@
           ];
         })
         {
-          "easeInOutQuint" = {
+          "easeOutQuint" = {
             type = "bezier";
             points = [
               [
@@ -90,19 +90,19 @@
         leaf = "border";
         enabled = true;
         speed = 5.39;
-        bezier = "easeInOutQuint";
+        bezier = "easeOutQuint";
       }
       {
         leaf = "windows";
         enabled = true;
         speed = 4.79;
-        bezier = "easeInOutQuint";
+        bezier = "easeOutQuint";
       }
       {
         leaf = "windowsIn";
         enabled = true;
         speed = 4.1;
-        bezier = "easeInOutQuint";
+        bezier = "easeOutQuint";
         style = "popin 87%";
       }
       {

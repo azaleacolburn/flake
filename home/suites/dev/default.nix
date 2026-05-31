@@ -21,6 +21,7 @@ in
       [
         gcc
         zig
+        gleam
 
         # OCaml
         ocaml
