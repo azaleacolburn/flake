@@ -33,11 +33,13 @@
         nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
         flake-parts.follows = "flake-parts";
-        nuschtosSearch.follows = "";
       };
     };
 
-    porcelain.url = "https://codeberg.org/da157/porcelain/archive/main.tar.gz";
+    porcelain = {
+      url = "https://codeberg.org/da157/porcelain/archive/main.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     potatofox = {
       url = "git+https://codeberg.org/da157/potatofox";

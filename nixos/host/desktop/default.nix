@@ -38,7 +38,10 @@ in
       # };
       services.displayManager = {
         enable = lib.mkForce false;
-        execCmd = "${pkgs.greetd.regreet}/bin/regreet";
+        generic = {
+          enable = true;
+          execCmd = "${pkgs.regreet}/bin/regreet";
+        };
       };
       services.tcsd.enable = false;
     })

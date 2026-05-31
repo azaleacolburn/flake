@@ -15,9 +15,9 @@
       templates = null;
       publicShare = null;
       extraConfig = {
-        XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/media/pictures/screenshots";
-        XDG_ISOS_DIR = "${config.home.homeDirectory}/media/isos";
-        XDG_PROJECTS = "${config.home.homeDirectory}/projects";
+        SCREENSHOTS = "${config.home.homeDirectory}/media/pictures/screenshots";
+        ISOS = "${config.home.homeDirectory}/media/isos";
+        PROJECTS = "${config.home.homeDirectory}/projects";
       };
     };
   };
