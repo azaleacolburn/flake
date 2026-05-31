@@ -20,6 +20,7 @@ in
       with pkgs;
       [
         gcc
+        zig
 
         # OCaml
         ocaml
@@ -37,6 +38,7 @@ in
 
         # Misc
         gh
+        codeberg-cli
         fzf
 
         lld

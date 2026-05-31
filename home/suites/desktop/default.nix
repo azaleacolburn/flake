@@ -29,7 +29,7 @@ in
     programs = {
       librewolf = {
         enable = true;
-        default = true;
+        default = false;
       };
       firefox.enable = true;
 

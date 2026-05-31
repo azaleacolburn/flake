@@ -154,6 +154,7 @@
 
           homeConfigurations.azalea = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages."x86_64-linux";
+            extraSpecialArgs = { inherit inputs; };
             modules = [
               # keep-sorted start prefix_order=inputs,./,{
               inputs.nixvim.homeManagerModules.nixvim
@@ -163,7 +164,13 @@
               ./nixos/stylix/hm.nix
               ./nixos/stylix/shared.nix
               ./nixvim
-              { targets.genericLinux.enable = true; }
+              {
+                targets.genericLinux.enable = true;
+                home = {
+                  username = "azalea";
+                  homeDirectory = "/home/azalea";
+                };
+              }
               # keep-sorted end
             ];
           };

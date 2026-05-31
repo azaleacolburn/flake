@@ -43,7 +43,7 @@ in
 
           # programs
           "SUPER + T" = exec "alacritty";
-          "SUPER + N" = exec "liberwolf";
+          "SUPER + N" = exec "zen-beta";
           "SUPER + RETURN" = exec "rofi -show drun";
           "SUPER + E" = exec "dolphin";
           "SUPER + L" = exec "hyprlock";

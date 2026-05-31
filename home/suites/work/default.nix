@@ -17,8 +17,22 @@ in
   ];
 
   config = mkIf cfg.enable {
+    xdg.mimeApps.defaultApplications = lib.flip lib.genAttrs (_: "zen-beta.desktop") [
+      "application/pdf"
+      "text/html"
+      "x-scheme-handler/http"
+      "x-scheme-handler/https"
+      "x-scheme-handler/about"
+      "x-scheme-handler/unknown"
+    ];
+    home.sessionVariables = {
+      DEFAULT_BROWSER = lib.getExe config.programs.zen-browser.package;
+      BROWSER = lib.getExe config.programs.zen-browser.package;
+    };
 
-    programs.zen-browser.enable = true;
+    programs.zen-browser = {
+      enable = true;
+    };
 
     home = {
       packages = with pkgs; [
