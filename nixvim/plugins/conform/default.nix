@@ -5,11 +5,11 @@
     biome
     clang-tools
     google-java-format
+    marksman
     nixfmt-rfc-style
     rustfmt
     shfmt
     stylua
-    marksman
     # keep-sorted end
   ];
 
