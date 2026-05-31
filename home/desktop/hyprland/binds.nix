@@ -19,21 +19,20 @@ in
       })
       (
         {
-          # movement TODO: unsure which move https://wiki.hypr.land/Configuring/Basics/Dispatchers/#window-1
           "SUPER + SHIFT + left" = [
-            (mkLuaInline ''hl.dsp.window.move({ into_group = "left" })'')
+            (mkLuaInline ''hl.dsp.window.move({ direction = "left" })'')
             { repeating = true; }
           ];
           "SUPER + SHIFT + right" = [
-            (mkLuaInline ''hl.dsp.window.move({ into_group = "right" })'')
+            (mkLuaInline ''hl.dsp.window.move({ direction = "right" })'')
             { repeating = true; }
           ];
           "SUPER + SHIFT + up" = [
-            (mkLuaInline ''hl.dsp.window.move({ into_group = "up" })'')
+            (mkLuaInline ''hl.dsp.window.move({ direction = "up" })'')
             { repeating = true; }
           ];
           "SUPER + SHIFT + down" = [
-            (mkLuaInline ''hl.dsp.window.move({ into_group = "down" })'')
+            (mkLuaInline ''hl.dsp.window.move({ direction = "down" })'')
             { repeating = true; }
           ];
           # programs
@@ -43,8 +42,7 @@ in
           "SUPER + E" = exec "dolphin";
           "SUPER + L" = exec "hyprlock";
 
-          # FIXME: conflict
-          # "SUPER + SHIFT + K" = mkLuaInline "hl.dsp.exit()";
+          "SUPER + SHIFT + M" = mkLuaInline "hl.dsp.exit()";
           "SUPER + Q" = mkLuaInline "hl.dsp.window.kill()";
           "SUPER + O" = mkLuaInline "hl.dsp.window.pin()";
           "SUPER + F" = mkLuaInline ''hl.dsp.window.float({ action = "toggle" })'';
@@ -52,8 +50,8 @@ in
           # "SUPER, U, togglesplit," # dwindle
           "SUPER + W" = exec "pkill waybar || waybar";
 
-          # "SUPER, Tab, workspace, m+1"
-          # "SUPER SHIFT, Tab, workspace, m-1"
+          "SUPER + Tab" = mkLuaInline ''hl.dsp.focus({ workspace = "e+1" })'';
+          "SUPER + SHIFT + Tab" = mkLuaInline ''hl.dsp.focus({ workspace = "e-1" })'';
 
           "SUPER + S" = mkLuaInline ''hl.dsp.workspace.toggle_special("magic")'';
           "SUPER + SHIFT + S" = mkLuaInline ''hl.dsp.window.move({ workspace = "special:magic" })'';
