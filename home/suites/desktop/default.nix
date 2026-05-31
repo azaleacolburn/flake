@@ -37,7 +37,10 @@ in
       ghostty.enable = true;
       # btop replacement
       bottom.enable = true;
-      yazi.enable = true;
+      yazi = {
+        shellWrapperName = "y";
+        enable = true;
+      };
       fastfetch = {
         enable = true;
         settings = {
