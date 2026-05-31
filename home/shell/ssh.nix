@@ -9,7 +9,7 @@ in
 {
   programs.ssh = lib.mkIf cfg.enable {
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       "codeberg.org" = {
         identityFile = "${config.home.homeDirectory}/.ssh/codeberg_ed25519";
         addKeysToAgent = "yes";
