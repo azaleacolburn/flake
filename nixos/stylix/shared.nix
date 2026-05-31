@@ -47,8 +47,8 @@
     };
 
     targets = {
-      grub.enable = false;
-      console.enable = false;
+      # grub.enable = false;
+      # console.enable = false;
       nixvim.enable = false;
     };
   };

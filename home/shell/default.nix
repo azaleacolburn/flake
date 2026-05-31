@@ -17,7 +17,10 @@
     uwu = "fastfetch";
     e = "$editor";
     o = "orinfar";
+
     rebuild = "nh os switch ~/flake";
+    reconfig = "nh home switch ~/flake";
+
     keygen = "ssh-keygen -t ed25519 -a 4000 -f ~/.ssh/github_ed25519";
 
     cd = "z";

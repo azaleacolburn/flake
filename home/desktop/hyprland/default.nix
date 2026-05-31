@@ -45,9 +45,9 @@ in
           "hyprland.start"
           (lib.generators.mkLuaInline ''
             function()
-              ${lib.optionalString config.programs.waybar.enable "hl.exec_cmd(${lib.getExe pkgs.waybar})"}
-              ${lib.optionalString config.services.hypridle.enable "hl.exec_cmd(${lib.getExe pkgs.hypridle})"}
-              ${lib.optionalString config.services.hyprpaper.enable "hl.exec_cmd(${lib.getExe pkgs.hyprpaper})"}
+              ${lib.optionalString config.programs.waybar.enable ''hl.exec_cmd("${lib.getExe pkgs.waybar}")''}
+              ${lib.optionalString config.services.hypridle.enable ''hl.exec_cmd("${lib.getExe pkgs.hypridle}")''}
+              ${lib.optionalString config.services.hyprpaper.enable ''hl.exec_cmd("${lib.getExe pkgs.hyprpaper}")''}
             end
           '')
         ];
@@ -93,7 +93,7 @@ in
           };
 
           dwindle = {
-            pseudotile = true;
+            # pseudotile = true;
             preserve_split = true;
           };
 
@@ -113,7 +113,7 @@ in
             touchpad = {
               natural_scroll = true;
               disable_while_typing = true;
-              tap-to-click = true;
+              tap_to_click = true;
               clickfinger_behavior = true;
             };
           };

@@ -26,6 +26,7 @@
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
+    "pipe-operators"
   ];
   # systemd.enableStrictShellChecks = true;
 

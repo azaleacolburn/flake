@@ -14,5 +14,8 @@
     sessionVariables = {
       editor = "nvim";
     };
+    # Azalea set these because `nh home switch ~/flake` told her to
+    # homeDirectory = "/home/azalea";
+    # username = "azalea";
   };
 }

@@ -18,23 +18,29 @@ in
             ];
       })
       (
-        {
-          "SUPER + SHIFT + left" = [
-            (mkLuaInline ''hl.dsp.window.move({ direction = "left" })'')
-            { repeating = true; }
-          ];
-          "SUPER + SHIFT + right" = [
-            (mkLuaInline ''hl.dsp.window.move({ direction = "right" })'')
-            { repeating = true; }
-          ];
-          "SUPER + SHIFT + up" = [
-            (mkLuaInline ''hl.dsp.window.move({ direction = "up" })'')
-            { repeating = true; }
-          ];
-          "SUPER + SHIFT + down" = [
-            (mkLuaInline ''hl.dsp.window.move({ direction = "down" })'')
-            { repeating = true; }
-          ];
+        # focus & movement of windows
+        (
+          (map
+            (direction: {
+              # Set Focus
+              "SUPER + ${direction}" = (mkLuaInline ''hl.dsp.focus({ direction = "${direction}" })'');
+              # Move Window Within Workspace
+              "SUPER + SHIFT + ${direction}" = [
+                (mkLuaInline ''hl.dsp.window.move({ direction = "${direction}" })'')
+                { repeating = true; }
+              ];
+            })
+            [
+              "left"
+              "right"
+              "up"
+              "down"
+            ]
+          )
+          |> lib.mergeAttrsList
+        )
+        // {
+
           # programs
           "SUPER + T" = exec "alacritty";
           "SUPER + N" = exec "liberwolf";
@@ -87,11 +93,11 @@ in
             (exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
             { repeating = true; }
           ];
-          "Shift + XF86AudioRaiseVolume" = [
+          "SHIFT + XF86AudioRaiseVolume" = [
             (exec "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+")
             { repeating = true; }
           ];
-          "Shift + XF86AudioLowerVolume" = [
+          "SHIFT + XF86AudioLowerVolume" = [
             (exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-")
             { repeating = true; }
           ];
@@ -100,7 +106,7 @@ in
             (exec "brightnessctl s 5%+")
             { repeating = true; }
           ];
-          "Shift + XF86MonBrightnessUp" = [
+          "SHIFT + XF86MonBrightnessUp" = [
             (exec "brightnessctl s 1%+")
             { repeating = true; }
           ];
@@ -108,7 +114,7 @@ in
             (exec "brightnessctl s 5%-")
             { repeating = true; }
           ];
-          "Shift + XF86MonBrightnessDown" = [
+          "SHIFT + XF86MonBrightnessDown" = [
             (exec "brightnessctl s 1%-")
             { repeating = true; }
           ];
