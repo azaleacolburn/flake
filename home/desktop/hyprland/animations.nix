@@ -1,8 +1,5 @@
 { lib, ... }:
 {
-  # TODO: https://github.com/nix-community/home-manager/pull/9307/changes#diff-248f530db4f3d25d8de2dd68a8457cccc9192e7b4aaf18594c8a361fb20e7692
-  #       https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.lua
-  #       https://codeberg.org/da157/nix-config/src/commit/cbbe3b747d3a3f51b93dd319db9049ad81a8d951/modules/home/desktops/hyprland/animations.nix
   wayland.windowManager.hyprland.settings = {
     config.animations.enabled = true;
 
@@ -15,7 +12,7 @@
           ];
         })
         {
-          "easeOutQuint" = {
+          "easeInOutQuint" = {
             type = "bezier";
             points = [
               [
@@ -28,16 +25,16 @@
               ]
             ];
           };
-          "easyInOutCubic" = {
+          "easeInCubic" = {
             type = "bezier";
             points = [
               [
-                0.65
-                0.05
+                0.55
+                0.055
               ]
               [
-                0.36
-                1
+                0.675
+                0.19
               ]
             ];
           };
@@ -80,13 +77,6 @@
               ]
             ];
           };
-          "easy" = {
-            type = "spring";
-            mass = 1;
-            stiffness = 71.2633;
-            dampening = 15.8273644;
-          };
-
         };
 
     animation = [
@@ -100,19 +90,19 @@
         leaf = "border";
         enabled = true;
         speed = 5.39;
-        bezier = "easeOutQuint";
+        bezier = "easeInOutQuint";
       }
       {
         leaf = "windows";
         enabled = true;
         speed = 4.79;
-        spring = "easy";
+        bezier = "easeInOutQuint";
       }
       {
         leaf = "windowsIn";
         enabled = true;
         speed = 4.1;
-        spring = "easy";
+        bezier = "easeInOutQuint";
         style = "popin 87%";
       }
       {
@@ -176,22 +166,37 @@
         leaf = "workspaces";
         enabled = true;
         speed = 1.94;
-        bezier = "easyInOutCubic";
-        style = "slidevert";
+        bezier = "almostLinear";
+        style = "fade";
+      }
+      {
+        leaf = "workspacesIn";
+        enabled = true;
+        speed = 1.21;
+        bezier = "almostLinear";
+        style = "fade";
+      }
+      {
+        leaf = "workspacesOut";
+        enabled = true;
+        speed = 1.94;
+        bezier = "almostLinear";
+        style = "fade";
       }
       {
         leaf = "specialWorkspace";
         enabled = true;
-        speed = 4;
-        bezier = "easyInOutCubic";
-        style = "slide";
+        speed = 1.94;
+        bezier = "almostLinear";
+        # style = "slide";
+        style = "fade";
       }
-      {
-        leaf = "zoomFactor";
-        enabled = true;
-        speed = 7;
-        bezier = "quick";
-      }
+      # {
+      #   leaf = "zoomFactor";
+      #   enabled = true;
+      #   speed = 7;
+      #   bezier = "quick";
+      # }
     ];
   };
 }

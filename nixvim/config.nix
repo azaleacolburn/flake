@@ -6,7 +6,7 @@
       background = "medium";
       transparent_background = 1;
       disable_background = true;
-      enable_italic = false;
+      enable_italic = 0;
     };
   };
   clipboard = {

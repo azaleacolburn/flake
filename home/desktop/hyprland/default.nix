@@ -12,7 +12,10 @@ in
 {
   options.desktop.hyprland.enable = mkEnableOption "Enable hyprland desktop";
 
-  imports = [ ./binds.nix ];
+  imports = [
+    ./binds.nix
+    ./animations.nix
+  ];
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
