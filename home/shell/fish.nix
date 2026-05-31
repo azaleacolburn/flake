@@ -27,6 +27,5 @@
       enableCompletion = true;
       historyFile = "${config.xdg.dataHome}/bash/bash_history";
     };
-
   };
 }

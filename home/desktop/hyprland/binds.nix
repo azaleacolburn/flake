@@ -4,6 +4,55 @@ let
 
   exec = text: mkLuaInline ''hl.dsp.exec_cmd("${text}")'';
 in
+let
+
+  # Window Manipulation
+  window_binds =
+    (lib.concatMapAttrs (
+      key:
+      {
+        direction,
+        x ? "0",
+        y ? "0",
+      }:
+      {
+        # Resizing
+        "SUPER + SHIFT + ${key}" = [
+          (mkLuaInline "hl.dsp.window.resize({ relative = true, x = ${x}, y = ${y} })")
+          { repeating = true; }
+        ];
+
+        # Set Focus
+        "SUPER + ${direction}" = (mkLuaInline ''hl.dsp.focus({ direction = "${direction}" })'');
+
+        # Move Window Within Workspace
+        "SUPER + SHIFT + ${direction}" = [
+          (mkLuaInline ''hl.dsp.window.move({ direction = "${direction}" })'')
+          { repeating = true; }
+        ];
+      }
+    ))
+
+      {
+        H = {
+          direction = "left";
+          x = "-10";
+        };
+        L = {
+          direction = "right";
+          x = "10";
+        };
+        K = {
+          direction = "up";
+          y = "-10";
+        };
+        J = {
+          direction = "down";
+          y = "10";
+        };
+      };
+
+in
 {
   wayland.windowManager.hyprland.settings.bind =
     lib.mapAttrsToList
@@ -18,29 +67,7 @@ in
             ];
       })
       (
-        # focus & movement of windows
-        (
-          (map
-            (direction: {
-              # Set Focus
-              "SUPER + ${direction}" = (mkLuaInline ''hl.dsp.focus({ direction = "${direction}" })'');
-              # Move Window Within Workspace
-              "SUPER + SHIFT + ${direction}" = [
-                (mkLuaInline ''hl.dsp.window.move({ direction = "${direction}" })'')
-                { repeating = true; }
-              ];
-            })
-            [
-              "left"
-              "right"
-              "up"
-              "down"
-            ]
-          )
-          |> lib.mergeAttrsList
-        )
-        // {
-
+        {
           # programs
           "SUPER + T" = exec "alacritty";
           "SUPER + N" = exec "zen-beta";
@@ -67,23 +94,9 @@ in
 
           "SUPER + P" = exec "grimblast save output - | swappy -f -";
           "SUPER + SHIFT + P" = exec "grimblast save area - | swappy -f -";
-
-          "SUPER + SHIFT + H" = [
-            (mkLuaInline "hl.dsp.window.resize({ relative = true, x = -10, y = 0 })")
-            { repeating = true; }
-          ];
-          "SUPER + SHIFT + L" = [
-            (mkLuaInline "hl.dsp.window.resize({ relative = true, x = 10, y = 0 })")
-            { repeating = true; }
-          ];
-          "SUPER + SHIFT + K" = [
-            (mkLuaInline "hl.dsp.window.resize({ relative = true, x = 0, y = -10 })")
-            { repeating = true; }
-          ];
-          "SUPER + SHIFT + J" = [
-            (mkLuaInline "hl.dsp.window.resize({ relative = true, x = 0, y = 10 })")
-            { repeating = true; }
-          ];
+        }
+        // window_binds
+        // {
 
           "XF86AudioRaiseVolume" = [
             (exec "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+")
