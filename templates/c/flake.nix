@@ -1,24 +1,29 @@
 {
-  description = "C dev-shell template";
+  description = "Template C Project";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    systems.url = "github:nix-systems/default";
   };
 
   outputs =
-    { nixpkgs }:
+    {
+      nixpkgs,
+      systems,
+    }:
     let
       inherit (nixpkgs) lib;
-      forEachPkgs = f: lib.forEach lib.systems.flakeExposed (system: f nixpkgs.legacyPackages.${system});
+      forEachPkgs = f: lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
     in
     {
       devShells = forEachPkgs (pkgs: {
         default = pkgs.mkShell {
-          packages = with pkgs; [
-            gcc
+          buildInputs = with pkgs; [
             just
+            gcc
           ];
         };
       });
+
     };
 }
