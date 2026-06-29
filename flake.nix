@@ -140,6 +140,7 @@
                         environment.systemPackages = [
                           pkgs.rust-bin.stable.latest.default
                           inputs.porcelain.packages.${pkgs.stdenv.hostPlatform.system}.porcelain
+                          pkgs.perf
                         ];
                       }
                     )

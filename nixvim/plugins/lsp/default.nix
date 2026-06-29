@@ -56,6 +56,7 @@
         zls.enable = true;
         clangd.enable = true;
 
+        gleam.enable = true;
         ocamllsp.enable = true;
 
         # webdev

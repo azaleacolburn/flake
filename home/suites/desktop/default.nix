@@ -81,6 +81,8 @@ in
         cava
         appimage-run
         signal-desktop
+
+        alpine
       ]
       ++ (if cfg.slack.enable then [ slack ] else [ slacky ])
       ++ (if cfg.spotify.enable then [ spotify ] else [ ncspot ]);
