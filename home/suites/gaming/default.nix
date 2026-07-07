@@ -13,8 +13,8 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      lutris
-      prismlauncher
+      # lutris
+      # prismlauncher
       steam
 
       heroic

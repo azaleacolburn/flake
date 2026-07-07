@@ -45,7 +45,7 @@
         spotify.enable = true;
       };
       dev.enable = true;
-      gaming.enable = false;
+      gaming.enable = true;
       media.enable = true;
       academic.enable = true;
       work.enable = true;
