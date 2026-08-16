@@ -61,7 +61,7 @@ in
 
         evil-helix
       ]
-      ++ lib.optionals cfg.java.enable [ pkgs.jetbrains.idea-oss ];
+      ++ lib.optionals cfg.java.enable [ ];
 
     programs = {
       direnv = {
