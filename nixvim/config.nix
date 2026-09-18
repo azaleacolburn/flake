@@ -1,14 +1,22 @@
 { ... }:
 {
-  colorschemes.everforest = {
+  # colorschemes.everforest = {
+  #   enable = true;
+  #   settings = {
+  #     background = "medium";
+  #     transparent_background = 1;
+  #     disable_background = true;
+  #     enable_italic = 0;
+  #   };
+  # };
+
+  colorschemes.nord = {
     enable = true;
     settings = {
-      background = "medium";
-      transparent_background = 1;
       disable_background = true;
-      enable_italic = 0;
     };
   };
+
   clipboard = {
     providers.wl-copy.enable = true;
     register = "unnamedplus";
