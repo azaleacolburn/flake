@@ -14,6 +14,7 @@
     enable = true;
     settings = {
       disable_background = true;
+      italic = false;
     };
   };
 
