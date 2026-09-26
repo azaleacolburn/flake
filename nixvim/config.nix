@@ -1,22 +1,22 @@
 { ... }:
 {
-  # colorschemes.everforest = {
-  #   enable = true;
-  #   settings = {
-  #     background = "medium";
-  #     transparent_background = 1;
-  #     disable_background = true;
-  #     enable_italic = 0;
-  #   };
-  # };
-
-  colorschemes.nord = {
+  colorschemes.everforest = {
     enable = true;
     settings = {
+      background = "medium";
+      transparent_background = 1;
       disable_background = true;
-      italic = false;
+      enable_italic = 0;
     };
   };
+
+  # colorschemes.nord = {
+  #   enable = true;
+  #   settings = {
+  #     disable_background = true;
+  #     italic = false;
+  #   };
+  # };
 
   clipboard = {
     providers.wl-copy.enable = true;

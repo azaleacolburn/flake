@@ -33,8 +33,8 @@ in
     };
     wallpaper = mkOption {
       type = types.path;
-      # default = ../../media/wallpapers/LushAlleySatG.jpg;
-      default = ../../media/wallpapers/ranni-simple.jpg;
+      default = ../../media/wallpapers/LushAlleySatG.jpg;
+      # default = ../../media/wallpapers/ranni-simple.jpg;
     };
   };
 
