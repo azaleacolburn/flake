@@ -22,6 +22,9 @@ in
       obsidian
       obsidian-export
       kiwix
+
+      xclip
+      texliveFull
     ];
   };
 }
