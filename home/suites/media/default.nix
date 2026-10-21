@@ -21,6 +21,7 @@ in
       gimp
       # # footage
       libreoffice
+      thunderbird
       # obs-studio
       vlc
       feh

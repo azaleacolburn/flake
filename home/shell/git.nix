@@ -39,7 +39,7 @@ in
         {
           condition = "hasconfig:remote.*.url:git@gitlab.cs.uchicago.edu*/**";
           contents = {
-            user.signingKey = "~/.ssh/github_ed25519.pub";
+            user.signingKey = "~/.ssh/id_ed25519.pub";
             user.name = "Azalea Colburn";
             user.email = "azalea@uchicago.edu";
           };

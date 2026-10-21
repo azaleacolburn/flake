@@ -25,6 +25,8 @@ in
 
       xclip
       texliveFull
+
+      entr
     ];
   };
 }
