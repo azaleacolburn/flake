@@ -12,7 +12,7 @@ let
         tab  q    w    e    r    t    y    u    i    o    p    [    ]
         caps a    s    d    f    g    h    j    k    l    ;    '    ret
         lsft z    x    c    v    b    n    m    ,    .    /    rsft
-        lctl lalt lmet           spc            rmet ralt 
+        lctl fn lmet lalt           spc            ralt rctl 
     )
   '';
 
@@ -23,7 +23,7 @@ let
         tab  q    w    f    p    b    j    l    u    y    ;    [    ]
         esc  a    r    s    t    g    m    n    e    i    o    '    ret
         lsft z    x    c    d    v    k    h    ,    .    /    rsft
-        lctl lmet lalt           spc            ralt rctl 
+        lctl fn lalt lmet           spc            rctl ralt 
     )
   '';
 

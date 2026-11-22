@@ -19,9 +19,7 @@ in
     home.packages =
       with pkgs;
       [
-        gcc
         zig
-        gleam
 
         # OCaml
         ocaml
@@ -30,16 +28,8 @@ in
         ocamlPackages.ocaml-lsp
         opam
 
-        # Webdev
-        bun
-        nodejs
-        zola
-        biome # Might remove if I fix my nix shell configs
-        dioxus-cli
-
         # Misc
         gh
-        codeberg-cli
         fzf
 
         lld
