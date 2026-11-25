@@ -20,7 +20,7 @@
     firewall.allowedTCPPorts = [ 22 ];
   };
 
-  time.timeZone = "America/Chicago";
+  time.timeZone = "America/Los_Angeles";
   i18n.defaultLocale = "en_US.UTF-8";
 
   nix.settings.experimental-features = [

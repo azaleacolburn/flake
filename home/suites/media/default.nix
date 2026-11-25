@@ -14,11 +14,13 @@ in
   config = mkIf cfg.enable {
     programs = {
       yt-dlp.enable = true;
-      sioyek.enable = true;
+      # sioyek.enable = true;
     };
 
     home.packages = with pkgs; [
       gimp
+      zathura
+      sioyek
       # # footage
       libreoffice
       thunderbird
